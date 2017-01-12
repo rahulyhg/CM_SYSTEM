@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<MenuConfig>
+
+  <Displayers>
+    <Displayer   name="DropDown"
+                 type="net.sf.navigator.displayer.DropDownMenuDisplayer"/>
+    <Displayer   name="Simple"
+                 type="net.sf.navigator.displayer.SimpleMenuDisplayer"/>
+    <Displayer   name="CoolMenu"
+                 type="net.sf.navigator.displayer.CoolMenuDisplayer"/>
+    <Displayer   name="CoolMenu4"
+                 type="net.sf.navigator.displayer.CoolMenuDisplayer4"/>
+    <Displayer   name="MenuForm"
+                 type="net.sf.navigator.example.PermissionsFormMenuDisplayer"/>
+    <Displayer   name="ListMenu"
+                 type="net.sf.navigator.displayer.ListMenuDisplayer"/>
+    <Displayer   name="TabbedMenu"
+                 type="net.sf.navigator.displayer.TabbedMenuDisplayer"/>
+    <Displayer   name="Velocity"
+                 type="net.sf.navigator.displayer.VelocityMenuDisplayer"/>
+  </Displayers>
+
+  <Menus>
+
+  <!-- ====================   To Do List Menus   =========================== -->
+
+
+    <Menu  name="ToDoListMenuEdit"  title="EDIT">
+         <Item  name="TDLselect" title="SELECT_ALL"       image="images/select-all.png"
+                    location="index.jsp" width="100" />
+         <Item  name="TDLprefs"  title="USER_PREFERENCES" image="images/prefs.png"
+                    location="index.jsp" width="150" />
+    </Menu>
+    
+    <Menu  name="ParaHacerMenuPospago"  title="POSPAGO">
+         <Item  name="UpFront" title="UP FRONT"     location="ReportesAction.do?action=Renovaciones" width="100" />
+                    
+         <Item  name="Renovaciones" title="RENOVACIONES"       image="gifs/adelasano.gif"
+                    location="ReportesAction.do?action=Renovaciones" width="100" />
+         <Item  name="Residuales" title="RESIDUALES"       image="gifs/adelasano.gif"
+                    location="ReportesAction.do" width="100" /> 
+         <Item  name="Add On Up Front" title="ADD ON UP FRONT"       image="gifs/adelasano.gif"
+                    location="ReportesAction.do" width="100" />  
+         <Item  name="Add On Renovacion" title="ADD ON RENOVACION"       image="gifs/adelasano.gif"
+                    location="ReportesAction.do" width="100" />                                                           
+         <Item  name="Charge Back Up Front" title="CHARGE BACK UP FRONT"       image="gifs/adelasano.gif"
+                    location="ReportesAction.do" width="100" />   
+         <Item  name="Charge Back Renovacion" title="CHARGE BACK RENOVACION"       image="gifs/adelasano.gif"
+                    location="ReportesAction.do" width="100" />   
+         <Item  name="Charge Back Servicios" title="CHARGE BACK SERVICIOS"       image="gifs/adelasano.gif"
+                    location="ReportesAction.do" width="100" />  
+         <Item  name="Bono por Volumen" title="BONO POR VOLUMEN"       image="gifs/adelasano.gif"
+                    location="ReportesAction.do" width="100" />                                                                             
+    </Menu>
+    
+    <Menu  name="ParaHacerMenuPrepago"  title="PREPAGO">
+         <Item  name="Up Front Iusacell" title="UP FRONT IUSACELL"       image="gifs/adelasano.gif"
+                    location="index.jsp" width="100" />
+         <Item  name="Up Front Cajon" title="UP FRONT CAJON"       image="gifs/adelasano.gif"
+                    location="index.jsp" width="100" />
+         <Item  name="Up Front Lote" title="UP FRONT LOTE"       image="gifs/adelasano.gif"
+                    location="index.jsp" width="100" /> 
+         <Item  name="Charge Back Iusacell" title="CHARGE BACK IUSACELL"       image="gifs/adelasano.gif"
+                    location="index.jsp" width="100" />
+         <Item  name="Charge Back Cajon" title="CHARGE BACK CAJON"       image="gifs/adelasano.gif"
+                    location="index.jsp" width="100" />
+         <Item  name="Charge Back Lote" title="CHARGE BACK LOTE"       image="gifs/adelasano.gif"
+                    location="index.jsp" width="100" />                                                                            
+    </Menu> 
+    
+    <Menu  name="ParaHacerMenuTelefoniaPospago"  title="TELEFONIA PUBLICA POSPAGO">
+         <Item  name="Up Front" title="UP FRONT"       image="gifs/adelasano.gif"
+                    location="index.jsp" width="100" />
+         <Item  name="Residuales" title="RESIDUALES"       image="gifs/adelasano.gif"
+                    location="index.jsp" width="100" />
+         <Item  name="Charge Back" title="CHARGE BACK"       image="gifs/adelasano.gif"
+                    location="index.jsp" width="100" />                                                                            
+    </Menu>   
+    
+    <Menu  name="ParaHacerMenuTelefoniaPrepago"  title="TELEFONIA PUBLICA PREPAGO">
+         <Item  name="Up Front Iusacell" title="UP FRONT IUSACELL" onclick=""      image="gifs/adelasano.gif"
+                    location="index.jsp" width="100" />
+         <Item  name="Up Front Cajon" title="UP FRONT CAJON"       image="gifs/adelasano.gif"
+                    location="index.jsp" width="100" />
+         <Item  name="Up Front Lote" title="UP FRONT LOTE"       image="gifs/adelasano.gif"
+                    location="index.jsp" width="100" />   
+         <Item  name="Charge Back Iusacell" title="CHARGE BACK IUSACELL"       image="gifs/adelasano.gif"
+                    location="index.jsp" width="100" />   
+         <Item  name="Charge Back Cajon" title="CHARGE BACK CAJON"       image="gifs/adelasano.gif"
+                    location="index.jsp" width="100" />   
+         <Item  name="Charge Back Lote" title="CHARGE BACK LOTE"       image="gifs/adelasano.gif"
+                    location="index.jsp" width="100" />                                                                                              
+    </Menu>   
+    
+        <!-- New Menu for Tabbed Displayer -->
+    <Menu name="TabbedHome" title="Home" location="?Home" target="_blank"/>
+    <Menu name="TabbedAbout" title="About"> <!-- No location, uses first item's location (People) -->
+        <Item name="People" title="People" location="?People"/>
+        <Item name="Careers" title="Careers" location="?Careers" target="_blank"/>
+        <Item name="Press" title="Press" location="?Press" 
+            onclick="alert('This item has an onclick handler in menu-config.xml.')"/>
+        <Item name="Locations" title="Locations" location="?Locations"/>
+    </Menu> 
+    
+        <Menu name="TabbedContact" title="Contact" location="?Contact">
+        <Item name="EMail" title="E-Mail" location="?EMail"/>
+        <Item name="Phone" title="Phone" location="?Phone"/>
+        <Item name="CarrierPigeon"  title="Carrier Pigeon" location="?Pigeon"/>
+    </Menu>
+    <Menu name="TabbedExit" title="Exit" page="/index.jsp"/>        
+
+
+    <Menu name="Standalone" title="Standalone Test" location="?Self"/>
+
+  </Menus>
+
+</MenuConfig>

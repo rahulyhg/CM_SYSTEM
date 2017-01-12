@@ -1,0 +1,156 @@
+@CHARSET "ISO-8859-1" ;
+
+body #content{
+	font-family: lighter Georgia,"Times New Roman",Times,serif;
+}
+
+.color{
+	color:#FF0000;
+	font-weight:bold;
+	height:20px;
+}
+#head{
+	color: white;
+	margin-bottom: 15px;
+	background: rgba(31,128,219,1);
+	background: -moz-linear-gradient(left, rgba(31,128,219,1) 0%, rgba(31,128,219,1) 48%, rgba(86,161,235,1) 94%, rgba(86,161,235,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(31,128,219,1)), color-stop(48%, rgba(31,128,219,1)), color-stop(94%, rgba(86,161,235,1)), color-stop(100%, rgba(86,161,235,1)));
+	background: -webkit-linear-gradient(left, rgba(31,128,219,1) 0%, rgba(31,128,219,1) 48%, rgba(86,161,235,1) 94%, rgba(86,161,235,1) 100%);
+	background: -o-linear-gradient(left, rgba(31,128,219,1) 0%, rgba(31,128,219,1) 48%, rgba(86,161,235,1) 94%, rgba(86,161,235,1) 100%);
+	background: -ms-linear-gradient(left, rgba(31,128,219,1) 0%, rgba(31,128,219,1) 48%, rgba(86,161,235,1) 94%, rgba(86,161,235,1) 100%);
+	background: linear-gradient(to right, rgba(31,128,219,1) 0%, rgba(31,128,219,1) 48%, rgba(86,161,235,1) 94%, rgba(86,161,235,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f80db', endColorstr='#56a1eb', GradientType=1 );
+}
+
+#head small{
+	--background: url("images/head-bg.gif") repeat-x scroll 0% 0% ;
+	color: white;
+	margin-bottom: 15px;
+}
+
+#head h2 {
+    font: lighter 2.4em/1.2em Georgia,"Times New Roman",Times,serif;
+    color: #FFF;
+}
+
+#head h3 a {
+    font: lighter 0.8em/0.5em Georgia,"Times New Roman",Times,serif;
+    color: #FFF;
+}
+
+option.uno {background-color:#D4D4D4;} 
+option.dos {background-color: #FCFCFC;}
+
+.cssButton:hover {
+    background-color: #666666;
+    color: #FFFFFF;
+}
+.cssButton {
+    background-color: #AF0A0A;
+    color: #FFFFFF;
+    font-size: 10pt;
+}
+.cssButton {
+    border-radius: 7px;
+}
+.cssMensaje {
+	color: #000000; 
+	left: 50%;
+	margin-left: -274px;
+	opacity: 1; 
+	position: absolute; 
+	top: 50%;
+	margin-top: -200px;
+	max-height: 310px;
+	max-width: 500px; 
+	min-width: 400px;
+	background: none repeat scroll 0 0 #EEEEEE; 
+	border: 1px solid rgba(31,128,219,1);
+	box-shadow: 0 5px 10px blue; 
+	padding: 0; overflow: hidden; 
+	display: block;
+	z-index: 5;
+}
+.cssMsjCabecera {
+	cursor: move; 
+	outline: 0 none; 
+	padding: 5px 6px 3px; 
+	color: #000000;
+	background: rgba(31,128,219,1);
+	background: -moz-linear-gradient(left, rgba(31,128,219,1) 0%, rgba(31,128,219,1) 48%, rgba(86,161,235,1) 94%, rgba(86,161,235,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(31,128,219,1)), color-stop(48%, rgba(31,128,219,1)), color-stop(94%, rgba(86,161,235,1)), color-stop(100%, rgba(86,161,235,1)));
+	background: -webkit-linear-gradient(left, rgba(31,128,219,1) 0%, rgba(31,128,219,1) 48%, rgba(86,161,235,1) 94%, rgba(86,161,235,1) 100%);
+	background: -o-linear-gradient(left, rgba(31,128,219,1) 0%, rgba(31,128,219,1) 48%, rgba(86,161,235,1) 94%, rgba(86,161,235,1) 100%);
+	background: -ms-linear-gradient(left, rgba(31,128,219,1) 0%, rgba(31,128,219,1) 48%, rgba(86,161,235,1) 94%, rgba(86,161,235,1) 100%);
+	background: linear-gradient(to right, rgba(31,128,219,1) 0%, rgba(31,128,219,1) 48%, rgba(86,161,235,1) 94%, rgba(86,161,235,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f80db', endColorstr='#56a1eb', GradientType=1 );
+}
+.cssTxtMensaje {
+	overflow-y: auto;
+	max-height: 240px; 
+	width: auto; 
+	background: none repeat scroll 0 0 #FFFFFF; 
+	border-top: 1px solid blue; 
+	margin: 0; 
+	padding: 10px;
+	font: 12px Myriad,Helvetica,Tahoma,Arial,clean,sans-serif;
+	
+}
+
+#msjBotones{
+		text-align: right;
+		padding: 8px;
+}
+
+.cssAlerta {
+	color: #FFFFFF; font-size: 0.9em; font-weight: bold; padding: 0 4px; font-family: Verdana;
+}
+.cssBlockPantalla{
+	display: block;
+    left: 0;
+    top: 0;
+    background: none repeat scroll 0 0 transparent !important;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#tblResult{
+  height: 400px;
+  overflow: auto
+}
+
+#idTipoArchivo option:nth-child(even){
+	background-color: #EEE;
+}
+
+table#tblComisionesDetalle {
+    background-color: #fff;
+	border: 0px solid #000000;
+}
+table#tblComisionesDetalle tbody {
+    background-color: #e6e3e6;
+    height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+}
+
+table#tblComisionesDetalle thead > tr, table#tblComisionesDetalle tbody{
+    display:block;
+}
+table#tblComisionesDetalle td, table#tblComisionesDetalle th{
+	border:0;			
+}
+table#tblComisionesDetalle th:first-child{
+	border-radius: 10px 0px 0px 0px;
+	-moz-border-radius: 10px 0px 0px 0px;
+	-webkit-border-radius: 10px 0px 0px 0px;
+	border: 0px solid #000000;
+}
+table#tblComisionesDetalle th:last-child{
+	border-radius: 0px 10px 0px 0px;
+	-moz-border-radius: 0px 10px 0px 0px;
+	-webkit-border-radius: 0px 10px 0px 0px;
+	border: 0px solid #000000;
+}

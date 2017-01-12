@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	
+	<form-beans>
+		<form-bean name="LoginForm" type="mx.com.iusacell.comisiones.web.seguridad.struts.action.LoginForm"/>
+		<form-bean name="comisionesForm" type="iusacell.comisiones.form.ComisionesForm"/>
+		<form-bean name="cargaArchivoForm" type="iusacell.comisiones.form.CargaArchivoForm"/>
+		<form-bean name="comisionesReportesForm" type="iusacell.comisiones.form.ComisionesReportesForm"/>
+	</form-beans>
+	
+	<global-exceptions>
+	</global-exceptions>
+	
+	<global-forwards>
+		<forward name="welcome" path="/Welcome.do"/>
+	</global-forwards>
+	
+	<action-mappings>
+		<action path="/Welcome" type="mx.com.iusacell.comisiones.web.seguridad.struts.action.WelcomeAction" scope="request" validate="false" name="LoginForm">  
+	   		<!--<forward name="home" path="/welcomeBa.jsp"  /> -->
+			<forward name="home" path="/Login.jsp"/>
+		</action> 
+	   	
+	   	<action path="/LoginAction" type="mx.com.iusacell.comisiones.web.seguridad.struts.action.LoginAction" scope="request" validate="false" name="LoginForm">  
+			<forward name="inicioCarga"	path="/inicioCarga.do?go=inicio" />
+			<forward name="menu"	path="/inicioMenu.do?go=inicio" />
+			<forward name="listaComisiones"	path="/comisionesDis.do?go=inicio" />
+			<forward name="Login" path="/ini.jsp"/>
+		</action>
+
+		<action path="/inicioMenu" type="iusacell.comisiones.action.ComisionesInicioAction" scope="request" validate="false" parameter="go" name="comisionesForm">
+			<forward name="inicio" path="/jsp/Comisiones/inicioMenu.jsp"/>
+		</action>
+
+		<action path="/comisionesDis" type="iusacell.comisiones.action.ComisionesAction" scope="request" validate="false" parameter="go" name="comisionesForm">
+			<forward name="inicio"  path="/jsp/Comisiones/listaDistribuidores.jsp"/>
+			<forward name="detalle" path="/jsp/Comisiones/listaDistribuidoresDetalle.jsp"/>
+		</action>
+
+		<!-- Carga de archivos comisiones -->
+		<action path="/inicioCarga" type="iusacell.comisiones.action.ComisionesInicioAction" scope="request" validate="false" parameter="go" name="comisionesForm">
+			<forward name="inicio" path="/jsp/Comisiones/inicioComisiones.jsp"/>
+		</action>
+		<action path="/cargaArchivo" type="iusacell.comisiones.action.CargaArchivoAction" scope="request" validate="false" parameter="go" name="cargaArchivoForm">
+			<forward name="inicio" path="/jsp/Comisiones/cargaArchivo.jsp"/>
+			<forward name="actualizar" path="/jsp/Comisiones/actualizarArchivo.jsp"/>
+		</action>
+		<action path="/consultaArchivo" type="iusacell.comisiones.action.CargaArchivoAction" scope="request" validate="false" parameter="go" name="cargaArchivoForm">
+			<forward name="inicio" path="/jsp/Comisiones/consultaArchivo.jsp"/>
+			<forward name="actualizar" path="/jsp/Comisiones/actualizarArchivo.jsp"/>
+		</action>
+		<!-- Fin Carga de archivos comisiones -->	
+		
+		<action path="/comisionesReportes" type="iusacell.comisiones.action.ComisionesReportesAction" scope="request" validate="false" parameter="go" name="comisionesReportesForm">
+			<forward name="inicio"  path="/jsp/Comisiones/comisionesReportes.jsp"/>
+		</action>	
+		
+		<action path="/json/comisionesDis" type="iusacell.comisiones.action.ComisionesAction" scope="request" validate="false" parameter="go" name="comisionesForm">
+			<forward name="inicio"  path="/jsp/Comisiones/listaDistribuidores.jsp"/>
+			<forward name="detalle" path="/jsp/Comisiones/listaDistribuidoresDetalle.jsp"/>
+		</action>
+		
+		<action path="/json/comisionesReportes" type="iusacell.comisiones.action.ComisionesReportesAction" scope="request" validate="false" parameter="go" name="comisionesReportesForm">
+			<forward name="inicio"  path="/jsp/Comisiones/comisionesReportes.jsp"/>
+		</action>
+	</action-mappings>
+	
+	<message-resources parameter="corp.iusacell.comisionesstruts.resources.ApplicationResources"/>
+	
+	<!-- Spring Struts plugin -->
+ 	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation"
+			value="/WEB-INF/classes/spring/applicationContext.xml" />
+  	</plug-in>
+</struts-config>

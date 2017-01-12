@@ -1,0 +1,45 @@
+@CHARSET "ISO-8859-1" ;
+
+#head h2 smfall{
+	text-align: center;
+	display: block;
+}
+
+
+#menu {
+    top: 40%;
+    position: absolute;
+    left: 50%;
+    height: 340px;
+    margin-top: -170px;
+    margin-left: -330px;
+    width: 660px;
+}
+
+form{
+    display: inline;
+}
+
+#menu input.btnMenu {
+    width: 230px;
+    height: 230px;
+    margin: 40px;
+}
+
+#btnCargar{
+	border-radius: 115px;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+#btnConsultar{
+	border-radius: 115px;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+#btnReportes{
+	border-radius: 115px;
+	font-size: 25px;
+	font-weight: bold;
+}
