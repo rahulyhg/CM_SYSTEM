@@ -28,7 +28,7 @@ public class ReportesSemanales {
 		"     PRODCM.SIRTSEISERIESIUSACELL SI,		" +
 		"     PRODCM.SIRCESTADOS SE,				" +
 		"     PRODCM.PC_DIVISIONES D,				" +
-		"     pc_canal@CLIECONP  CV							" + //PC_CANAL@CLIECONP  CV
+		"     pc_canal   CV							" + //PC_CANAL   CV
 		"WHERE pa.CDG_CIA = PC.CDG_CIA				" +
 		"AND pa.NUM_TRANSACCION = PC.NUM_TRANSACCION	" +
 		"AND pa.TIPO_TRANSACCION = PC.TIPO_TRANSACCION	" +
@@ -73,7 +73,7 @@ public class ReportesSemanales {
 		"       prodcm.SIRTSEISERIESIUSACELL SI," +
 		"       prodcm.SIRCESTADOS SE,			" +
 		"       prodcm.PC_DIVISIONES D,			" +
-		"       pc_canal@CLIECONP  CV					" +//PC_CANAL@CLIECONP  CV
+		"       pc_canal   CV					" +//PC_CANAL   CV
 		"     WHERE pa.CDG_CIA = PC.CDG_CIA		" +
 		"       AND pa.NUM_TRANSACCION    = PC.NUM_TRANSACCION	" +
 		"       AND pa.TIPO_TRANSACCION = PC.TIPO_TRANSACCION	" +
@@ -116,7 +116,7 @@ public class ReportesSemanales {
 		"	     prodcm.SIRTSEISERIESIUSACELL SI,	" +
 		"	     prodcm.SIRCESTADOS SE,			" +
 		"	     prodcm.PC_DIVISIONES D,		" +
-		"	     pc_canal@CLIECONP CV					" +//PC_CANAL@CLIECONP  CV
+		"	     pc_canal  CV					" +//PC_CANAL   CV
 		"	WHERE pc.pc_Fecha_baja >= TO_DATE(? ||' 000000','YYYYMMDD HH24MISS')	" + // PARAMETROS '20160201'
 		"		AND pc.pc_Fecha_baja <= TO_DATE(? ||' 235959','YYYYMMDD HH24MISS')	" + // PARAMETROS '20160207'
 		"		AND pa.cdg_cia = pc.cdg_cia		" +
@@ -160,7 +160,7 @@ public class ReportesSemanales {
 		"	     prodcm.SIRTSEISERIESIUSACELL SI,				" +
 		"	     prodcm.SIRCESTADOS SE,							" +
 		"	     prodcm.PC_DIVISIONES D,						" +
-		"	     pc_canal@CLIECONP  CV									" +//PC_CANAL@CLIECONP  CV
+		"	     pc_canal   CV									" +//PC_CANAL   CV
 		"	WHERE pc.pc_Fecha_baja >= TO_DATE(? ||' 000000','YYYYMMDD HH24MISS')	" + // PARAMETROS '20160201'
 		"		AND pc.pc_Fecha_baja <= TO_DATE(? ||' 235959','YYYYMMDD HH24MISS')	" + // PARAMETROS '20160207'
 		"		AND pa.cdg_cia = pc.cdg_cia						" +
@@ -192,7 +192,7 @@ public class ReportesSemanales {
 		"	       se.edodenombre							EDODENOMBRE,		" +
 		"	       DECODE(C.PC_ORIGEN_EMP,'U','UNEFON','IUSACELL') ORIGEN_EMP	" +          
 		"	FROM prodcm.PC_COMIS_COBRANZA c, 		" +
-		"	     pc_canal@CLIECONP CV,						" +//PC_CANAL@CLIECONP CV
+		"	     pc_canal  CV,						" +//PC_CANAL  CV
 		"	     prodcm.SIRTSEISERIESIUSACELL si,	" +
 		"	     prodcm.SIRCESTADOS se,				" +
 		"	     prodcm.PC_DIVISIONES d             " +        
@@ -227,7 +227,7 @@ public class ReportesSemanales {
 		"	FROM PRODCM.PC_COMIS_PREPAGO cp,			" +
 		"	     PRODCM.PC_ORIGEN_EQUIPO TiO, 		" +
 		"	     PRODCM.PC_TIPO_TELEFONIA tt,		" +
-		"	     pc_canal@CLIECONP V							" +//PC_CANAL@CLIECONP V
+		"	     pc_canal  V							" +//PC_CANAL  V
 		"	WHERE  cp.PC_FEC_REP >= TO_DATE(? ||' 000000','YYYYMMDD HH24MISS') " + //PARAMETROS '20160201'
 		"	   AND cp.PC_FEC_REP <= TO_DATE(? ||' 235959','YYYYMMDD HH24MISS') " + //PARAMETROS '20160207'
 		"	   AND cp.pc_cve_telef = tt.pc_cve_telef	" +

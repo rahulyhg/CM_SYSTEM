@@ -30,7 +30,7 @@ public class ReportesMensuales {
 		"       prodcm.sircestados se,              					" +
 		"		prodcm.pc_divisiones d, 								" +
 		"       prodcm.sirtseiseriesiusacell si,    					" +
-		"		pc_canal@CLIECONP v 												" + //--pc_canal@CLIECONP v
+		"		pc_canal v 												" + //--pc_canal@CLIECONP v
 		"  where cv.pc_activ_mes = ?                                    " + // '201602'-- parametro del mes y año
 		"    	and cv.cdg_cia           = ad.cdg_cia					" +
 		"    	and cv.num_transaccion   = ad.num_transaccion			" +
@@ -74,7 +74,7 @@ public class ReportesMensuales {
 		"        prodcm.sircestados se,              								" +
 		"		 prodcm.pc_divisiones d, 											" +
 		"        prodcm.sirtseiseriesiusacell si,    								" +
-		"		pc_canal@CLIECONP v 															" + //--pc_canal@CLIECONP v
+		"		pc_canal v 															" + //--pc_canal@CLIECONP v
 		"  where cr.pc_renova_mes    = ?                                    		" + //'201602' -- parametro
 		"    and cr.cdg_cia          = ad.cdg_cia 									" +
 		"    and cr.num_transaccion  = ad.num_transaccion 							" +
@@ -126,7 +126,7 @@ public class ReportesMensuales {
 		"	     prodcm.sircestados se,             								" +
 		"		 prodcm.pc_divisiones d, 											" +
 		"	     prodcm.sirtseiseriesiusacell si,   								" +
-		"		 pc_canal@CLIECONP v, 														" + //--pc_canal@CLIECONP v
+		"		 pc_canal  v, 														" + //--pc_canal  v
 		"	     prodcm.bs_bajas_bscs b												" +
 		"	where cb.pc_baja_mes            = ?                            			" + //'201602'-- parametro
 		"	  and cb.pc_orig_baja           = 'AC'									" +
@@ -168,7 +168,7 @@ public class ReportesMensuales {
 		"	 from  prodcm.pc_comis_bajas cb,        								" +
 		"	       prodcm.param_act ad, 											" +
 		"	       prodcm.pc_paquetes_maestro pm,   								" +
-		"		   pc_canal@CLIECONP v, 														" + //--pc_canal@CLIECONP v
+		"		   pc_canal  v, 														" + //--pc_canal  v
 		"	       prodcm.sircestados se,           								" +
 		"	       prodcm.pc_divisiones d, 											" +
 		"	       prodcm.sirtseiseriesiusacell si, 								" +
@@ -269,7 +269,7 @@ public class ReportesMensuales {
 		"	  FROM 	PRODCM.PARAM_ACT A, 											" +
 		"			PRODCM.TRANSACCION_MTRO B , 									" +
 		"			pvc.pvc_linea_cuenta@ESISCOM_PORTREP d,							" +
-		"		 	pc_canal@CLIECONP c 														" + //--pc_canal@CLIECONP v
+		"		 	pc_canal  c 														" + //--pc_canal  v
 		"	  WHERE A.CDG_CIA = B.CDG_CIA      										" +
 		"	    AND A.NUM_TRANSACCION  = B.NUM_TRANSACCION							" +
 		"	    AND A.TIPO_TRANSACCION = B.TIPO_TRANSACCION 						" +
@@ -292,7 +292,7 @@ public class ReportesMensuales {
 		"	          PVC_LINEA_CUENTA@ESISCOM_PORTREP         PLC,				" +
 		"	          prodcm.PARAM_ACT                         A,				" +
 		"	          prodcm.TRANSACCION_MTRO                  B,				" +
-		"		 	  pc_canal@CLIECONP c 												" + //--pc_canal@CLIECONP v
+		"		 	  pc_canal  c 												" + //--pc_canal  v
 		"	   WHERE  PLC.id_propuesta_servicios = PPS.id						" +
 		"	   AND    A.cdg_cia          = B.cdg_cia							" +
 		"	   AND    A.num_transaccion  = B.num_transaccion					" +
@@ -365,8 +365,8 @@ public class ReportesMensuales {
 		"	from prodcm.pc_comis_prepago cp, prodcm.pc_origen_equipo op, 			" +
 		"	     prodcm.pc_tipo_telefonia tt, prodcm.sircestados se, 				" +
 		"	     prodcm.pc_divisiones d, prodcm.sirtseiseriesiusacell si,			" +
-		"	     pc_canal@CLIECONP v,		 												" + //pc_canal@CLIECONP
-		"		 pc_canal@CLIECONP v1														" + //pc_canal@CLIECONP
+		"	     pc_canal  v,		 												" + //pc_canal 
+		"		 pc_canal  v1														" + //pc_canal 
 		"	where cp.pc_activ_mes = ?												" + // '201602' -- parametro 
 		"	  and cp.pc_cve_origen = 1												" +
 		"	  and cp.pc_cve_telef = 1												" +
@@ -404,8 +404,8 @@ public class ReportesMensuales {
 		"	      prodcm.sircestados       se, 										" +
 		"	      prodcm.pc_divisiones     d, 										" +
 		"	      prodcm.sirtseiseriesiusacell si, 									" +
-		"	      pc_canal@CLIECONP v, 												" +
-		"	      pc_canal@CLIECONP v1 												" +
+		"	      pc_canal  v, 												" +
+		"	      pc_canal  v1 												" +
 		"	        where cp.pc_activ_mes       = ?									" + //'201602'       -- parametro 
 		"	          and cp.pc_cve_origen      = 2 								" +
 		"	          and cp.pc_cve_telef       = 1 								" +
@@ -449,7 +449,7 @@ public class ReportesMensuales {
 		"	        num_cel           NUM_CEL, 				" +
 		"	        ABONO_ATM         ABONO_ATM				" +
 		"	  from TIEMPOAIRE_LOG@ESISCOM_PORTREP  a,								" +
-		"	       CLIECON.PC_PUNTO_VENTAS@CLIECONP b								" +
+		"	       CLIECON.PC_PUNTO_VENTAS  b								" +
 		"	 WHERE TRUNC(TRANS_DATE_TIME) BETWEEN TO_DATE(?, 'YYYYMMDD') 			" +//'01/02/2016'  -- parametro 1ero del mes
 		"	                                  AND TO_DATE(?, 'YYYYMMDD')			" +//'29/02/2016'   -- parametro último de mes 
 		"	   AND STATUS IN ('AC')													" +
