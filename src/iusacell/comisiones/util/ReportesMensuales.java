@@ -2,7 +2,7 @@ package iusacell.comisiones.util;
 
 public class ReportesMensuales {
 	
-	public static String  ACTIVACIONES = 
+	/*public static String  ACTIVACIONES = 
 		" select v.pc_desc_canal                                          NOMBRE_CANAL,		" +
 		"        cv.pc_activ_mes                                          ACTIV_MES,		" +
 		"        to_char(cv.cdg_region)                                   REGION,			" +
@@ -45,7 +45,55 @@ public class ReportesMensuales {
 		"    	and SI.RANGO_FIN (+)    >= to_number(substr(ad.num_telefono,7,4))	" +
 		"    	and SE.EDOCLCLAVE (+)    = SI.EDOCLCLAVE 				" +
 		"    	and D.PC_CVE_DIVISION(+) = SI.PC_CVE_DIVISION			" +
-		"    	and v.pc_cve_canal       = cv.pc_cve_canal				";
+		"    	and v.pc_cve_canal       = cv.pc_cve_canal				"; */
+	
+	
+	public static String  ACTIVACIONES =
+	"SELECT v.pc_desc_canal NOMBRE_CANAL, "+        
+    "cv.pc_activ_mes ACTIV_MES, "+        
+    "to_char(cv.cdg_region) REGION, "+             
+    "pm.pc_desc_larga_plan  DESC_LARGA_PLAN, "+     
+    "to_char(cv.pc_cve_contrato) CVE_CONTRATO, "+        
+    "cv.pc_cuenta  CUENTA, "+            
+    "replace(ad.nombre_usua,'|','')|| "+                                            
+    "replace(ad.pater_usua,'|','')|| "+                                            
+    "replace(ad.mater_usua,'|','') CLIENTE, "+            
+    "cv.pc_esn ESN, "+                
+    "to_char(ad.num_telefono) NUM_TELEFONO, "+        
+    "to_char(cv.pc_fecha_venta,'dd-mm-yyyy') FECHA_VENTA, "+        
+    "to_char(ad.plazo_for) PLAZO_FOR, "+            
+    "'$' || trim(to_char(cv.pc_monto_activ,'99,999,990.00'))  MONTO_ACTIV, "+        
+    "SI.POBKPNOMBRE POBLACION, "+        
+    "PC_DES_DIVISION DIVISION, "+            
+    "SE.EDODENOMBRE  ESTADO, "+            
+    "ad.PC_MODELO MODELO, "+            
+    "'$' || trim(to_char(cv.pc_renta,'99,999,990.00')) RENTA, "+            
+    "to_char(cv.pc_porc_desc*100) PORC_DESCUENTO, "+    
+    "to_char(cv.PC_PORC_DESC_ADI *100) PORC_DESC_ADIC "+      
+	"    FROM prodcm.pc_comis_ventas  cv, "+                             
+   "prodcm.param_act ad, "+                                    
+   "prodcm.pc_paquetes_maestro pm, "+                             
+   "prodcm.sircestados se, "+                                  
+   "prodcm.pc_divisiones d, "+                                 
+   "prodcm.sirtseiseriesiusacell si, "+                        
+   "pc_canal@ESISCOM_CYC v "+                                                 
+	"    WHERE cv.pc_activ_mes = ? "+                                     
+    "AND cv.cdg_cia           = ad.cdg_cia "+                    
+    "AND cv.num_transaccion   = ad.num_transaccion "+            
+    "AND cv.tipo_transaccion  = ad.tipo_transaccion "+            
+    "AND cv.num_contrato      = ad.num_contrato "+                
+    "AND cv.cdg_region        = ad.cdg_region "+                
+    "AND cv.cdg_csi           = ad.cdg_csi "+                    
+    "AND cv.PC_FECHA_VENTA    = ad.fec_transaccion "+            
+    "AND cv.pc_cve_paquete    = pm.pc_cve_paquete "+            
+    "AND SI.SERIE (+)         = to_number(substr(ad.num_telefono,1,6)) "+    
+    "AND SI.RANGO_INI (+)    <= to_number(substr(ad.num_telefono,7,4)) "+    
+    "AND SI.RANGO_FIN (+)    >= to_number(substr(ad.num_telefono,7,4)) "+    
+    "AND SE.EDOCLCLAVE (+)    = SI.EDOCLCLAVE "+                 
+    "AND D.PC_CVE_DIVISION(+) = SI.PC_CVE_DIVISION "+            
+    "AND v.pc_cve_canal       = cv.pc_cve_canal";
+	
+	
 	
 	public static String RENOVACIONES = 
 		" select v.pc_desc_canal                               EMPRESARIO,				" +
@@ -309,7 +357,7 @@ public class ReportesMensuales {
 		"	   and    b.CDG_VENDEDOR = c.pc_cve_canal(+)						" +
 		"	   AND    PPS.penalizacion_vendedores > 0							" ;
 	
-	public static String DCTOS_MULTILINEA_TOTALES =
+	/*public static String DCTOS_MULTILINEA_TOTALES =
 		"	SELECT  id_contrato                       CVE_CONTRATO,				" +
 		"	        trunc(fecha_aprovisionamiento)    FEC_DESC,					" +
 		"	        SUBSTR(descuento_multilinea,LENGTH(descuento_multilinea)-1 ,2) PORC_DESC," +
@@ -328,9 +376,31 @@ public class ReportesMensuales {
 		"	           INSTR(descuento_multilinea,6) > 0 OR							" +
 		"	           INSTR(descuento_multilinea,7) > 0 OR							" +
 		"	           INSTR(descuento_multilinea,8) > 0 OR   			           	" +
-		"	           INSTR(descuento_multilinea,9) > 0)							" ;
+		"	           INSTR(descuento_multilinea,9) > 0)							" ; */
+	
+	
+	public static String DCTOS_MULTILINEA_TOTALES =
+		 "SELECT  id_contrato                       CVE_CONTRATO, "+                  
+        "trunc(fecha_aprovisionamiento)    FEC_DESC, "+                      
+        "SUBSTR(descuento_multilinea,LENGTH(descuento_multilinea)-1 ,2) PORC_DESC, "+  
+        "DESCRIPCION_PLAN_SERVICIO, "+                                      
+        "RENTA_FIJA "+                                                      
+		 "  FROM  pvc.pvc_linea_cuenta@ESISCOM_PORTAL "+                        
+		"  WHERE fecha_aprovisionamiento >= TO_DATE( ? || '235959', 'RRRRMMDD HH24MISS') "+        
+      "AND fecha_aprovisionamiento <= TO_DATE( ? || '235959', 'RRRRMMDD HH24MISS') "+       
+      "AND codigo_error_contrato IN  (7,-7) "+                                   
+      "AND (INSTR(descuento_multilinea,0) > 0 OR "+                              
+      "    INSTR(descuento_multilinea,1) > 0 OR "+                              
+      "     INSTR(descuento_multilinea,2) > 0 OR "+                              
+      "     INSTR(descuento_multilinea,3) > 0 OR "+                              
+      "    INSTR(descuento_multilinea,4) > 0 OR "+                              
+      "     INSTR(descuento_multilinea,5) > 0 OR "+                              
+      "     INSTR(descuento_multilinea,6) > 0 OR "+                              
+      "     INSTR(descuento_multilinea,7) > 0 OR "+                              
+      "     INSTR(descuento_multilinea,8) > 0 OR "+                                
+      "    INSTR(descuento_multilinea,9) > 0)";
 
-	public static String DCTOS_ADICIONAL_TOTALES =
+	/*public static String DCTOS_ADICIONAL_TOTALES =
 		"	SELECT    PLC.id_contrato                       CONTRATO,				" +
 		"	          trunc(PLC.fecha_aprovisionamiento)    FEC_DESC, 				" +
 		"	          (PPS.penalizacion_vendedores / 100)   DESC_ADI,     		 	" +
@@ -343,9 +413,25 @@ public class ReportesMensuales {
 		"	     AND  trunc(PLC.fecha_aprovisionamiento) <= TO_DATE(?, 'RRRRMMDD')	" + //'20160229'   -- parametro último de mes 
 		"	     AND  PPS.penalizacion_vendedores IS NOT NULL						" +
 		"	     AND  PPS.id_tipo_referencia IN ('RN', 'CL','PR' ) 					" +
-		"	     AND  PPS.penalizacion_vendedores > 0								" ;
+		"	     AND  PPS.penalizacion_vendedores > 0								" ;*/
 	
-	public static String PREPAGO_EQ_NUEVO =
+	public static String DCTOS_ADICIONAL_TOTALES =
+		 "SELECT    PLC.id_contrato                       CONTRATO, "+                  
+         "trunc(PLC.fecha_aprovisionamiento)    FEC_DESC, "+                   
+         "(PPS.penalizacion_vendedores / 100)   DESC_ADI, "+                    
+         "DESCRIPCION_PLAN_SERVICIO, "+                                      
+         "RENTA_FIJA "+                                                        
+         " FROM   PVC_PROPUESTA_SERVICIOS@ESISCOM_PORTAL  PPS, "+                      
+         "PVC_LINEA_CUENTA@ESISCOM_PORTAL         PLC "+                       
+         " WHERE  PLC.id_propuesta_servicios = PPS.id "+                              
+         "AND  trunc(PLC.fecha_aprovisionamiento) >= TO_DATE(?, 'RRRRMMDD') "+       
+         "AND  trunc(PLC.fecha_aprovisionamiento) <= TO_DATE(?, 'RRRRMMDD') "+        
+         "AND  PPS.penalizacion_vendedores IS NOT NULL "+                          
+         "AND  PPS.id_tipo_referencia IN ('RN', 'CL','PR' ) "+                       
+         "AND  PPS.penalizacion_vendedores > 0";
+	
+	
+	/*public static String PREPAGO_EQ_NUEVO =
 		"	select v.pc_desc_canal                      NOMBRE						" +
 		"	       ,cp.pc_activ_mes                     ACTIV_MEX					" +
 		"	       ,to_char(cp.pc_region)               REGION						" +
@@ -378,9 +464,46 @@ public class ReportesMensuales {
 		"	  and SE.EDOCLCLAVE (+) = SI.EDOCLCLAVE 								" +
 		"	  and  D.PC_CVE_DIVISION (+) = SI.PC_CVE_DIVISION						" +
 		"	  and  v.pc_cve_canal = cp.pc_cve_canal									" +
-		"	  and cp.id_seler = v1.pc_Cve_canal (+)									" ;
+		"	  and cp.id_seler = v1.pc_Cve_canal (+)									" ; */
 	
-	public static String PREPAGO_EQ_CAJON =
+	public static String PREPAGO_EQ_NUEVO =
+		 "SELECT v.pc_desc_canal                      NOMBRE	" +                          
+         ",cp.pc_activ_mes                     ACTIV_MEX	" +                      
+         ",to_char(cp.pc_region)               REGION	" +                          
+         ",cp.pc_mdn                           MDN	" +                              
+         ",cp.pc_esn_d                         ESN_D	" +                          
+         ",to_char(cp.pc_fec_rep,'dd-mm-yyyy') FEC_REP	" +                          
+         ",cp.pc_des_plan                      DES_PLAN	" +                      
+         ",cp.pc_modelo                        MODELO	" +                          
+         ",'$' || trim(to_char(cp.pc_precio_vta, '99,999,990.00'))   PRECIO_VTA	" +       
+         ",'$' || trim(to_char(cp.pc_comision,   '99,999,990.00'))   COMISION	" +          
+         ",DECODE (cp.PC_ORIGEN_ACT, 'OTA','OTA','PRE', 'Preactivado', 'CTE', 'Cliente',  'Tellin') DESC_ORIGEN	" +      
+         ",SI.POBKPNOMBRE                      POBLACION	" +                      
+         ",PC_DES_DIVISION                     DIVISION	" +                      
+         ",SE.EDODENOMBRE                      ESTADO	" +                          
+         ",cp.pc_num_factura                   NUM_FACTURA	" +                      
+         ",v.pc_desc_canal                     NOM_VENDEDOR	" +                   
+		" FROM prodcm.pc_comis_prepago cp, prodcm.pc_origen_equipo op,	" +               
+       "prodcm.pc_tipo_telefonia tt, prodcm.sircestados se,	" +                   
+       "prodcm.pc_divisiones d, prodcm.sirtseiseriesiusacell si,	" +              
+       "pc_canal@ESISCOM_CYC v,	" +                                                      
+       "pc_canal@ESISCOM_CYC v1	" +                                                     
+		" WHERE cp.pc_activ_mes = ?	" +                                             
+		"AND cp.pc_cve_origen = 1	" +                                                  
+		"AND cp.pc_cve_telef = 1	" +                                                  
+		"AND cp.pc_cve_origen = op.pc_cve_origen	" +                                  
+		"AND cp.pc_cve_telef = tt.pc_cve_telef	" +                                      
+		"AND SI.SERIE (+) = to_number(substr(cp.pc_mdn,1,6))	" +                      
+		"AND SI.RANGO_INI (+) <= to_number(substr(cp.pc_mdn,7,4))	" +                  
+		"AND SI.RANGO_FIN (+) >= to_number(substr(cp.pc_mdn,7,4))	" +                  
+		"AND SE.EDOCLCLAVE (+) = SI.EDOCLCLAVE	" +                                   
+		"AND  D.PC_CVE_DIVISION (+) = SI.PC_CVE_DIVISION	" +                          
+		"AND  v.pc_cve_canal = cp.pc_cve_canal	" +                                      
+		"AND cp.id_seler = v1.pc_Cve_canal (+)";
+
+	
+	
+	/*public static String PREPAGO_EQ_CAJON =
 		"	select   v.pc_desc_canal             NOMBRE , 							" +
 		"	        cp.pc_activ_mes             ACTIV_MES, 							" +
 		"	        tecnologia                  CONCEPTO, 							" +
@@ -417,9 +540,51 @@ public class ReportesMensuales {
 		"	          and SE.EDOCLCLAVE (+)     = SI.EDOCLCLAVE 					" +
 		"	          and D.PC_CVE_DIVISION (+) = SI.PC_CVE_DIVISION 				" +
 		"	          and v.pc_cve_canal        = cp.pc_cve_canal 					" +
-		"	          and cp.id_seler           = v1.pc_Cve_canal (+)				" ;
+		"	          and cp.id_seler           = v1.pc_Cve_canal (+)				" ; */
 	
-	public static String COBRANZA =
+	public static String PREPAGO_EQ_CAJON =
+		"SELECT   v.pc_desc_canal             NOMBRE ,	" +                               
+        "cp.pc_activ_mes             ACTIV_MES,	" +                               
+        "tecnologia                  CONCEPTO,	" +                               
+        "DECODE(ID_PARAMETRO	" +                                               
+         " ,1, 'RETAIL'	" +                                                       
+         " ,2, 'EQUIPO NUEVO'	" +                                               
+         " ,3, 'EQUIPO PROPIO'	" +                                               
+         ",4, 'PORTABILIDAD EXTERNA'	" +                                       
+        ")                           TIPO_VENTA,	" +                           
+        "cp.pc_mdn                   MDN,	" +                                   
+        "cp.pc_esn_d                 ESN_D,	" +                                   
+        "to_char(cp.pc_fec_rep, 'dd-mm-yyyy') FEC_REP ,	" +                       
+        "cp.pc_des_plan              DESC_PLAN,	" +                               
+        "cp.pc_modelo ,'$' || trim(to_char(cp.pc_precio_vta, '99,999,990.00' )) PRECIO_VTA,	" +       
+        "cp.pc_num_factura           NUM_FACTURA,	" +                           
+        "DECODE (cp.PC_ORIGEN_ACT, 'OTA','OTA','PRE', 'Preactivado', 'CTE', 'Cliente',  'Tellin') DESC_ORIGEN ,	" +       
+        "'$' || trim(to_char(cp.pc_comision,'99,999,990.00'))  COMISION	" +       
+		"FROM prodcm.pc_comis_prepago  cp,	" +                                           
+		"prodcm.pc_origen_equipo  op,	" +                                           
+		"prodcm.pc_tipo_telefonia tt,	" +                                           
+		"prodcm.sircestados       se,	" +                                           
+		"prodcm.pc_divisiones     d,	" +                                           
+		"prodcm.sirtseiseriesiusacell si,	" +                                       
+		"pc_canal@ESISCOM_CYC v,	" +                                                   
+		"pc_canal@ESISCOM_CYC v1	" +                                                   
+        "WHERE cp.pc_activ_mes       = ? 	" +                                   
+        "  AND cp.pc_cve_origen      = 2	" +                                   
+        "  AND cp.pc_cve_telef       = 1	" +                                   
+        "  AND cp.pc_cve_origen      = op.pc_cve_origen	" +                       
+        "  AND cp.pc_cve_telef       = tt.pc_cve_telef	" +                       
+        "  AND SI.SERIE (+)          = to_number(substr(cp.pc_mdn,1,6))	" +       
+        "  AND SI.RANGO_INI (+)      <= to_number(substr(cp.pc_mdn,7,4))	" +   
+        "  AND SI.RANGO_FIN (+)      >= to_number(substr(cp.pc_mdn,7,4))	" +   
+        "  AND SE.EDOCLCLAVE (+)     = SI.EDOCLCLAVE	" +                       
+        "  AND D.PC_CVE_DIVISION (+) = SI.PC_CVE_DIVISION	" +                   
+        "  AND v.pc_cve_canal        = cp.pc_cve_canal	" +                       
+        "  AND cp.id_seler           = v1.pc_Cve_canal (+)";	
+	
+	
+	
+	
+	/*public static String COBRANZA =
 		"select " +
 		"	a.CDG_CIA,			" +
 		"	a.CDG_CSI,			" +
@@ -439,7 +604,29 @@ public class ReportesMensuales {
 		"	a.PC_NOM_VEND,		" +
 		"	a.PC_ORIGEN_EMP,	" +
 		"	a.TIPO_TRANSACCION 	" +
-		"from  prodcm.pc_comis_cobranza a where to_char(a.pc_fec_trans,'yyyymm') = ?";
+		"from  prodcm.pc_comis_cobranza a where to_char(a.pc_fec_trans,'yyyymm') = ?"; */
+	
+	public static String COBRANZA =
+		"SELECT " +   
+        "a.CDG_CIA, " +              
+        "a.CDG_CSI, " +              
+        "a.CDG_REGION, " +          
+        "a.NUM_TRANSACCION, " +      
+        "a.PC_CDG_CPTO_VTA, " +      
+        "a.PC_COBRANZA_MES, " +      
+        "a.PC_COMISION, " +          
+        "a.PC_CUSTOMER_ID, " +      
+        "a.PC_CVE_CANAL, " +          
+        "a.PC_CVE_ESQUEMA, " +      
+        "a.PC_CVE_VENDEDOR, " +      
+        "a.PC_DESC_CPTO, " +          
+        "a.PC_FEC_TRANS, " +          
+        "a.PC_MDN, " +              
+        "a.PC_MONTO, " +              
+        "a.PC_NOM_VEND, " +          
+        "a.PC_ORIGEN_EMP, " +      
+        "a.TIPO_TRANSACCION " +       
+    " FROM  prodcm.pc_comis_cobranza a WHERE to_char(a.pc_fec_trans,'yyyymm') = ? " ;
 	
 	public static String CAES_ARSA =
 		"	select 	CDG_CSI           CSI, 					" +
@@ -460,7 +647,7 @@ public class ReportesMensuales {
 		"	                    'R9-0579')											" +
 		"	order by 1, 3															" ;
 	
-	public static String ADONS =
+	/*public static String ADONS =
 		" SELECT  					" +
 		"	 a.ACCESSFEE,			" +
 		"    a.CS_STAT_CHNG,		" +
@@ -486,9 +673,36 @@ public class ReportesMensuales {
 		"    a.PC_PORC_DESC,		" +
 		"    a.PC_PORC_DESC_ADI,	" +
 		"    a.SNCODE 				" +
-		"FROM prodcm.pc_comis_addons a WHERE TO_CHAR(a.PC_FECHA_VENTA, 'YYYYMM') = ?";
+		"FROM prodcm.pc_comis_addons a WHERE TO_CHAR(a.PC_FECHA_VENTA, 'YYYYMM') = ?";*/
 	
-	public static String MOVIMIENTOS_ADONS =
+	public static String ADONS =
+		 "SELECT          "+             
+         "a.PC_CVE_CANAL,  "+ 
+         "a.PC_DESC_CANAL ,  "+
+         "a.NUM_CONTRATO ,  "+
+         "a.NUM_TELEFONO ,  "+
+         "a.PC_CVE_PAQUETE ,  "+
+         "a.PC_DESC_LARGA_PLAN ,  "+
+         "a.PC_FECHA_VENTA ,  "+
+         "a.FEC_ACT_SERV ,  "+
+         "a.FEC_DESA_SERV ,  "+
+         "a.SNCODE ,  "+
+         "a.DESCRIPCION ,  "+
+         "a.ACCESSFEE ,  "+
+         "a.PC_PORC_DESC ,  "+
+         "a.PC_PORC_DESC_ADI ,  "+
+         "a.PC_CUENTA ,  "+
+         "a.CUSTOMER_ID ,  "+
+         "a.PC_CVE_CONCEPTO ,  "+
+         "a.PC_COMISION ,  "+
+         "a.PC_CVE_ESQUEMA ,  "+
+         "a.PC_PLZ_FOR  "+                 
+		" FROM prodcm.pc_comis_addons a WHERE TO_CHAR(a.PC_FECHA_VENTA, 'YYYYMM') = ?";	
+	
+	
+	
+	
+	/*public static String MOVIMIENTOS_ADONS =
 		" SELECT  					" +
 		"		CVE_SERV,			" +
 		"		DESCRIPCION_SERV,	" +
@@ -513,9 +727,38 @@ public class ReportesMensuales {
 		"		PC_TIPO_MOVIMIENTO,	" +
 		"		PLAZO,				" +
 		"		RENTA_SERV 			" +		
-		"FROM prodcm.pc_addons_mov a ";
+		"FROM prodcm.pc_addons_mov a ";*/
 	
-	public static String BAJAS_ADMINISTRATIVAS =
+	
+	public static String MOVIMIENTOS_ADONS =
+		  "SELECT	" +                       
+          "a.PC_CVE_CANAL ,	" +
+          "a.PC_DESC_CANAL ,	" +
+          "a.PC_TIPO_MOVIMIENTO ,	" +
+          "a.NUM_CONTRATO ,	" +
+          "a.NUM_TELEFONO ,	" +
+          "a.PC_CVE_PAQUETE ,	" +
+          "a.PC_DESC_LARGA_PLAN ,	" +
+          "a.PLAZO ,	" +
+          "a.PC_FECHA_VENTA ,	" +
+          "a.FEC_ACT_SERV ,	" +
+          "a.FEC_DESAC_SERV ,	" +
+          "a.PC_DIAS_BAJA ,	" +
+          "a.PC_DIAS_CUMPLIDOS ,	" +
+          "a.CVE_SERV ,	" +
+          "a.DESCRIPCION_SERV ,	" +
+          "a.RENTA_SERV ,	" +
+          "a.PC_PORC_DESC ,	" +
+          "a.PC_PORC_DESC_ADI ,	" +
+          "a.PC_COMISION ,	" +
+          "a.PC_COMISION_CHB ,	" +
+          "a.PC_CONCEPTO ,	" +
+          "a.PC_MES_PAGO ,	" +
+          "a.PC_MES_BAJA	" +                 
+		  " FROM prodcm.pc_addons_mov a ";
+		
+	
+	/*public static String BAJAS_ADMINISTRATIVAS =
 		" SELECT a.BB_CUENTA,				"+
 		"		  a.BB_CVE_CANAL,			"+
 		"		  a.BB_CVE_CONTRATO,		"+
@@ -529,7 +772,24 @@ public class ReportesMensuales {
 		"		  a.BB_RAZON_MOVIMIENTO		"+
   		"	FROM  prodcm.COMI_BAJAS_POSP a									 "+
 		" WHERE TO_CHAR(a.BB_FEC_BAJA,'YYYYMM') = ? 								 "+//'201602'  -- parametro 
-		" AND  a.BB_MOV_ERRONEOS LIKE '%RENOV%' OR   a.BB_MOV_ERRONEOS LIKE  '%ACTIV%'";
+		" AND  a.BB_MOV_ERRONEOS LIKE '%RENOV%' OR   a.BB_MOV_ERRONEOS LIKE  '%ACTIV%'";*/
+	
+	public static String BAJAS_ADMINISTRATIVAS=
+           "SELECT  	"+       
+           "a.BB_CVE_CONTRATO ,	"+
+           "a.BB_CUENTA ,	"+
+           "a.BB_FEC_BAJA ,	"+
+           "a.BB_FEC_ACT ,	"+
+           "a.BB_CVE_PLAN ,	"+
+           "a.BB_CVE_CANAL ,	"+
+           "a.BB_CVE_USUARIO ,	"+
+           "a.BB_ESN ,	"+
+           "a.BB_MDN ,	"+
+           "a.BB_RAZON_MOVIMIENTO ,	"+
+           "a.BB_MOV_ERRONEOS	"+       
+           "  FROM  prodcm.COMI_BAJAS_POSP a	"+                                      
+           " WHERE TO_CHAR(a.BB_FEC_BAJA,'YYYYMM') = ?	"+                                  
+           "AND  a.BB_MOV_ERRONEOS LIKE '%RENOV%' OR   a.BB_MOV_ERRONEOS LIKE  '%ACTIV%'";
 	
 	public static String REPORTE_RESIDUALES =
 		" select 							" +

@@ -20,7 +20,7 @@ public class ComisionesReportesForm extends ActionForm{
 	 * 
 	 */
 	private static final long serialVersionUID = 156418645348651513L;
-	private String anio;
+	private String anio; 
 	private String periodo;
 	private String mesPeriodo;
 	private String semMes;

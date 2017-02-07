@@ -52,7 +52,14 @@ public class ComisionesReportesDAOImpl extends JdbcDaoSupport implements Comisio
 	protected static final Logger logger = Logger.getLogger(ComisionesReportesDAOImpl.class); //Des COMISDIS // prod PRODCM  // des PC_TIPO_CANAL // prod PC_TIPO_CANAL@CLIECONP
 	
 	public static String CARGA_PERIODO_SEMANA = "SELECT PC_SEM, PC_MES FROM PRODCM.PC_TOTALES_SEM WHERE  SUBSTR(PC_MES,1,4) = ? GROUP BY PC_SEM, PC_MES ORDER BY PC_SEM";
-	public static String CARGA_PERIODO_MES = "SELECT PC_MES PERIODO, SUBSTR(PC_MES,5,6) MES, SUBSTR(PC_MES,1,4) ANIO FROM PRODCM.PC_TOTALES_SEM WHERE  SUBSTR(PC_MES,1,4) = ? GROUP BY PC_MES ORDER BY PC_MES";
+	//public static String CARGA_PERIODO_MES = "SELECT PC_MES PERIODO, SUBSTR(PC_MES,5,6) MES, SUBSTR(PC_MES,1,4) ANIO FROM PRODCM.PC_TOTALES_SEM WHERE  SUBSTR(PC_MES,1,4) = ? GROUP BY PC_MES ORDER BY PC_MES";
+	
+	//TEST CON TABLA DE COBRANZA
+	public static String CARGA_PERIODO_MES = "SELECT PC_COBRANZA_MES PERIODO, SUBSTR(PC_COBRANZA_MES,5,6) MES, SUBSTR(PC_COBRANZA_MES,1,4) ANIO FROM PRODCM.PC_COMIS_COBRANZA WHERE  SUBSTR(PC_COBRANZA_MES,1,4) = ? GROUP BY PC_COBRANZA_MES ORDER BY PC_COBRANZA_MES";
+	//public static String CARGA_PERIODO_SEMANA = "SELECT PC_SEM, PC_MES FROM PRODCM.PC_TOTALES_SEM WHERE  SUBSTR(PC_MES,1,4) = ? GROUP BY PC_SEM, PC_MES ORDER BY PC_SEM";
+	//For test purpoueses hard conde the month
+	//public static String CARGA_PERIODO_SEMANA = "SELECT PC_SEM, PC_MES FROM PRODCM.PC_TOTALES_SEM WHERE  SUBSTR(PC_MES,1,4) = '2014' GROUP BY PC_SEM, PC_MES ORDER BY PC_SEM";
+	//public static String CARGA_PERIODO_MES = "SELECT PC_MES PERIODO, SUBSTR(PC_MES,5,6) MES, SUBSTR(PC_MES,1,4) ANIO FROM PRODCM.PC_TOTALES_SEM WHERE  SUBSTR(PC_MES,1,4) = '2014' GROUP BY PC_MES ORDER BY PC_MES";
 	
 	/* (sin Javadoc)
 	 * @see iusacell.comisiones.dao.ComisionesDAO#obtenerPerido(java.lang.String)
@@ -84,6 +91,7 @@ public class ComisionesReportesDAOImpl extends JdbcDaoSupport implements Comisio
 		List<PcTotalesSem> lista = new ArrayList<PcTotalesSem>();
 		String sql = CARGA_PERIODO_MES;
 		Object[] param = {anio};
+		//Object[] param = {"2014"}; //para pruebas
 		try {
 			List<Map<String, Object>> datos = getJdbcTemplate().queryForList(sql,param);
 			for (Map<String, Object> dato : datos) {
@@ -105,6 +113,9 @@ public class ComisionesReportesDAOImpl extends JdbcDaoSupport implements Comisio
 
 		List lista = new ArrayList();
 		String sql = null;
+		//periodo="201611"; //para pruebas
+		//periodo="200501"; //para pruebas
+		System.out.println("periodo del reporte: "+periodo);
 		Object[] param = {periodo};
 		
 		switch (consulta) {
