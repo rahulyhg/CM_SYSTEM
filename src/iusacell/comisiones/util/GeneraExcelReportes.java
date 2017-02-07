@@ -40,6 +40,7 @@ public class GeneraExcelReportes{
     private int cellIdx = 0;
     private int rowIdx = 0;
     private int sheetIdx = 0;
+    private int numberOfCreatedSheets=0;
     private int numberCell = 65500;
     private int[] columWidth = null;
     
@@ -47,19 +48,29 @@ public class GeneraExcelReportes{
 	public void reporteExcel(List lst, ValueObject vo) throws Exception{
 		try{
 			Reflection ref = new Reflection(vo.getClass().getName());
+			System.out.println("Class report name: "+vo.getClass().getName());
+			
 			if(lst!=null){
 				double numberSheets = Math.ceil((double)lst.size()/(double)numberCell);
-				createSheets((int)numberSheets);
+				numberOfCreatedSheets=(int)numberSheets;
+				createSheets(numberOfCreatedSheets);
+				//createSheets(1);
 			}
 			nextRow();
+			
 			writeHeader(vo.getCampos());
 			ValueObject objectList = null;
 			String[] campos = vo.getCampos();
+			
 			for (int x=0; lst!=null && x<lst.size(); x++) {
 				objectList = (ValueObject)lst.get(x);
+				//if(sheetIdx>=numberOfCreatedSheets) //check this
+					//break;
 				nextRow();
+				//Check this for
 				for (int y=0; campos!=null && y<campos.length; y++) {
 					String metodo = ref.getMethod("get"+campos[y]);
+					//System.out.println("Metodo: "+metodo);
 					Object valor = ref.getValorMetodo(metodo, objectList);
 					if(detailStyle!=null)
 						cell.setCellStyle(detailStyle);
@@ -72,7 +83,9 @@ public class GeneraExcelReportes{
 				}
 			}
 		}catch(Exception exc){
+			exc.printStackTrace();
 			throw new Exception("ERROR_EXCEL");
+			//exc.printStackTrace();
 		}
 	}
 	
@@ -101,11 +114,14 @@ public class GeneraExcelReportes{
 	}
 	
 	private void nextSheet() throws Exception{
-        sheetIdx++;
+		if(sheetIdx<numberOfCreatedSheets-1)
+			sheetIdx++;
         rowIdx=0;
     }
 
     private void nextRow() throws Exception{
+    	//System.out.println("indice de hoja: "+sheetIdx);
+    	//sheetIdx=0;
         row = sheets[sheetIdx].createRow(rowIdx++);
         cellIdx = (short) 0;
     }
