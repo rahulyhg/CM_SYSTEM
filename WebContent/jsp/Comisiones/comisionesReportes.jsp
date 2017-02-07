@@ -40,7 +40,7 @@
 		</div>
 		<div id="content" class="container-fluid">
 			<form action="<%=request.getContextPath() %>/generarReporte.do" method="post" enctype="multipart/form-data" class="form-horizontal">
-				<input style="display: none;" id="semana" name="semana" value='<bean:write name="semana" />' />
+				<input style="display: none;" id="semana" name="semana" value='<bean:write name="semana" />' /> 
 				<div class="form-group">
 				  	<label for="radioMes" class="control-label col-sm-4 radio-inline">Reportes Mensuales:
 				  		<input type="radio" id="radioMes" name="mesSemana" style="width: initial;margin-left: 10px;" value="0">

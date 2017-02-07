@@ -115,7 +115,7 @@ $j(document).ready(function(){
 		url += '&tipoSemana='+ tipoSemana;
 		
 		if(mesSemana == ""){
-			alert("Debe serleccionar reportes Mensuales o semanales.");
+			alert("Debe seleccionar reportes Mensuales o semanales.");
 		}else if(mesSemana == "0" && (tipoMes == "" || tipoMes == "-1")){
 			alert("Debe de seleccionar el tipo reporte.");
 		}else if(mesSemana == "0" && (mesPeriodo == "" || mesPeriodo == "-1")){
@@ -123,7 +123,9 @@ $j(document).ready(function(){
 		}else if(mesSemana == "1" && (tipoSemana == "" || tipoSemana == "-1")){
 			alert("Debe de seleccionar el tipo reporte.");
 		}else if(mesSemana == "1" && (periodo == "" || periodo == "-1")){
-			alert("Debe de seleccionar la semana.");
+			alert("mes semana: "+mesSemana);
+			alert("periodo: "+periodo);
+			//alert("Debe de seleccionar la semana.");
 		}else{
 			$j.getJSON(url,function(data){
 				var size=data.tabla;
@@ -156,7 +158,10 @@ $j(document).ready(function(){
 
 function cargarPeriodo(data){
 	if(typeof data.tabla != 'undefined'){
-		var size=data.tabla.length;
+		//var size=data.tabla.length;
+		//var size = 12;
+		//Changed to load more weeks
+		var size = 53;
 		var comboCss="uno";
 		$j("#periodo").empty();
 		$j("#periodo").append('<option class="'+ comboCss+ '" value="-1"  style="color: #000000;font:  Verdana;font-family: Verdana;font-size: 8pt;" style="color: #000000;font:  Verdana;font-family: Verdana;font-size: 8pt;">--Seleccione una opción--</option>');
@@ -176,7 +181,8 @@ function cargarPeriodo(data){
 
 function cargarPeriodoMes(data){
 	if(typeof data.tabla != 'undefined'){
-		var size=data.tabla.length;
+		//var size=data.tabla.length;
+		var size = 12;
 		var comboCss="uno";
 		$j("#mesPeriodo").empty();
 		$j("#mesPeriodo").append('<option class="'+ comboCss+ '" value="-1"  style="color: #000000;font:  Verdana;font-family: Verdana;font-size: 8pt;" style="color: #000000;font:  Verdana;font-family: Verdana;font-size: 8pt;">--Seleccione una opción--</option>');

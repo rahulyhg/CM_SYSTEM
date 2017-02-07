@@ -147,7 +147,10 @@ public class ComisionesReportesAction extends ActionSupport{
 			comForm.setAnio(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		}
 		
-		List<PcTotalesSem> lista = comisionesReportesBO.obtenerPeriodo(comForm.getAnio());
+		/*This code charge the running period for weeks from a query loaded
+		 * from the database not used anymore 
+		 */
+		/*List<PcTotalesSem> lista = comisionesReportesBO.obtenerPeriodo(comForm.getAnio());
 		String elementoJSON = "{}";
 		if(lista!=null && lista.size()>0 ){
 			List<GenericoComboJsonVO> lstResp= new ArrayList<GenericoComboJsonVO>();
@@ -157,10 +160,70 @@ public class ComisionesReportesAction extends ActionSupport{
 				vo= new GenericoComboJsonVO();
 				vo.setValor(sem.getPcSem()+","+sem.getPcMes());
 				vo.setDescripcion("Semana "+sem.getPcSem());
-				lstResp.add(vo);	
+				lstResp.add(vo);
+				elementoJSON = Util.obtenerObjetoJSON(lstResp);
+				response.setContentType("text/json; charset=UTF-8");
 			}
-			elementoJSON = Util.obtenerObjetoJSON(lstResp);
+			
+		}*/
+		
+		
+		/*This code charge the running period for weeks 
+		 *  according to the year using the java.util.Calendar and load the 
+		 *  info in a JSON object
+		 */
+		List<GenericoComboJsonVO> lstResp= new ArrayList<GenericoComboJsonVO>();
+		String elementoJSON = "{}";
+		GenericoComboJsonVO vo= null; 
+		
+		
+		int selectedYear = new Integer(comForm.getAnio());
+		int runningYear = Calendar.getInstance().get(Calendar.YEAR);
+		Calendar calendar = Calendar.getInstance();
+        
+		//Current year
+		if(selectedYear == runningYear)
+		{	
+			
+			int runningWeek = calendar.get(Calendar.WEEK_OF_YEAR);
+			for(int week=1; week<runningWeek;week++){
+				vo= new GenericoComboJsonVO();
+				calendar.set(Calendar.WEEK_OF_YEAR, week);
+				int month = calendar.get(Calendar.MONTH)+1;
+				vo.setValor(week+","+selectedYear+month);
+				vo.setDescripcion("Semana "+week);
+				lstResp.add(vo);
+			}
 		}
+		//Past years
+		else
+		{
+			final int STARTING_WEEK = 1;
+			
+			Calendar cal = Calendar.getInstance();
+			cal.set(Calendar.YEAR, selectedYear);
+			cal.set(Calendar.MONTH, Calendar.DECEMBER);
+			cal.set(Calendar.DAY_OF_MONTH, 31);
+            int ordinalDay = cal.get(Calendar.DAY_OF_YEAR);
+			int weekDay = cal.get(Calendar.DAY_OF_WEEK) - 1; // Sunday = 0
+			int numberOfWeeks = (ordinalDay - weekDay + 10) / 7;
+			final int TOTAL_WEEKS_IN_A_YEAR =numberOfWeeks ;
+			
+			calendar.set(Calendar.YEAR,selectedYear);
+			
+			for(int week=STARTING_WEEK; week<=TOTAL_WEEKS_IN_A_YEAR;week++){
+				vo= new GenericoComboJsonVO();
+				calendar.set(Calendar.WEEK_OF_YEAR,week);
+				int month = calendar.get(Calendar.MONTH)+1;
+				vo.setValor(week+","+selectedYear+month);
+				vo.setDescripcion("Semana "+week);
+				lstResp.add(vo);
+			}
+			
+		}
+					
+		elementoJSON = Util.obtenerObjetoJSON(lstResp);
+		
 		response.setContentType("text/json; charset=UTF-8");
 		PrintWriter pw;
 		try {
@@ -183,9 +246,11 @@ public class ComisionesReportesAction extends ActionSupport{
 			comForm.setAnio(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		}
 		
-		List<PcTotalesSem> lista = comisionesReportesBO.obtenerPeridoMes(comForm.getAnio());
-		String elementoJSON = "{}";
-		if(lista!=null && lista.size()>0 ){
+		/*This code charge the running period for months from a query loaded
+		 * from the database not used anymore 
+		 */
+		//List<PcTotalesSem> lista = comisionesReportesBO.obtenerPeridoMes(comForm.getAnio());
+		/*if(lista!=null && lista.size()>0 ){
 			List<GenericoComboJsonVO> lstResp= new ArrayList<GenericoComboJsonVO>();
 			GenericoComboJsonVO vo= null; 
 			for(int i=0;i<lista.size();i++){
@@ -196,7 +261,58 @@ public class ComisionesReportesAction extends ActionSupport{
 				lstResp.add(vo);	
 			}
 			elementoJSON = Util.obtenerObjetoJSON(lstResp);
+		}*/
+		
+		
+		/*This code charge the months
+		 *  according to the year using the java.util.Calendar and load the 
+		 *  info in a JSON object
+		 */
+		int selectedYear = new Integer(comForm.getAnio());
+		int runningYear = Calendar.getInstance().get(Calendar.YEAR);
+		Calendar calendar = Calendar.getInstance();
+		
+		List<GenericoComboJsonVO> lstResp= new ArrayList<GenericoComboJsonVO>();
+		String elementoJSON = "{}";
+		GenericoComboJsonVO vo= null; 
+
+		if(selectedYear == runningYear)
+		{	
+			
+			int runningMonth = calendar.get(Calendar.MONTH);
+			for(int month=0; month<runningMonth;month++){
+				vo= new GenericoComboJsonVO();
+				calendar.set(Calendar.MONTH, month);
+				int monthToLoad = calendar.get(Calendar.MONTH)+1;
+				vo.setValor(selectedYear+","+selectedYear+monthToLoad);
+				vo.setDescripcion("Mes "+monthToLoad);
+				lstResp.add(vo);
+			}
 		}
+		else
+		{
+			final int STARTING_MONTH = 0;
+			
+			Calendar cal = Calendar.getInstance();
+			cal.set(Calendar.YEAR, selectedYear);
+			cal.set(Calendar.MONTH, Calendar.DECEMBER);
+						
+			final int TOTAL_MONTHS =12;
+			
+			calendar.set(Calendar.YEAR,selectedYear);
+			
+			for(int month=STARTING_MONTH; month<TOTAL_MONTHS;month++){
+				vo= new GenericoComboJsonVO();
+				calendar.set(Calendar.MONTH,month);
+				int monthToLoad = calendar.get(Calendar.MONTH)+1;
+				vo.setValor(selectedYear+","+selectedYear+monthToLoad);
+				vo.setDescripcion("Mes "+monthToLoad);
+				lstResp.add(vo);
+			}
+			
+		}
+		elementoJSON = Util.obtenerObjetoJSON(lstResp);
+		
 		response.setContentType("text/json; charset=UTF-8");
 		PrintWriter pw;
 		try {
