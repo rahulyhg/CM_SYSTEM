@@ -174,7 +174,7 @@ public class ReportesMensuales {
         "prodcm.sircestados se,      														" +                                         
         "prodcm.pc_divisiones d,    														" +                                          
         "prodcm.sirtseiseriesiusacell si,    												" +                                 
-        "pc_canal@ESISCOM_CYC v            													" +                                                   
+        "pc_canal@CLIECONP v            													" +                                                   
 		"WHERE cr.pc_renova_mes    = ?            											" +                                
 		"AND cr.cdg_cia          = ad.cdg_cia          										" +                            
 		"AND cr.num_transaccion  = ad.num_transaccion              							" +                
@@ -276,7 +276,7 @@ public class ReportesMensuales {
 		"prodcm.sircestados se,                                               						" +
 		"prodcm.pc_divisiones d,                                               						" +
 		"prodcm.sirtseiseriesiusacell si,                                     						" +
-		"pc_canal@ESISCOM_CYC v ,                                                      				" +
+		"pc_canal@CLIECONP v ,                                                      				" +
 		"prodcm.bs_bajas_bscs b                                                  					" +
 		"WHERE cb.pc_baja_mes            = ?                                          				" +
 		"AND cb.pc_orig_baja           = 'AC'                                      					" +
@@ -364,7 +364,7 @@ public class ReportesMensuales {
 		 "FROM  prodcm.pc_comis_bajas cb,                             		" +             
          "prodcm.param_act ad,                                        		" +       
          "prodcm.pc_paquetes_maestro pm,                                	" +     
-         "pc_canal@ESISCOM_CYC v,                                       	" +                    
+         "pc_canal@CLIECONP v,                                       	" +                    
          "prodcm.sircestados se,                                          	" +   
          "prodcm.pc_divisiones d,                                         	" +      
          "prodcm.sirtseiseriesiusacell si,                                	" +   
@@ -489,7 +489,7 @@ public class ReportesMensuales {
     "       SUBSTR(descuento_multilinea,LENGTH(descuento_multilinea)-1 ,2)/100 PORC_DESC   " +           
 	"FROM     PRODCM.PARAM_ACT A,              	  	" +                                 
     "   PRODCM.TRANSACCION_MTRO B ,            		" +                           
-    "   pvc.pvc_linea_cuenta@ESISCOM_PORTAL d,     	" +                         
+    "   pvc.pvc_linea_cuenta@ESISCOM_PORTREP d,     	" +                         
     "     pc_canal@ESISCOM_CYC c                  	" +                                         
 	"WHERE A.CDG_CIA = B.CDG_CIA                    " +                            
     "AND A.NUM_TRANSACCION  = B.NUM_TRANSACCION     " +                         
@@ -537,11 +537,11 @@ public class ReportesMensuales {
          "c.PC_DESC_CANAL        DESC_CANAL,             	" +                  
          "A.cve_contrato      CONTRATO,                   	" +               
          "(PPS.penalizacion_vendedores / 100)   DESCTO    	" +              
-		 "FROM   PVC_PROPUESTA_SERVICIOS@ESISCOM_PORTAL  PPS, 	" +                 
+		 "FROM   PVC_PROPUESTA_SERVICIOS@ESISCOM_PORTREP  PPS, 	" +                 
          "PVC_LINEA_CUENTA@ESISCOM_PORTAL         PLC,   	" +               
          "prodcm.PARAM_ACT                         A,     	" +             
          "prodcm.TRANSACCION_MTRO                  B,      	" +           
-         "  pc_canal@ESISCOM_CYC c                         	" +                           
+         "  pc_canal@CLIECONP c                         	" +                           
 		 "WHERE  PLC.id_propuesta_servicios = PPS.id      	" +                    
 		 "AND    A.cdg_cia          = B.cdg_cia          	" +                    
 		 "AND    A.num_transaccion  = B.num_transaccion    	" +                  
@@ -862,7 +862,7 @@ public class ReportesMensuales {
      "num_cel           NUM_CEL,          		" +         
      "ABONO_ATM         ABONO_ATM         		" +         
 	 "FROM TIEMPOAIRE_LOG@ESISCOM_PORTAL  a, 	" +                                  
-	 "CLIECON.PC_PUNTO_VENTAS@ESISCOM_CYC b    	" +                              
+	 "CLIECON.PC_PUNTO_VENTAS@CLIECONP b    	" +                              
 	 "WHERE TRUNC(TRANS_DATE_TIME) BETWEEN TO_DATE(?, 'YYYYMMDD')  	" +      
      "AND TO_DATE(?, 'YYYYMMDD')   	" +
 	 "AND STATUS IN ('AC')             	" +                                         

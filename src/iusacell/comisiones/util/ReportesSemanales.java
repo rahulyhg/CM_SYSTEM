@@ -254,7 +254,7 @@ public class ReportesSemanales {
 		"prodcm.SIRTSEISERIESIUSACELL SI, 	" +    
 		"prodcm.SIRCESTADOS SE,            	" +
 		"prodcm.PC_DIVISIONES D,       		" +
-		"pc_canal@ESISCOM_CYC CV          	" +
+		"pc_canal@CLIECONP CV          	" +
 		"WHERE pc.pc_Fecha_baja >= TO_DATE( ? ||' 000000','YYYYMMDD HH24MISS') 	" +      
 		"AND pc.pc_Fecha_baja <= TO_DATE( ? ||' 235959','YYYYMMDD HH24MISS')	" +      
 		"AND pa.cdg_cia = pc.cdg_cia         									" +
