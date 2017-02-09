@@ -6,10 +6,15 @@ import iusacell.comisiones.vo.ValueObject;
 
 public class MovimientosAdonsVO extends ValueObject {
 
-	private String[] campos = {"cveServ","descripcionServ","fecActServ","fecDesacServ","numContrato",
+	/*private String[] campos = {"cveServ","descripcionServ","fecActServ","fecDesacServ","numContrato",
 			"numTelefono","comision","comisionChb","concepto","cveCanal","cvePaquete","descCanal",
 			"descLargaPlan","diasBaja","diasCumplidos","fechaVenta","mesBaja","mesPago","porcDesc",
-			"porcDescAdi","tipoMovimiento","plazo","rentaServ"};
+			"porcDescAdi","tipoMovimiento","plazo","rentaServ"};*/
+	
+	private String[] campos = {"cveCanal","descripcionCanal","tipoMovimiento","numContrato","numTelefono",
+			"cvePaquete","descLargaPlan","plazo","fechaVenta","fecActServ","fecDesacServ","diasBaja",
+			"diasCumplidos","cveServ","descripcionServ","rentaServ","porcDesc","porcDescAdi","comision",
+			"comisionChb","concepto","mesPago","mesBaja"};
 	
 	private int[] longitudes = {5000,5000,5000,5000,5000,
 			5000,5000,5000,5000,5000,5000,5000,
@@ -17,7 +22,15 @@ public class MovimientosAdonsVO extends ValueObject {
 			5000,5000,5000,5000};
 	
 	private String cveServ;
+	private String descripcionCanal;
 	private String descripcionServ;
+	public String getDescripcionServ() {
+		return descripcionServ;
+	}
+
+	public void setDescripcionServ(String descripcionServ) {
+		this.descripcionServ = descripcionServ;
+	}
 	private String fecActServ;
 	private String fecDesacServ;
 	private String numContrato;
@@ -44,6 +57,7 @@ public class MovimientosAdonsVO extends ValueObject {
 	
 	public MovimientosAdonsVO(Map<String, Object> dato) {
 		this.cveServ = String.valueOf(dato.get("CVE_SERV"));
+		this.descripcionCanal = String.valueOf(dato.get("PC_DESC_CANAL"));
 		this.descripcionServ = String.valueOf(dato.get("DESCRIPCION_SERV"));
 		this.fecActServ = String.valueOf(dato.get("FEC_ACT_SERV"));
 		this.fecDesacServ = String.valueOf(dato.get("FEC_DESAC_SERV"));
@@ -87,11 +101,11 @@ public class MovimientosAdonsVO extends ValueObject {
 	public void setCveServ(String cveServ) {
 		this.cveServ = cveServ;
 	}
-	public String getDescripcionServ() {
-		return descripcionServ;
+	public String getDescripcionCanal() {
+		return descripcionCanal;
 	}
-	public void setDescripcionServ(String descripcionServ) {
-		this.descripcionServ = descripcionServ;
+	public void setDescripcionCanal(String descripcionCanal) {
+		this.descripcionCanal= descripcionCanal;
 	}
 	public String getFecActServ() {
 		return fecActServ;

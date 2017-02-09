@@ -123,8 +123,8 @@ public class ComisionesReportesDAOImpl extends JdbcDaoSupport implements Comisio
 		case 2: sql = ReportesMensuales.RENOVACIONES; param = new Object[2];param[0]=periodo;param[1]=periodo; break;
 		case 3: sql = ReportesMensuales.CHARGE_BACK_POSPAGO; break;
 		case 4: sql = ReportesMensuales.CHARGE_BACK_RENOV_POSPAGO; break;
-		case 5: sql = ReportesMensuales.COM_DIFERIDA_ACTIVACIONES_KYH; break;
-		case 6: sql = ReportesMensuales.COM_DIFERIDA_RENOVACIONES_KYH; break;
+		//case 5: sql = ReportesMensuales.COM_DIFERIDA_ACTIVACIONES_KYH; break;
+		//case 6: sql = ReportesMensuales.COM_DIFERIDA_RENOVACIONES_KYH; break;
 		case 7: sql = ReportesMensuales.DESCUENTOS_MULTILINEA; param = new Object[3];param[0]=periodo;param[1]=primerDia;param[2]=ultimoDia; break;
 		case 8: sql = ReportesMensuales.DESCUENTOS_ADICIONAL; param = new Object[3];param[0]=primerDia;param[1]=ultimoDia;param[2]=periodo; break;
 		case 9: sql = ReportesMensuales.DCTOS_MULTILINEA_TOTALES; param = new Object[2];param[0]=primerDia;param[1]=ultimoDia; break;

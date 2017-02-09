@@ -803,31 +803,36 @@ public class ReportesMensuales {
 		"	a.PC_MDN,			" +
 		"	a.PC_MONTO,			" +
 		"	a.PC_NOM_VEND,		" +
-		"	a.PC_ORIGEN_EMP,	" +
+		"	a.PC_ORIGEN_EMP,   	" +
 		"	a.TIPO_TRANSACCION 	" +
 		"from  prodcm.pc_comis_cobranza a where to_char(a.pc_fec_trans,'yyyymm') = ?"; */
 	
 	public static String COBRANZA =
-		"SELECT " +   
+		"SELECT   	" +
         "a.CDG_CIA, " +              
-        "a.CDG_CSI, " +              
-        "a.CDG_REGION, " +          
-        "a.NUM_TRANSACCION, " +      
-        "a.PC_CDG_CPTO_VTA, " +      
-        "a.PC_COBRANZA_MES, " +      
-        "a.PC_COMISION, " +          
-        "a.PC_CUSTOMER_ID, " +      
-        "a.PC_CVE_CANAL, " +          
-        "a.PC_CVE_ESQUEMA, " +      
-        "a.PC_CVE_VENDEDOR, " +      
-        "a.PC_DESC_CPTO, " +          
-        "a.PC_FEC_TRANS, " +          
-        "a.PC_MDN, " +              
-        "a.PC_MONTO, " +              
-        "a.PC_NOM_VEND, " +          
-        "a.PC_ORIGEN_EMP, " +      
-        "a.TIPO_TRANSACCION " +       
-    " FROM  prodcm.pc_comis_cobranza a WHERE to_char(a.pc_fec_trans,'yyyymm') = ? " ;
+        "a.CDG_CSI, " +             
+        "a.CDG_REGION, 	"+
+        "a.TIPO_TRANSACCION, 	" +           
+        "a.NUM_TRANSACCION,     " +
+        "to_char(a.PC_FEC_TRANS,'dd/mm/yyyy') PC_FEC_TRANS,  	" +   
+        "a.PC_MDN,             	" +
+        "'$' || trim(to_char(a.PC_COMISION, '99,999,990.00')) PC_COMISION,   	" + 
+        "'$' || trim(to_char(a.PC_MONTO, '99,999,990.00')) PC_MONTO, 			" +
+        "a.PC_CUSTOMER_ID,     	" +
+        "a.PC_CVE_VENDEDOR,    	" +
+        "a.PC_CVE_ESQUEMA,  	" +
+        "a.PC_CDG_CPTO_VTA,  	" + 
+        "a.PC_DESC_CPTO,     	" +
+        "a.PC_NOM_VEND,    		" +
+        "a.PC_COBRANZA_MES,     " + 
+        "a.PC_CVE_CANAL,       	" +  
+        "a.PC_ORIGEN_EMP       	" +
+       " FROM  prodcm.pc_comis_cobranza a WHERE to_char(a.pc_fec_trans,'yyyymm') = ? "; 
+
+	
+	
+	
+	
 	
 	/*public static String CAES_ARSA =
 		"	select 	CDG_CSI           CSI, 					" +
@@ -952,31 +957,32 @@ public class ReportesMensuales {
 	
 	
 	public static String MOVIMIENTOS_ADONS =
-		  "SELECT	" +                       
-          "a.PC_CVE_CANAL ,	" +
-          "a.PC_DESC_CANAL ,	" +
-          "a.PC_TIPO_MOVIMIENTO ,	" +
-          "a.NUM_CONTRATO ,	" +
-          "a.NUM_TELEFONO ,	" +
-          "a.PC_CVE_PAQUETE ,	" +
-          "a.PC_DESC_LARGA_PLAN ,	" +
-          "a.PLAZO ,	" +
-          "a.PC_FECHA_VENTA ,	" +
-          "a.FEC_ACT_SERV ,	" +
-          "a.FEC_DESAC_SERV ,	" +
-          "a.PC_DIAS_BAJA ,	" +
-          "a.PC_DIAS_CUMPLIDOS ,	" +
-          "a.CVE_SERV ,	" +
-          "a.DESCRIPCION_SERV ,	" +
-          "a.RENTA_SERV ,	" +
-          "a.PC_PORC_DESC ,	" +
-          "a.PC_PORC_DESC_ADI ,	" +
-          "a.PC_COMISION ,	" +
-          "a.PC_COMISION_CHB ,	" +
-          "a.PC_CONCEPTO ,	" +
-          "a.PC_MES_PAGO ,	" +
-          "a.PC_MES_BAJA	" +                 
-		  " FROM prodcm.pc_addons_mov a ";
+	"SELECT         			" +               
+    "a.PC_CVE_CANAL , 			" +
+    "a.PC_DESC_CANAL , 			" +
+    "a.PC_TIPO_MOVIMIENTO , 	" + 
+    "a.NUM_CONTRATO , 			" +
+    "a.NUM_TELEFONO , 			" +
+    "a.PC_CVE_PAQUETE , 		" +
+    "a.PC_DESC_LARGA_PLAN , 	" +
+    "a.PLAZO , 					" +
+    "a.PC_FECHA_VENTA ,  		" +
+    "a.FEC_ACT_SERV , 			" +
+    "a.FEC_DESAC_SERV , 		" +
+    "a.PC_DIAS_BAJA , 			" +
+    "a.PC_DIAS_CUMPLIDOS , 		" +
+    "a.CVE_SERV , 				" +
+    "a.DESCRIPCION_SERV , 		" +
+    "a.RENTA_SERV , 			" +
+    "a.PC_PORC_DESC , 			" +
+    "a.PC_PORC_DESC_ADI , 		" +
+    "a.PC_COMISION , 			" +
+    "a.PC_COMISION_CHB , 		" +
+    "a.PC_CONCEPTO , 			" +
+    "a.PC_MES_PAGO , 			" +
+    "a.PC_MES_BAJA             	" +   
+    "FROM prodcm.pc_addons_mov a"  ; 
+
 		
 	
 	/*public static String BAJAS_ADMINISTRATIVAS =
