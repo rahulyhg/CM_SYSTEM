@@ -59,8 +59,8 @@
 					  		<option class="uno" value="2">RENOVACIONES</option>
 					  		<option class="dos" value="3">CHARGE_BACK_POSPAGO</option>
 					  		<option class="uno" value="4">CHARGE_BACK_RENOV_POSPAGO</option>
-					  		<option class="dos" value="5">COM_DIFERIDA_ACTIVACIONES_KYH</option>
-					  		<option class="uno" value="6">COM_DIFERIDA_RENOVACIONES_KYH</option>
+					  		<!--  <option class="dos" value="5">COM_DIFERIDA_ACTIVACIONES_KYH</option> -->
+					  		<!--  <option class="uno" value="6">COM_DIFERIDA_RENOVACIONES_KYH</option>  -->
 					  		<option class="dos" value="7">DESCUENTOS_MULTILINEA</option>
 					  		<option class="uno" value="8">DESCUENTOS_ADICIONAL</option>
 					  		<option class="dos" value="9">DCTOS_MULTILINEA_TOTALES</option>

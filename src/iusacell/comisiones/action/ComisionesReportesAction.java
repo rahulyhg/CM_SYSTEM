@@ -116,7 +116,7 @@ public class ComisionesReportesAction extends ActionSupport{
 		vo.setValor(String.valueOf(anio+1));
 		vo.setDescripcion(String.valueOf(anio+1));
 		lstResp.add(vo);
-		for(int i=0;i<4;i++){
+		for(int i=0;i<10;i++){
 			vo = new GenericoComboJsonVO();
 			vo.setValor(String.valueOf(anio));
 			vo.setDescripcion(String.valueOf(anio));
@@ -284,8 +284,16 @@ public class ComisionesReportesAction extends ActionSupport{
 				vo= new GenericoComboJsonVO();
 				calendar.set(Calendar.MONTH, month);
 				int monthToLoad = calendar.get(Calendar.MONTH)+1;
-				vo.setValor(selectedYear+","+selectedYear+monthToLoad);
-				vo.setDescripcion("Mes "+monthToLoad);
+				if(monthToLoad<10)
+				{	
+					vo.setValor(selectedYear+","+selectedYear+"0"+monthToLoad);
+					vo.setDescripcion("Mes "+"0"+monthToLoad);
+				}
+				else
+				{	
+					vo.setValor(selectedYear+","+selectedYear+monthToLoad);
+					vo.setDescripcion("Mes "+monthToLoad);
+				}	
 				lstResp.add(vo);
 			}
 		}
@@ -305,8 +313,17 @@ public class ComisionesReportesAction extends ActionSupport{
 				vo= new GenericoComboJsonVO();
 				calendar.set(Calendar.MONTH,month);
 				int monthToLoad = calendar.get(Calendar.MONTH)+1;
-				vo.setValor(selectedYear+","+selectedYear+monthToLoad);
-				vo.setDescripcion("Mes "+monthToLoad);
+				if(monthToLoad<10)
+				{	
+					vo.setValor(selectedYear+","+selectedYear+"0"+monthToLoad);
+					vo.setDescripcion("Mes "+"0"+monthToLoad);
+				}
+				else
+				{	
+					vo.setValor(selectedYear+","+selectedYear+monthToLoad);
+					vo.setDescripcion("Mes "+monthToLoad);
+				}	
+				
 				lstResp.add(vo);
 			}
 			

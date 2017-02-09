@@ -185,7 +185,7 @@ public class ReportesSemanales {
 	
 	
 	
-	public static String BAJAS_ACTIVACIONES =
+	/*public static String BAJAS_ACTIVACIONES =
 		"	SELECT pc.cdg_region							REGION,				" +
 		"	       pa.cdg_plan_uso							PLAN_USO,			" +
 		"	       pc_desc_larga_plan						DESC_LARGA_PLAN,	" +
@@ -227,7 +227,52 @@ public class ReportesSemanales {
 		"		AND  se.edoclclave(+) = si.edoclclave			" +
 		"		AND  d.pc_cve_division(+) = si.pc_cve_division	" +
 		"		AND pc.pc_cve_canal = CV.pc_cve_canal			" +
-		"	ORDER BY 1 DESC";	
+		"	ORDER BY 1 DESC"; */
+	
+	public static String BAJAS_ACTIVACIONES =
+		"SELECT pc.cdg_region                            REGION,   	" +               
+        "pa.cdg_plan_uso                            PLAN_USO,      	" +       
+        "pc_desc_larga_plan                        DESC_LARGA_PLAN,	" +    
+        "PC.PC_CVE_canal                            CVE_CANAL,     	" +        
+        "CV.pc_desc_canal                            DESC_CANAL,   	" +         
+        "pc.pc_cve_contrato                        CVE_CONTRATO,   	" +      
+        "pc.pc_cuenta                                CUENTA,      	" +           
+        "num_telefono                                NUM_TELEFONO, 	" +        
+        "TO_CHAR(pc_fecha_venta, 'dd/mm/yyyy')     FECHA_VENTA,    	" +     
+        "TO_CHAR(pc_fecha_baja, 'dd/mm/yyyy')     FECHA_BAJA,     	" +        
+        "To_char(TRUNC(pc_fecha_baja - pc_fecha_venta))    DIAS_DIFF,	" +     
+        "to_char(pc_monto_act + pc_monto_resid)    SUMA_MONTOS,    	" +     
+        "si.pobkpnombre                            POBKPNOMBRE,    	" +     
+        "pc_des_division                            DES_DIVISION,  	" +       
+        "se.edodenombre                            EDODENOMBRE,    	" +     
+        "decode(pc.PC_ORIGEN_EQPO, 1, 'IUSACELL','CAJON')    ORIGEN_EQPO, 	" + 
+        "PC_MONTO_EQPO                            MONTO_EQPO,     	" +        
+        "DECODE(PA.PC_ORIGEN_EMP,'U','UNEFON','IUSACELL')    ORIGEN_EMP 	" +    
+		"FROM prodcm.PARAM_ACT pa,    	" +         
+		"prodcm.PC_COMIS_BAJAS pc,     	" +    
+		"prodcm.PC_PAQUETES_MAESTRO pm, " +    
+		"prodcm.SIRTSEISERIESIUSACELL SI, 	" +    
+		"prodcm.SIRCESTADOS SE,            	" +
+		"prodcm.PC_DIVISIONES D,       		" +
+		"pc_canal@ESISCOM_CYC CV          	" +
+		"WHERE pc.pc_Fecha_baja >= TO_DATE( ? ||' 000000','YYYYMMDD HH24MISS') 	" +      
+		"AND pc.pc_Fecha_baja <= TO_DATE( ? ||' 235959','YYYYMMDD HH24MISS')	" +      
+		"AND pa.cdg_cia = pc.cdg_cia         									" +
+		"AND pa.num_transaccion    = pc.num_transaccion     					" +
+		"AND pa.tipo_transaccion = pc.tipo_transaccion     						" +
+		"AND pa.num_contrato    = pc.num_contrato         						" +
+		"AND pa.cdg_region = pc.cdg_region                 						" +
+		"AND pa.cdg_csi = pc.cdg_csi                        					" + 
+		"AND pa.cdg_plan_uso = pm.pc_cve_paquete             					" +
+		"and pc.pc_orig_baja = 'AC'                         					" +
+		"AND  si.serie (+)= TO_NUMBER(SUBSTR(pa.num_telefono,1,6))     			" +
+		"AND  si.rango_ini(+) <= TO_NUMBER(SUBSTR(pa.num_telefono,7,4))     	" +
+		"AND  si.rango_fin (+)>= TO_NUMBER(SUBSTR(pa.num_telefono,7,4))     	" +
+		"AND  se.edoclclave(+) = si.edoclclave             						" +
+		"AND  d.pc_cve_division(+) = si.pc_cve_division     					" +
+		"AND pc.pc_cve_canal = CV.pc_cve_canal             						" +
+		"ORDER BY 1 DESC" ;   
+	 
 	
 	/*public static String BAJAS_RENOVACIONES = 
 		"	SELECT pc.cdg_region							REGION,				" +
