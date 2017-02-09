@@ -54,7 +54,7 @@ public class GeneraExcelReportes{
 				double numberSheets = Math.ceil((double)lst.size()/(double)numberCell);
 				numberOfCreatedSheets=(int)numberSheets;
 				createSheets(numberOfCreatedSheets);
-				//createSheets(1);
+				
 			}
 			nextRow();
 			
@@ -64,22 +64,21 @@ public class GeneraExcelReportes{
 			
 			for (int x=0; lst!=null && x<lst.size(); x++) {
 				objectList = (ValueObject)lst.get(x);
-				//if(sheetIdx>=numberOfCreatedSheets) //check this
-					//break;
+				
 				nextRow();
-				//Check this for
+								
 				for (int y=0; campos!=null && y<campos.length; y++) {
 					String metodo = ref.getMethod("get"+campos[y]);
-					//System.out.println("Metodo: "+metodo);
 					Object valor = ref.getValorMetodo(metodo, objectList);
 					if(detailStyle!=null)
 						cell.setCellStyle(detailStyle);
 					cell = row.createCell(y);
 					write(valor);
 				}
-				if(x>numberCell){
-					writeHeader(vo.getCampos());//vo.getHeaderReporte()
+				if(x!=0 && x%numberCell==0){
 					nextSheet();
+					nextRow();
+					writeHeader(vo.getCampos());
 				}
 			}
 		}catch(Exception exc){
@@ -100,16 +99,18 @@ public class GeneraExcelReportes{
 
 	private void createSheets(int numberSheets) throws Exception{
 		sheets = new HSSFSheet[numberSheets];
+		int numberOfSheet = 0;
 		for (int idx = 0; idx < numberSheets; idx++) {
 		    //sheets[idx] = workBook.createSheet(nameSheet.substring(0, nameSheet.length()-4)+idx);
 			//DataSheet's name max length: 31
-			int longitudMax =  31-String.valueOf(idx).length();
-			if(nameSheet.length()>longitudMax){
+			//int longitudMax =  31-String.valueOf(idx).length();
+			/*if(nameSheet.length()>longitudMax){
 				nameSheet = nameSheet.substring(0,longitudMax).concat(String.valueOf(idx+1));
 			}else{
 				nameSheet = nameSheet.concat(String.valueOf(idx+1));
-			}
-			sheets[idx] = workBook.createSheet(nameSheet);
+			}*/
+			numberOfSheet =  idx+1;
+			sheets[idx] = workBook.createSheet(nameSheet+numberOfSheet);
 		}
 	}
 	
@@ -120,9 +121,7 @@ public class GeneraExcelReportes{
     }
 
     private void nextRow() throws Exception{
-    	//System.out.println("indice de hoja: "+sheetIdx);
-    	//sheetIdx=0;
-        row = sheets[sheetIdx].createRow(rowIdx++);
+    	row = sheets[sheetIdx].createRow(rowIdx++);
         cellIdx = (short) 0;
     }
     
