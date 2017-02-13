@@ -8,6 +8,7 @@ package iusacell.comisiones.dao.impl;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,7 @@ import iusacell.comisiones.dao.ComisionesReportesDAO;
 import iusacell.comisiones.util.ReportesMensuales;
 import iusacell.comisiones.util.ReportesSemanales;
 import iusacell.comisiones.vo.PcTotalesSem;
+import iusacell.comisiones.vo.ValueObject;
 import iusacell.comisiones.vo.reportes.mensuales.ActivacionesVO;
 import iusacell.comisiones.vo.reportes.mensuales.AdonsVO;
 import iusacell.comisiones.vo.reportes.mensuales.BajasAdministrativasVO;
@@ -111,7 +113,7 @@ public class ComisionesReportesDAOImpl extends JdbcDaoSupport implements Comisio
 	@SuppressWarnings("unchecked")
 	public List obtenerReporteMensual(int consulta, String periodo, String primerDia, String ultimoDia){
 
-		List lista = new ArrayList();
+		List <ValueObject> lista = new ArrayList<ValueObject>();
 		String sql = null;
 		//periodo="201611"; //para pruebas
 		//periodo="200501"; //para pruebas
@@ -158,10 +160,14 @@ public class ComisionesReportesDAOImpl extends JdbcDaoSupport implements Comisio
 				case 13: lista.add(new CobranzaVO(dato)); break;
 				case 14: lista.add(new CaesArsaVO(dato)); break;
 				case 15: lista.add(new AdonsVO(dato)); break;
-				case 16: lista.add(new MovimientosAdonsVO(dato)); break;
+				case 16: lista.add(new MovimientosAdonsVO(dato)); break;  
 				case 17: lista.add(new BajasAdministrativasVO(dato)); break;
 				case 18: lista.add(new ReporteResidualesVO(dato)); break;
 				}
+			}
+			
+			switch(consulta){
+				case 16: Collections.sort((ArrayList)lista);  //Sort MovimientosAddons by activation date
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

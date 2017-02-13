@@ -7,6 +7,9 @@ import iusacell.comisiones.util.Reflection;
 import iusacell.comisiones.vo.ValueObject;
 
 import java.io.OutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -61,9 +64,9 @@ public class GeneraExcelReportes{
 			writeHeader(vo.getCampos());
 			ValueObject objectList = null;
 			String[] campos = vo.getCampos();
-			
+		    //Collections.sort(lst);
 			for (int x=0; lst!=null && x<lst.size(); x++) {
-				objectList = (ValueObject)lst.get(x);
+				objectList = (ValueObject)lst.get(x);       //Introducir un comparable???
 				
 				nextRow();
 								
@@ -163,7 +166,11 @@ public class GeneraExcelReportes{
         else if(obj instanceof Boolean)
         	cell.setCellValue(((Boolean)obj).booleanValue());
         else if(obj instanceof Date)
-        	cell.setCellValue((Date)obj);
+        {
+        	Date date = (Date)obj;
+        	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        	cell.setCellValue(new HSSFRichTextString(dateFormat.format(date)));
+        }	
     }
     
     public HSSFCellStyle getStyle() throws Exception{

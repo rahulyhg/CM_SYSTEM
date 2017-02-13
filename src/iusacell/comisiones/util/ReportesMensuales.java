@@ -956,7 +956,7 @@ public class ReportesMensuales {
 		"FROM prodcm.pc_addons_mov a ";*/
 	
 	
-	public static String MOVIMIENTOS_ADONS =
+	/*public static String MOVIMIENTOS_ADONS =
 	"SELECT         			" +               
     "a.PC_CVE_CANAL , 			" +
     "a.PC_DESC_CANAL , 			" +
@@ -981,7 +981,35 @@ public class ReportesMensuales {
     "a.PC_CONCEPTO , 			" +
     "a.PC_MES_PAGO , 			" +
     "a.PC_MES_BAJA             	" +   
-    "FROM prodcm.pc_addons_mov a"  ; 
+    "FROM prodcm.pc_addons_mov a"  ; */
+	
+	
+	public static String MOVIMIENTOS_ADONS=
+	   "SELECT              	" +             
+       "a.PC_CVE_CANAL ,   		" + 
+       "a.PC_DESC_CANAL ,   	" + 
+       "a.PC_TIPO_MOVIMIENTO ,  " + 
+       "a.NUM_CONTRATO ,   		" + 
+       "a.NUM_TELEFONO ,   		" + 
+       "a.PC_CVE_PAQUETE ,   	" + 
+       "a.PC_DESC_LARGA_PLAN ,  " + 
+       "a.PLAZO ,   			" + 
+       "to_char(a.PC_FECHA_VENTA ,'dd/mm/yyyy') PC_FECHA_VENTA ,   	" + 
+       "to_char(a.FEC_ACT_SERV,'dd/mm/yyyy') FEC_ACT_SERV ,     	" + 
+       "to_char(a.FEC_DESAC_SERV,'dd/mm/yyyy') FEC_DESAC_SERV ,   	" + 
+       "a.PC_DIAS_BAJA ,   		" + 
+       "a.PC_DIAS_CUMPLIDOS ,  	" + 
+       "a.CVE_SERV ,   			" + 
+       "a.DESCRIPCION_SERV ,   	" + 
+       "'$' || trim(to_char(nvl(a.RENTA_SERV,0), '99,999,990.00')) RENTA_SERV ,    	" + 
+       "'$' || trim(to_char(nvl(a.PC_PORC_DESC,0), '99,999,990.00')) PC_PORC_DESC,  " + 
+       "'$' || trim(to_char(nvl(a.PC_PORC_DESC_ADI,0), '99,999,990.00')) PC_PORC_DESC_ADI,    	" + 
+       "'$' || trim(to_char(nvl(a.PC_COMISION,0), '99,999,990.00')) PC_COMISION,   				" + 
+       "'$' || trim(to_char(nvl(a.PC_COMISION_CHB,0), '99,999,990.00')) PC_COMISION_CHB ,   	" + 
+       "a.PC_CONCEPTO ,   		" + 
+       "a.PC_MES_PAGO ,   		" + 
+       "a.PC_MES_BAJA         	" +       
+	   "FROM prodcm.pc_addons_mov a"  ; 
 
 		
 	
