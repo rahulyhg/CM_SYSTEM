@@ -1,10 +1,13 @@
 package iusacell.comisiones.vo.reportes.mensuales;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 import iusacell.comisiones.vo.ValueObject;
 
-public class MovimientosAdonsVO extends ValueObject {
+public class MovimientosAdonsVO extends ValueObject implements Comparable<MovimientosAdonsVO>{
 
 	/*private String[] campos = {"cveServ","descripcionServ","fecActServ","fecDesacServ","numContrato",
 			"numTelefono","comision","comisionChb","concepto","cveCanal","cvePaquete","descCanal",
@@ -31,8 +34,8 @@ public class MovimientosAdonsVO extends ValueObject {
 	public void setDescripcionServ(String descripcionServ) {
 		this.descripcionServ = descripcionServ;
 	}
-	private String fecActServ;
-	private String fecDesacServ;
+	private Date fecActServ;
+	private Date fecDesacServ;
 	private String numContrato;
 	private String numTelefono;
 	private String comision;
@@ -44,7 +47,7 @@ public class MovimientosAdonsVO extends ValueObject {
 	private String descLargaPlan;
 	private String diasBaja;
 	private String diasCumplidos;
-	private String fechaVenta;
+	private Date fechaVenta;
 	private String mesBaja;
 	private String mesPago;
 	private String porcDesc;
@@ -59,8 +62,6 @@ public class MovimientosAdonsVO extends ValueObject {
 		this.cveServ = String.valueOf(dato.get("CVE_SERV"));
 		this.descripcionCanal = String.valueOf(dato.get("PC_DESC_CANAL"));
 		this.descripcionServ = String.valueOf(dato.get("DESCRIPCION_SERV"));
-		this.fecActServ = String.valueOf(dato.get("FEC_ACT_SERV"));
-		this.fecDesacServ = String.valueOf(dato.get("FEC_DESAC_SERV"));
 		this.numContrato = String.valueOf(dato.get("NUM_CONTRATO"));
 		this.numTelefono = String.valueOf(dato.get("NUM_TELEFONO"));
 		this.comision = String.valueOf(dato.get("PC_COMISION"));
@@ -72,7 +73,20 @@ public class MovimientosAdonsVO extends ValueObject {
 		this.descLargaPlan = String.valueOf(dato.get("PC_DESC_LARGA_PLAN"));
 		this.diasBaja = String.valueOf(dato.get("PC_DIAS_BAJA"));
 		this.diasCumplidos = String.valueOf(dato.get("PC_DIAS_CUMPLIDOS"));
-		this.fechaVenta = String.valueOf(dato.get("PC_FECHA_VENTA"));
+		SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy");
+		Date date= null;
+		try {
+			date = dateformat.parse((String)dato.get("FEC_ACT_SERV"));
+			this.fecActServ = date;
+			
+			date = dateformat.parse((String)dato.get("FEC_ACT_SERV"));
+			this.fecDesacServ = date;
+			
+			date = dateformat.parse((String)dato.get("PC_FECHA_VENTA"));
+			this.fechaVenta = date;
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		this.mesBaja = String.valueOf(dato.get("PC_MES_BAJA"));
 		this.mesPago = String.valueOf(dato.get("PC_MES_PAGO"));
 		this.porcDesc = String.valueOf(dato.get("PC_PORC_DESC"));
@@ -107,16 +121,16 @@ public class MovimientosAdonsVO extends ValueObject {
 	public void setDescripcionCanal(String descripcionCanal) {
 		this.descripcionCanal= descripcionCanal;
 	}
-	public String getFecActServ() {
+	public Date getFecActServ() {
 		return fecActServ;
 	}
-	public void setFecActServ(String fecActServ) {
+	public void setFecActServ(Date fecActServ) {
 		this.fecActServ = fecActServ;
 	}
-	public String getFecDesacServ() {
+	public Date getFecDesacServ() {
 		return fecDesacServ;
 	}
-	public void setFecDesacServ(String fecDesacServ) {
+	public void setFecDesacServ(Date fecDesacServ) {
 		this.fecDesacServ = fecDesacServ;
 	}
 	public String getNumContrato() {
@@ -185,10 +199,10 @@ public class MovimientosAdonsVO extends ValueObject {
 	public void setDiasCumplidos(String diasCumplidos) {
 		this.diasCumplidos = diasCumplidos;
 	}
-	public String getFechaVenta() {
+	public Date getFechaVenta() {
 		return fechaVenta;
 	}
-	public void setFechaVenta(String fechaVenta) {
+	public void setFechaVenta(Date fechaVenta) {
 		this.fechaVenta = fechaVenta;
 	}
 	public String getMesBaja() {
@@ -232,6 +246,11 @@ public class MovimientosAdonsVO extends ValueObject {
 	}
 	public void setRentaServ(String rentaServ) {
 		this.rentaServ = rentaServ;
+	}
+
+	public int compareTo(MovimientosAdonsVO o) {
+		return this.fecActServ.compareTo(o.fecActServ);
+		
 	}
 	
 	
