@@ -66,7 +66,7 @@ public class GeneraExcelReportes{
 			String[] campos = vo.getCampos();
 		    //Collections.sort(lst);
 			for (int x=0; lst!=null && x<lst.size(); x++) {
-				objectList = (ValueObject)lst.get(x);       //Introducir un comparable???
+				objectList = (ValueObject)lst.get(x);      
 				
 				nextRow();
 								
