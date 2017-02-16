@@ -29,6 +29,8 @@ public class ComisionesReportesForm extends ActionForm{
 	private String tipoSemana;
 	private String go;
 	private String semana;
+	private String tipoReporteMes;
+	private String tipoReporteSemana;
 	
 	public String getAnio() {
 		return anio;
@@ -86,6 +88,50 @@ public class ComisionesReportesForm extends ActionForm{
 	}
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
+	}
+	public void setTipoReporteMes(String tipoReporteMes) {
+		switch(new Integer(tipoMes))
+		{
+			case 1: this.tipoReporteMes = "ACTIVACIONES"; break;
+			case 2: this.tipoReporteMes = "RENOVACIONES"; break;
+			case 3: this.tipoReporteMes = "CHARGE_BACK_POSPAGO"; break;
+			case 4: this.tipoReporteMes = "CHARGE_BACK_RENOV_POSPAGO"; break;
+			case 5: this.tipoReporteMes = "COM_DIFERIDA_ACTIVACIONES_KYH"; break; 
+			case 6: this.tipoReporteMes = "COM_DIFERIDA_RENOVACIONES_KYH"; break;   
+			case 7: this.tipoReporteMes = "DESCUENTOS_MULTILINEA"; break;
+			case 8: this.tipoReporteMes = "DESCUENTOS_ADICIONAL"; break;
+			case 9: this.tipoReporteMes = "DCTOS_MULTILINEA_TOTALES"; break;
+			case 10: this.tipoReporteMes = "DCTOS_ADICIONAL_TOTALES"; break;
+			case 11: this.tipoReporteMes = "PREPAGO_EQ_NUEVO"; break;
+			case 12: this.tipoReporteMes = "PREPAGO_EQ_CAJON"; break;
+			case 13: this.tipoReporteMes = "COBRANZA"; break;
+			case 14: this.tipoReporteMes = "CAES_ARSA"; break;
+			case 15: this.tipoReporteMes = "ADONS"; break;
+			case 16: this.tipoReporteMes = "MOVIMIENTOS_ADONS"; break;
+			case 17: this.tipoReporteMes = "BAJAS_ADMINISTRATIVAS"; break;
+			case 18: this.tipoReporteMes = "REPORTE_RESIDUALES"; break;
+
+		}	
+		
+	}
+	public String getTipoReporteMes() {
+		return tipoReporteMes;
+	}
+	public void setTipoReporteSemana(String tipoReporteSemana) {
+		switch(new Integer(tipoSemana))
+		{
+			case 1: this.tipoReporteSemana = "ACTIVACIONES"; break;
+			case 2: this.tipoReporteSemana = "RENOVACIONES"; break;
+			case 3: this.tipoReporteSemana = "BAJAS_ACTIVACIONES"; break;
+			case 4: this.tipoReporteSemana = "BAJAS_RENOVACIONES"; break;
+			case 5: this.tipoReporteSemana = "COBRANZA"; break; 
+			case 6: this.tipoReporteSemana = "PREPAGO"; break;   
+			case 7: this.tipoReporteSemana = "REPORTE_PORTABILIDAD"; break;
+		}	
+		
+	}
+	public String getTipoReporteSemana() {
+		return tipoReporteSemana;
 	}
 	
 }

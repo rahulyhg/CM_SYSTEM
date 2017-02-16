@@ -160,7 +160,7 @@ public class ComisionesReportesDAOImpl extends JdbcDaoSupport implements Comisio
 				case 13: lista.add(new CobranzaVO(dato)); break;
 				case 14: lista.add(new CaesArsaVO(dato)); break;
 				case 15: lista.add(new AdonsVO(dato)); break;
-				case 16: lista.add(new MovimientosAdonsVO(dato)); break;  
+				case 16: lista.add(new MovimientosAdonsVO(dato));break;  
 				case 17: lista.add(new BajasAdministrativasVO(dato)); break;
 				case 18: lista.add(new ReporteResidualesVO(dato)); break;
 				}
