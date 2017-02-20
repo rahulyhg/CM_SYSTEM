@@ -6,38 +6,38 @@ import iusacell.comisiones.vo.ValueObject;
 
 public class CobranzaVO extends ValueObject{
 	
-	private String[] campos = {"region","csi","descCanal","cveCanal","monto","comision","descCpto",
-			"pobkpombre","desDivision","edodenombre","origenEmp"};
+	private String[] campos = {"REGION","CSI","DESC_CANAL","CVE_CANAL","MONTO","COMISION","DESC_CPTO",
+			"POBKPNOMBRE","DES_DIVISION","EDODENOMBRE","ORIGEN_EMP"};
 	
 	private int[] longitudes = {5000,5000,5000,5000,5000,5000,5000,
 			5000,5000,5000,5000};
 	
-	private String region;
-	private String csi;
-	private String descCanal;
-	private String cveCanal;
-	private String monto;
-	private String comision;
-	private String descCpto;
-	private String pobkpombre;
-	private String desDivision;
-	private String edodenombre;
-	private String origenEmp;
+	private String REGION;
+	private String CSI;
+	private String DESC_CANAL;
+	private String CVE_CANAL;
+	private String MONTO;
+	private String COMISION;
+	private String DESC_CPTO;
+	private String POBKPNOMBRE;
+	private String DES_DIVISION;
+	private String EDODENOMBRE;
+	private String ORIGEN_EMP;
 	
 	public CobranzaVO() {}
 	
 	public CobranzaVO(Map<String, Object> dato) {
-		this.region = String.valueOf(dato.get("REGION"));
-		this.csi = String.valueOf(dato.get("CSI"));
-		this.descCanal = String.valueOf(dato.get("DESC_CANAL"));
-		this.cveCanal = String.valueOf(dato.get("CVE_CANAL"));
-		this.monto = String.valueOf(dato.get("MONTO"));
-		this.comision = String.valueOf(dato.get("COMISION"));
-		this.descCpto = String.valueOf(dato.get("DESC_CPTO"));
-		this.pobkpombre = String.valueOf(dato.get("POBKPNOMBRE"));
-		this.desDivision = String.valueOf(dato.get("DES_DIVISION"));
-		this.edodenombre = String.valueOf(dato.get("EDODENOMBRE"));
-		this.origenEmp = String.valueOf(dato.get("ORIGEN_EMP"));
+		this.REGION = String.valueOf(dato.get("REGION"));
+		this.CSI = String.valueOf(dato.get("CSI"));
+		this.DESC_CANAL = String.valueOf(dato.get("DESC_CANAL"));
+		this.CVE_CANAL = String.valueOf(dato.get("CVE_CANAL"));
+		this.MONTO = String.valueOf(dato.get("MONTO"));
+		this.COMISION = String.valueOf(dato.get("COMISION"));
+		this.DESC_CPTO = String.valueOf(dato.get("DESC_CPTO"));
+		this.POBKPNOMBRE = String.valueOf(dato.get("POBKPNOMBRE"));
+		this.DES_DIVISION = String.valueOf(dato.get("DES_DIVISION"));
+		this.EDODENOMBRE = String.valueOf(dato.get("EDODENOMBRE"));
+		this.ORIGEN_EMP = String.valueOf(dato.get("ORIGEN_EMP"));
 	}
 	
 	
@@ -53,71 +53,71 @@ public class CobranzaVO extends ValueObject{
 	public void setLongitudes(int[] longitudes) {
 		this.longitudes = longitudes;
 	}
-	public String getRegion() {
-		return region;
+	public String getREGION() {
+		return REGION;
 	}
-	public void setRegion(String region) {
-		this.region = region;
+	public void setREGION(String REGION) {
+		this.REGION = REGION;
 	}
-	public String getCsi() {
-		return csi;
+	public String getCSI() {
+		return CSI;
 	}
-	public void setCsi(String csi) {
-		this.csi = csi;
+	public void setCSI(String CSI) {
+		this.CSI = CSI;
 	}
-	public String getDescCanal() {
-		return descCanal;
+	public String getDESC_CANAL() {
+		return DESC_CANAL;
 	}
-	public void setDescCanal(String descCanal) {
-		this.descCanal = descCanal;
+	public void setDESC_CANAL(String DESC_CANAL) {
+		this.DESC_CANAL = DESC_CANAL;
 	}
-	public String getCveCanal() {
-		return cveCanal;
+	public String getCVE_CANAL() {
+		return CVE_CANAL;
 	}
-	public void setCveCanal(String cveCanal) {
-		this.cveCanal = cveCanal;
+	public void setCVE_CANAL(String CVE_CANAL) {
+		this.CVE_CANAL = CVE_CANAL;
 	}
-	public String getMonto() {
-		return monto;
+	public String getMONTO() {
+		return MONTO;
 	}
-	public void setMonto(String monto) {
-		this.monto = monto;
+	public void setMONTO(String MONTO) {
+		this.MONTO = MONTO;
 	}
-	public String getComision() {
-		return comision;
+	public String getCOMISION() {
+		return COMISION;
 	}
-	public void setComision(String comision) {
-		this.comision = comision;
+	public void setCOMISION(String COMISION) {
+		this.COMISION = COMISION;
 	}
-	public String getDescCpto() {
-		return descCpto;
+	public String getDESC_CPTO() {
+		return DESC_CPTO;
 	}
-	public void setDescCpto(String descCpto) {
-		this.descCpto = descCpto;
+	public void setDESC_CPTO(String DESC_CPTO) {
+		this.DESC_CPTO = DESC_CPTO;
 	}
-	public String getPobkpombre() {
-		return pobkpombre;
+	public String getPOBKPNOMBRE() {
+		return POBKPNOMBRE;
 	}
-	public void setPobkpombre(String pobkpombre) {
-		this.pobkpombre = pobkpombre;
+	public void setPOBKPNOMBRE(String POBKPNOMBRE) {
+		this.POBKPNOMBRE = POBKPNOMBRE;
 	}
-	public String getDesDivision() {
-		return desDivision;
+	public String getDES_DIVISION() {
+		return DES_DIVISION;
 	}
-	public void setDesDivision(String desDivision) {
-		this.desDivision = desDivision;
+	public void setDES_DIVISION(String DES_DIVISION) {
+		this.DES_DIVISION = DES_DIVISION;
 	}
-	public String getEdodenombre() {
-		return edodenombre;
+	public String getEDODENOMBRE() {
+		return EDODENOMBRE;
 	}
-	public void setEdodenombre(String edodenombre) {
-		this.edodenombre = edodenombre;
+	public void setEDODENOMBRE(String EDODENOMBRE) {
+		this.EDODENOMBRE = EDODENOMBRE;
 	}
-	public String getOrigenEmp() {
-		return origenEmp;
+	public String getORIGEN_EMP() {
+		return ORIGEN_EMP;
 	}
-	public void setOrigenEmp(String origenEmp) {
-		this.origenEmp = origenEmp;
+	public void setORIGEN_EMP(String ORIGEN_EMP) {
+		this.ORIGEN_EMP = ORIGEN_EMP;
 	}
 	
 	

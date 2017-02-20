@@ -6,56 +6,56 @@ import iusacell.comisiones.vo.ValueObject;
 
 public class ActivacionesVO extends ValueObject{
 	
-	private String[] campos = {"region","cvePaquete","descLargaPlan","cveCanal","descCanal","cveContrato",
-			"custcode","nombreUsua","esn","numTelefono","cveGpo","fecAltaCliente","plazoFor","montoActiv",
-			"pobknombre","desDivicion","edoDeNombre","renta","origenEmp"};
+	private String[] campos = {"REGION","CVE_PAQUETE","DESC_LARGA_PLAN","CVE_CANAL","DESC_CANAL","CVE_CONTRATO",
+			"CUSTCODE","NOMBRE_USUA","ESN","NUM_TELEFONO","CVE_GPO","FEC_ALTA_CLIENTE","PLAZO_FOR","MONTO_ACTIV",
+			"POBKNOMBRE","DES_DIVISION","EDODENOMBRE","RENTA","ORIGEN_EMP"};
 	
 	private int[] longitudes = {5000,5000,5000,5000,5000,5000,
 			5000,5000,5000,5000,5000,5000,5000,5000,
 			5000,5000,5000,5000,5000};
 	
-	private String region;
-	private String cvePaquete;
-	private String descLargaPlan;
-	private String cveCanal;
-	private String descCanal;
-	private String cveContrato;
-	private String custcode;
-	private String nombreUsua;
-	private String esn;
-	private String numTelefono;
-	private String cveGpo;
-	private String fecAltaCliente;
-	private String plazoFor;
-	private String montoActiv;
-	private String pobknombre;
-	private String desDivicion;
-	private String edoDeNombre;
-	private String renta;
-	private String origenEmp;
+	private String REGION;
+	private String CVE_PAQUETE;
+	private String DESC_LARGA_PLAN;
+	private String CVE_CANAL;
+	private String DESC_CANAL;
+	private String CVE_CONTRATO;
+	private String CUSTCODE;
+	private String NOMBRE_USUA;
+	private String ESN;
+	private String NUM_TELEFONO;
+	private String CVE_GPO;
+	private String FEC_ALTA_CLIENTE;
+	private String PLAZO_FOR;
+	private String MONTO_ACTIV;
+	private String POBKNOMBRE;
+	private String DES_DIVISION;
+	private String EDODENOMBRE;
+	private String RENTA;
+	private String ORIGEN_EMP;
 	
 	public ActivacionesVO() {}
 	
 	public ActivacionesVO(Map<String, Object> dato) {
-		this.region = String.valueOf(dato.get("REGION"));
-		this.cvePaquete = String.valueOf(dato.get("CVE_PAQUETE"));
-		this.descLargaPlan = String.valueOf(dato.get("DESC_LARGA_PLAN"));
-		this.cveCanal = String.valueOf(dato.get("CVE_CANAL"));
-		this.descCanal = String.valueOf(dato.get("DESC_CANAL"));
-		this.cveContrato = String.valueOf(dato.get("CVE_CONTRATO"));
-		this.custcode = String.valueOf(dato.get("CUSTCODE"));
-		this.nombreUsua = String.valueOf(dato.get("NOMBRE_USUA"));
-		this.esn = String.valueOf(dato.get("ESN"));
-		this.numTelefono = String.valueOf(dato.get("NUM_TELEFONO"));
-		this.cveGpo = String.valueOf(dato.get("CVE_GPO"));
-		this.fecAltaCliente = String.valueOf(dato.get("FEC_ALTA_CLIENTE"));
-		this.plazoFor = String.valueOf(dato.get("PLAZO_FOR"));
-		this.montoActiv = String.valueOf(dato.get("MONTO_ACTIV"));
-		this.pobknombre = String.valueOf(dato.get("POBKNOMBRE"));
-		this.desDivicion = String.valueOf(dato.get("DES_DIVISION"));
-		this.edoDeNombre = String.valueOf(dato.get("EDODENOMBRE"));
-		this.renta = String.valueOf(dato.get("RENTA"));
-		this.origenEmp = String.valueOf(dato.get("ORIGEN_EMP"));
+		this.REGION = String.valueOf(dato.get("REGION"));
+		this.CVE_PAQUETE = String.valueOf(dato.get("CVE_PAQUETE"));
+		this.DESC_LARGA_PLAN = String.valueOf(dato.get("DESC_LARGA_PLAN"));
+		this.CVE_CANAL = String.valueOf(dato.get("CVE_CANAL"));
+		this.DESC_CANAL = String.valueOf(dato.get("DESC_CANAL"));
+		this.CVE_CONTRATO = String.valueOf(dato.get("CVE_CONTRATO"));
+		this.CUSTCODE = String.valueOf(dato.get("CUSTCODE"));
+		this.NOMBRE_USUA = String.valueOf(dato.get("NOMBRE_USUA"));
+		this.ESN = String.valueOf(dato.get("ESN"));
+		this.NUM_TELEFONO = String.valueOf(dato.get("NUM_TELEFONO"));
+		this.CVE_GPO = String.valueOf(dato.get("CVE_GPO"));
+		this.FEC_ALTA_CLIENTE = String.valueOf(dato.get("FEC_ALTA_CLIENTE"));
+		this.PLAZO_FOR = String.valueOf(dato.get("PLAZO_FOR"));
+		this.MONTO_ACTIV = String.valueOf(dato.get("MONTO_ACTIV"));
+		this.POBKNOMBRE = String.valueOf(dato.get("POBKNOMBRE"));
+		this.DES_DIVISION = String.valueOf(dato.get("DES_DIVISION"));
+		this.EDODENOMBRE = String.valueOf(dato.get("EDODENOMBRE"));
+		this.RENTA = String.valueOf(dato.get("RENTA"));
+		this.ORIGEN_EMP = String.valueOf(dato.get("ORIGEN_EMP"));
 	}
 	
 	
@@ -71,119 +71,119 @@ public class ActivacionesVO extends ValueObject{
 	public void setLongitudes(int[] longitudes) {
 		this.longitudes = longitudes;
 	}
-	public String getRegion() {
-		return region;
+	public String getREGION() {
+		return REGION;
 	}
-	public void setRegion(String region) {
-		this.region = region;
+	public void setREGION(String REGION) {
+		this.REGION = REGION;
 	}
-	public String getCvePaquete() {
-		return cvePaquete;
+	public String getCVE_PAQUETE() {
+		return CVE_PAQUETE;
 	}
-	public void setCvePaquete(String cvePaquete) {
-		this.cvePaquete = cvePaquete;
+	public void setCVE_PAQUETE(String CVE_PAQUETE) {
+		this.CVE_PAQUETE = CVE_PAQUETE;
 	}
-	public String getDescLargaPlan() {
-		return descLargaPlan;
+	public String getDESC_LARGA_PLAN() {
+		return DESC_LARGA_PLAN;
 	}
-	public void setDescLargaPlan(String descLargaPlan) {
-		this.descLargaPlan = descLargaPlan;
+	public void setDESC_LARGA_PLAN(String DESC_LARGA_PLAN) {
+		this.DESC_LARGA_PLAN = DESC_LARGA_PLAN;
 	}
-	public String getCveCanal() {
-		return cveCanal;
+	public String getCVE_CANAL() {
+		return CVE_CANAL;
 	}
-	public void setCveCanal(String cveCanal) {
-		this.cveCanal = cveCanal;
+	public void setCVE_CANAL(String CVE_CANAL) {
+		this.CVE_CANAL = CVE_CANAL;
 	}
-	public String getDescCanal() {
-		return descCanal;
+	public String getDESC_CANAL() {
+		return DESC_CANAL;
 	}
-	public void setDescCanal(String descCanal) {
-		this.descCanal = descCanal;
+	public void setDESC_CANAL(String DESC_CANAL) {
+		this.DESC_CANAL = DESC_CANAL;
 	}
-	public String getCveContrato() {
-		return cveContrato;
+	public String getCVE_CONTRATO() {
+		return CVE_CONTRATO;
 	}
-	public void setCveContrato(String cveContrato) {
-		this.cveContrato = cveContrato;
+	public void setCVE_CONTRATO(String CVE_CONTRATO) {
+		this.CVE_CONTRATO = CVE_CONTRATO;
 	}
-	public String getCustcode() {
-		return custcode;
+	public String getCUSTCODE() {
+		return CUSTCODE;
 	}
-	public void setCustcode(String custcode) {
-		this.custcode = custcode;
+	public void setCUSTCODE(String CUSTCODE) {
+		this.CUSTCODE = CUSTCODE;
 	}
-	public String getNombreUsua() {
-		return nombreUsua;
+	public String getNOMBRE_USUA() {
+		return NOMBRE_USUA;
 	}
-	public void setNombreUsua(String nombreUsua) {
-		this.nombreUsua = nombreUsua;
+	public void setNOMBRE_USUA(String NOMBRE_USUA) {
+		this.NOMBRE_USUA = NOMBRE_USUA;
 	}
-	public String getEsn() {
-		return esn;
+	public String getESN() {
+		return ESN;
 	}
-	public void setEsn(String esn) {
-		this.esn = esn;
+	public void setESN(String ESN) {
+		this.ESN = ESN;
 	}
-	public String getNumTelefono() {
-		return numTelefono;
+	public String getNUM_TELEFONO() {
+		return NUM_TELEFONO;
 	}
-	public void setNumTelefono(String numTelefono) {
-		this.numTelefono = numTelefono;
+	public void setNUM_TELEFONO(String NUM_TELEFONO) {
+		this.NUM_TELEFONO = NUM_TELEFONO;
 	}
-	public String getCveGpo() {
-		return cveGpo;
+	public String getCVE_GPO() {
+		return CVE_GPO;
 	}
-	public void setCveGpo(String cveGpo) {
-		this.cveGpo = cveGpo;
+	public void setCVE_GPO(String CVE_GPO) {
+		this.CVE_GPO = CVE_GPO;
 	}
-	public String getFecAltaCliente() {
-		return fecAltaCliente;
+	public String getFEC_ALTA_CLIENTE() {
+		return FEC_ALTA_CLIENTE;
 	}
-	public void setFecAltaCliente(String fecAltaCliente) {
-		this.fecAltaCliente = fecAltaCliente;
+	public void setFEC_ALTA_CLIENTE(String FEC_ALTA_CLIENTE) {
+		this.FEC_ALTA_CLIENTE = FEC_ALTA_CLIENTE;
 	}
-	public String getPlazoFor() {
-		return plazoFor;
+	public String getPLAZO_FOR() {
+		return PLAZO_FOR;
 	}
-	public void setPlazoFor(String plazoFor) {
-		this.plazoFor = plazoFor;
+	public void setPLAZO_FOR(String PLAZO_FOR) {
+		this.PLAZO_FOR = PLAZO_FOR;
 	}
-	public String getMontoActiv() {
-		return montoActiv;
+	public String getMONTO_ACTIV() {
+		return MONTO_ACTIV;
 	}
-	public void setMontoActiv(String montoActiv) {
-		this.montoActiv = montoActiv;
+	public void setMONTO_ACTIV(String MONTO_ACTIV) {
+		this.MONTO_ACTIV = MONTO_ACTIV;
 	}
-	public String getPobknombre() {
-		return pobknombre;
+	public String getPOBKNOMBRE() {
+		return POBKNOMBRE;
 	}
-	public void setPobknombre(String pobknombre) {
-		this.pobknombre = pobknombre;
+	public void setPOBKNOMBRE(String POBKNOMBRE) {
+		this.POBKNOMBRE = POBKNOMBRE;
 	}
-	public String getDesDivicion() {
-		return desDivicion;
+	public String getDES_DIVISION() {
+		return DES_DIVISION;
 	}
-	public void setDesDivicion(String desDivicion) {
-		this.desDivicion = desDivicion;
+	public void setDES_DIVISION(String DES_DIVISION) {
+		this.DES_DIVISION = DES_DIVISION;
 	}
-	public String getEdoDeNombre() {
-		return edoDeNombre;
+	public String getEDODENOMBRE() {
+		return EDODENOMBRE;
 	}
-	public void setEdoDeNombre(String edoDeNombre) {
-		this.edoDeNombre = edoDeNombre;
+	public void setEDODENOMBRE(String EDODENOMBRE) {
+		this.EDODENOMBRE = EDODENOMBRE;
 	}
-	public String getRenta() {
-		return renta;
+	public String getRENTA() {
+		return RENTA;
 	}
-	public void setRenta(String renta) {
-		this.renta = renta;
+	public void setRENTA(String RENTA) {
+		this.RENTA = RENTA;
 	}
-	public String getOrigenEmp() {
-		return origenEmp;
+	public String getORIGEN_EMP() {
+		return ORIGEN_EMP;
 	}
-	public void setOrigenEmp(String origenEmp) {
-		this.origenEmp = origenEmp;
+	public void setORIGEN_EMP(String ORIGEN_EMP) {
+		this.ORIGEN_EMP = ORIGEN_EMP;
 	}
 	
 	

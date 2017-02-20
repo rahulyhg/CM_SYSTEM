@@ -6,56 +6,56 @@ import iusacell.comisiones.vo.ValueObject;
 
 public class ChargeBackRenovPospagoVO extends ValueObject{
 	
-	private String[] campos = {"nombreCanal","bajaMes","esn","region","descLargaPlan","cuenta","cveContrato",
-			"numTelefono","fechaVenta","fechaBaja","comision","montoServ","dias","poblacion","division",
-			"estado","razonMov","origenEqpo","montoEqpo"};
+	private String[] campos = {"NOMBRE_CANAL","BAJA_MES","ESN","REGION","DESC_LARGA_PLAN","CUENTA","CVE_CONTRATO",
+			"NUM_TELEFONO","FECHA_VENTA","FECHA_BAJA","COMISION","MONTO_SERV","DIAS","POBLACION","DIVISION",
+			"ESTADO","RAZON_MOV","ORIGEN_EQPO","MONTO_EQPO"};
 	
 	private int[] longitudes = {5000,5000,5000,5000,5000,5000,5000,
 			5000,5000,5000,5000,5000,5000,5000,5000,
 			5000,5000,5000,5000};
 	
-	private String nombreCanal;
-	private String bajaMes;
-	private String esn;
-	private String region;
-	private String descLargaPlan;
-	private String cuenta;
-	private String cveContrato;
-	private String numTelefono;
-	private String fechaVenta;
-	private String fechaBaja;
-	private String comision;
-	private String montoServ;
-	private String dias;
-	private String poblacion;
-	private String division;
-	private String estado;
-	private String razonMov;
-	private String origenEqpo;
-	private String montoEqpo;
+	private String NOMBRE_CANAL;
+	private String BAJA_MES;
+	private String ESN;
+	private String REGION;
+	private String DESC_LARGA_PLAN;
+	private String CUENTA;
+	private String CVE_CONTRATO;
+	private String NUM_TELEFONO;
+	private String FECHA_VENTA;
+	private String FECHA_BAJA;
+	private String COMISION;
+	private String MONTO_SERV;
+	private String DIAS;
+	private String POBLACION;
+	private String DIVISION;
+	private String ESTADO;
+	private String RAZON_MOV;
+	private String ORIGEN_EQPO;
+	private String MONTO_EQPO;
 	
 	public ChargeBackRenovPospagoVO() {}
 	
 	public ChargeBackRenovPospagoVO(Map<String, Object> dato) {
-		this.nombreCanal = String.valueOf(dato.get("NOMBRE_CANAL"));
-		this.bajaMes = String.valueOf(dato.get("BAJA_MES"));
-		this.esn = String.valueOf(dato.get("ESN"));
-		this.region = String.valueOf(dato.get("REGION"));
-		this.descLargaPlan = String.valueOf(dato.get("DESC_LARGA_PLAN"));
-		this.cuenta = String.valueOf(dato.get("CUENTA"));
-		this.cveContrato = String.valueOf(dato.get("CVE_CONTRATO"));
-		this.numTelefono = String.valueOf(dato.get("NUM_TELEFONO"));
-		this.fechaVenta = String.valueOf(dato.get("FECHA_VENTA"));
-		this.fechaBaja = String.valueOf(dato.get("FECHA_BAJA"));
-		this.comision = String.valueOf(dato.get("COMISION"));
-		this.montoServ = String.valueOf(dato.get("MONTO_SERV"));
-		this.dias = String.valueOf(dato.get("DIAS"));
-		this.poblacion = String.valueOf(dato.get("POBLACION"));
-		this.division = String.valueOf(dato.get("DIVISION"));
-		this.estado = String.valueOf(dato.get("ESTADO"));
-		this.razonMov = String.valueOf(dato.get("RAZON_MOV"));
-		this.origenEqpo = String.valueOf(dato.get("ORIGEN_EQPO"));
-		this.montoEqpo = String.valueOf(dato.get("MONTO_EQPO"));
+		this.NOMBRE_CANAL = String.valueOf(dato.get("NOMBRE_CANAL"));
+		this.BAJA_MES = String.valueOf(dato.get("BAJA_MES"));
+		this.ESN = String.valueOf(dato.get("ESN"));
+		this.REGION = String.valueOf(dato.get("REGION"));
+		this.DESC_LARGA_PLAN = String.valueOf(dato.get("DESC_LARGA_PLAN"));
+		this.CUENTA = String.valueOf(dato.get("CUENTA"));
+		this.CVE_CONTRATO = String.valueOf(dato.get("CVE_CONTRATO"));
+		this.NUM_TELEFONO = String.valueOf(dato.get("NUM_TELEFONO"));
+		this.FECHA_VENTA = String.valueOf(dato.get("FECHA_VENTA"));
+		this.FECHA_BAJA = String.valueOf(dato.get("FECHA_BAJA"));
+		this.COMISION = String.valueOf(dato.get("COMISION"));
+		this.MONTO_SERV = String.valueOf(dato.get("MONTO_SERV"));
+		this.DIAS = String.valueOf(dato.get("DIAS"));
+		this.POBLACION = String.valueOf(dato.get("POBLACION"));
+		this.DIVISION = String.valueOf(dato.get("DIVISION"));
+		this.ESTADO = String.valueOf(dato.get("ESTADO"));
+		this.RAZON_MOV = String.valueOf(dato.get("RAZON_MOV"));
+		this.ORIGEN_EQPO = String.valueOf(dato.get("ORIGEN_EQPO"));
+		this.MONTO_EQPO = String.valueOf(dato.get("MONTO_EQPO"));
 	}
 	
 	public String[] getCampos() {
@@ -70,119 +70,157 @@ public class ChargeBackRenovPospagoVO extends ValueObject{
 	public void setLongitudes(int[] longitudes) {
 		this.longitudes = longitudes;
 	}
-	public String getNombreCanal() {
-		return nombreCanal;
-	}
-	public void setNombreCanal(String nombreCanal) {
-		this.nombreCanal = nombreCanal;
-	}
-	public String getBajaMes() {
-		return bajaMes;
-	}
-	public void setBajaMes(String bajaMes) {
-		this.bajaMes = bajaMes;
-	}
-	public String getEsn() {
-		return esn;
-	}
-	public void setEsn(String esn) {
-		this.esn = esn;
-	}
-	public String getRegion() {
-		return region;
-	}
-	public void setRegion(String region) {
-		this.region = region;
-	}
-	public String getDescLargaPlan() {
-		return descLargaPlan;
-	}
-	public void setDescLargaPlan(String descLargaPlan) {
-		this.descLargaPlan = descLargaPlan;
-	}
-	public String getCuenta() {
-		return cuenta;
-	}
-	public void setCuenta(String cuenta) {
-		this.cuenta = cuenta;
-	}
-	public String getCveContrato() {
-		return cveContrato;
-	}
-	public void setCveContrato(String cveContrato) {
-		this.cveContrato = cveContrato;
-	}
-	public String getNumTelefono() {
-		return numTelefono;
-	}
-	public void setNumTelefono(String numTelefono) {
-		this.numTelefono = numTelefono;
-	}
-	public String getFechaVenta() {
-		return fechaVenta;
-	}
-	public void setFechaVenta(String fechaVenta) {
-		this.fechaVenta = fechaVenta;
-	}
-	public String getFechaBaja() {
-		return fechaBaja;
-	}
-	public void setFechaBaja(String fechaBaja) {
-		this.fechaBaja = fechaBaja;
-	}
-	public String getComision() {
-		return comision;
-	}
-	public void setComision(String comision) {
-		this.comision = comision;
-	}
-	public String getMontoServ() {
-		return montoServ;
-	}
-	public void setMontoServ(String montoServ) {
-		this.montoServ = montoServ;
-	}
-	public String getDias() {
-		return dias;
-	}
-	public void setDias(String dias) {
-		this.dias = dias;
-	}
-	public String getPoblacion() {
-		return poblacion;
-	}
-	public void setPoblacion(String poblacion) {
-		this.poblacion = poblacion;
-	}
-	public String getDivision() {
-		return division;
-	}
-	public void setDivision(String division) {
-		this.division = division;
-	}
-	public String getEstado() {
-		return estado;
-	}
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-	public String getRazonMov() {
-		return razonMov;
-	}
-	public void setRazonMov(String razonMov) {
-		this.razonMov = razonMov;
-	}
-	public String getOrigenEqpo() {
-		return origenEqpo;
-	}
-	public void setOrigenEqpo(String origenEqpo) {
-		this.origenEqpo = origenEqpo;
-	}
-	public String getMontoEqpo() {
-		return montoEqpo;
-	}
-	public void setMontoEqpo(String montoEqpo) {
-		this.montoEqpo = montoEqpo;
+
+	public String getNOMBRE_CANAL() {
+		return NOMBRE_CANAL;
 	}
 
+	public void setNOMBRE_CANAL(String nombre_canal) {
+		NOMBRE_CANAL = nombre_canal;
+	}
+
+	public String getBAJA_MES() {
+		return BAJA_MES;
+	}
+
+	public void setBAJA_MES(String baja_mes) {
+		BAJA_MES = baja_mes;
+	}
+
+	public String getESN() {
+		return ESN;
+	}
+
+	public void setESN(String esn) {
+		ESN = esn;
+	}
+
+	public String getREGION() {
+		return REGION;
+	}
+
+	public void setREGION(String region) {
+		REGION = region;
+	}
+
+	public String getDESC_LARGA_PLAN() {
+		return DESC_LARGA_PLAN;
+	}
+
+	public void setDESC_LARGA_PLAN(String desc_larga_plan) {
+		DESC_LARGA_PLAN = desc_larga_plan;
+	}
+
+	public String getCUENTA() {
+		return CUENTA;
+	}
+
+	public void setCUENTA(String cuenta) {
+		CUENTA = cuenta;
+	}
+
+	public String getCVE_CONTRATO() {
+		return CVE_CONTRATO;
+	}
+
+	public void setCVE_CONTRATO(String cve_contrato) {
+		CVE_CONTRATO = cve_contrato;
+	}
+
+	public String getNUM_TELEFONO() {
+		return NUM_TELEFONO;
+	}
+
+	public void setNUM_TELEFONO(String num_telefono) {
+		NUM_TELEFONO = num_telefono;
+	}
+
+	public String getFECHA_VENTA() {
+		return FECHA_VENTA;
+	}
+
+	public void setFECHA_VENTA(String fecha_venta) {
+		FECHA_VENTA = fecha_venta;
+	}
+
+	public String getFECHA_BAJA() {
+		return FECHA_BAJA;
+	}
+
+	public void setFECHA_BAJA(String fecha_baja) {
+		FECHA_BAJA = fecha_baja;
+	}
+
+	public String getCOMISION() {
+		return COMISION;
+	}
+
+	public void setCOMISION(String comision) {
+		COMISION = comision;
+	}
+
+	public String getMONTO_SERV() {
+		return MONTO_SERV;
+	}
+
+	public void setMONTO_SERV(String monto_serv) {
+		MONTO_SERV = monto_serv;
+	}
+
+	public String getDIAS() {
+		return DIAS;
+	}
+
+	public void setDIAS(String dias) {
+		DIAS = dias;
+	}
+
+	public String getPOBLACION() {
+		return POBLACION;
+	}
+
+	public void setPOBLACION(String poblacion) {
+		POBLACION = poblacion;
+	}
+
+	public String getDIVISION() {
+		return DIVISION;
+	}
+
+	public void setDIVISION(String division) {
+		DIVISION = division;
+	}
+
+	public String getESTADO() {
+		return ESTADO;
+	}
+
+	public void setESTADO(String estado) {
+		ESTADO = estado;
+	}
+
+	public String getRAZON_MOV() {
+		return RAZON_MOV;
+	}
+
+	public void setRAZON_MOV(String razon_mov) {
+		RAZON_MOV = razon_mov;
+	}
+
+	public String getORIGEN_EQPO() {
+		return ORIGEN_EQPO;
+	}
+
+	public void setORIGEN_EQPO(String origen_eqpo) {
+		ORIGEN_EQPO = origen_eqpo;
+	}
+
+	public String getMONTO_EQPO() {
+		return MONTO_EQPO;
+	}
+
+	public void setMONTO_EQPO(String monto_eqpo) {
+		MONTO_EQPO = monto_eqpo;
+	}
+	
 }
