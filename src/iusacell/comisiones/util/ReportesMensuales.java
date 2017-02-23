@@ -278,7 +278,7 @@ public class ReportesMensuales {
 	"FROM     PRODCM.PARAM_ACT A,              	  	" +                                 
     "   PRODCM.TRANSACCION_MTRO B ,            		" +                           
     "   pvc.pvc_linea_cuenta@ESISCOM_PORTREP d,     	" +                         
-    "     pc_canal@ESISCOM_CYC c                  	" +                                         
+    "     pc_canal@CLIECONP c                  	" +                                         
 	"WHERE A.CDG_CIA = B.CDG_CIA                    " +                            
     "AND A.NUM_TRANSACCION  = B.NUM_TRANSACCION     " +                         
     "AND A.TIPO_TRANSACCION = B.TIPO_TRANSACCION    " +                       
@@ -300,7 +300,7 @@ public class ReportesMensuales {
          "A.cve_contrato      CONTRATO,                   	" +               
          "(PPS.penalizacion_vendedores / 100)   DESCTO    	" +              
 		 "FROM   PVC_PROPUESTA_SERVICIOS@ESISCOM_PORTREP  PPS, 	" +                 
-         "PVC_LINEA_CUENTA@ESISCOM_PORTAL         PLC,   	" +               
+         "PVC_LINEA_CUENTA@ESISCOM_PORTREP         PLC,   	" +               
          "prodcm.PARAM_ACT                         A,     	" +             
          "prodcm.TRANSACCION_MTRO                  B,      	" +           
          "  pc_canal@CLIECONP c                         	" +                           
@@ -411,7 +411,8 @@ public class ReportesMensuales {
         "cp.pc_esn_d                 ESN_D,	" +                                   
         "to_char(cp.pc_fec_rep, 'dd-mm-yyyy') FEC_REP ,	" +                       
         "cp.pc_des_plan              DESC_PLAN,	" +                               
-        "cp.pc_modelo PC_MODELO,'$' || trim(to_char(cp.pc_precio_vta, '99,999,990.00' )) PRECIO_VTA,	" +       
+        "cp.pc_modelo PC_MODELO,   " +
+        " '$' || trim(to_char(cp.pc_precio_vta, '99,999,990.00' )) PRECIO_VTA,	" +       
         "cp.pc_num_factura           NUM_FACTURA,	" +                           
         "DECODE (cp.PC_ORIGEN_ACT, 'OTA','OTA','PRE', 'Preactivado', 'CTE', 'Cliente',  'Tellin') DESC_ORIGEN ,	" +       
         "'$' || trim(to_char(cp.pc_comision,'99,999,990.00'))  COMISION	" +       
@@ -467,12 +468,16 @@ public class ReportesMensuales {
      "cdg_producto      PRODUCTO,         		" +      
      "num_cel           NUM_CEL,          		" +         
      "ABONO_ATM         ABONO_ATM         		" +         
-	 "FROM TIEMPOAIRE_LOG@ESISCOM_PORTAL  a, 	" +                                  
+	 "FROM TIEMPOAIRE_LOG@ESISCOM_PORTREP  a, 	" +                                  
 	 "CLIECON.PC_PUNTO_VENTAS@CLIECONP b    	" +                              
-	 "WHERE TRUNC(TRANS_DATE_TIME) BETWEEN TO_DATE(?, 'YYYYMMDD')  	" +      
-     "AND TO_DATE(?, 'YYYYMMDD')   	" +
+	 "WHERE TRUNC(TRANS_DATE_TIME) BETWEEN TO_DATE(?, 'DD/MM/YYYY')  	" +      
+     "AND TO_DATE(?, 'DD/MM/YYYY')   	" +
 	 "AND STATUS IN ('AC')             	" +                                         
-	 "AND cdg_csi = b.pc_cve_ptoventas 	" +                                        
+	 "AND cdg_csi = b.pc_cve_ptoventas 	" +   
+     "AND cdg_csi  in ('R9-0074','R9-0287','R9-0073','R9-0513','R9-0531', "+
+                    "'R9-0527','R9-0555','R9-0556','R9-0557','R9-0056', "+
+                    "'R9-0088','R9-0295','R9-0298','R9-0300','R9-0301', "+
+                    "'R9-0579') " +                                    
 	  "ORDER BY 1, 3";
 
 	
@@ -485,9 +490,9 @@ public class ReportesMensuales {
          "a.NUM_TELEFONO ,  				"+
          "a.PC_CVE_PAQUETE ,  				"+
          "a.PC_DESC_LARGA_PLAN ,  			"+
-         "a.PC_FECHA_VENTA ,  				"+
-         "a.FEC_ACT_SERV ,  				"+
-         "a.FEC_DESA_SERV ,  				"+
+         "TO_CHAR(a.PC_FECHA_VENTA,'DD/MM/YYYY') ,  				"+
+         "TO_CHAR(a.FEC_ACT_SERV,'DD/MM/YYYY') ,  				"+
+         "TO_CHAR(a.FEC_DESA_SERV,'DD/MM/YYYY') ,  				"+
          "a.SNCODE ,  						"+
          "a.DESCRIPCION ,  					"+
          "a.ACCESSFEE ,  					"+
@@ -534,8 +539,8 @@ public class ReportesMensuales {
            "SELECT  						"+       
            "a.BB_CVE_CONTRATO ,				"+
            "a.BB_CUENTA ,					"+
-           "a.BB_FEC_BAJA ,					"+
-           "a.BB_FEC_ACT ,					"+
+           "TO_CHAR(a.BB_FEC_BAJA,'DD/MM/YYYY') ,					"+
+           "TO_CHAR(a.BB_FEC_ACT,'DD/MM/YYYY') ,					"+
            "a.BB_CVE_PLAN ,					"+
            "a.BB_CVE_CANAL ,				"+
            "a.BB_CVE_USUARIO ,				"+
@@ -559,8 +564,8 @@ public class ReportesMensuales {
      "a.DESCUENTO_MULTILINEA ,		" +
      "a.DESCUENTO_ADICIONAL ,   	" +
      "a.PLAZO_FORZOSO ,     		" +
-     "a.FECHA_ACTIVACION ,     		" +
-     "a.FECHA_FIN_PLAZO ,			" +
+     "TO_CHAR(a.FECHA_ACTIVACION,'DD/MM/YYYY') ,     		" +
+     "TO_CHAR(a.FECHA_FIN_PLAZO,'DD/MM/YYYY') ,			" +
      "a.COMISION ,    				" +
      "a.PERIODO ,     				" +
      "a.CLAVE_DIST_ORIG ,      		" +
@@ -572,7 +577,7 @@ public class ReportesMensuales {
      "a.CANAL_TP,               	" +
      "a.PC_DESC_TP_CANAL ,      	" +
      "a.PC_NOM_PTOVENTAS            " +     
-	 "FROM prodcm.reporte_201505_res_04 a WHERE a.periodo = ? "; 
+	 "FROM prodcm.reporte_201512_res_04 a WHERE a.periodo = ? "; 
 	
 	
 	

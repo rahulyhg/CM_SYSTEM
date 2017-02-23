@@ -55,7 +55,7 @@ public class ReportesSemanales {
         "PC.PC_CVE_CANAL                            CVE_CANAL,					" +                 
         "CV.pc_DESC_CANAL                        DESC_CANAL,					" +                 
         "TO_CHAR(PA.FEC_ACTIVACION, 'dd/mm/yyyy') FEC_ACTIVACION,				" +         
-        "pc_fecha_renova                            FECHA_RENOVA,				" +             
+        "TO_CHAR(pc.pc_fecha_renova,'dd/mm/yyyy')        FECHA_RENOVA,				" +             
         "pa.cve_contrato                            CVE_CONTRATO,				" +             
         "pa.custcode                                CUSTCODE,					" +                 
         "pa.nombre_usua||' '||pa.pater_usua||' '||pa.mater_usua NOMBRE_USUA,	" + 
