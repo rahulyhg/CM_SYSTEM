@@ -1,5 +1,7 @@
 package iusacell.comisiones.vo.reportes.mensuales;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 import iusacell.comisiones.vo.ValueObject;
@@ -14,8 +16,8 @@ public class BajasAdministrativasVO extends ValueObject{
 	
 	private String BB_CVE_CONTRATO;
 	private String BB_CUENTA;
-	private String BB_FEC_BAJA;
-	private String BB_FEC_ACT;
+	private Date BB_FEC_BAJA;
+	private Date BB_FEC_ACT;
 	private String BB_CVE_PLAN;
 	private String BB_CVE_CANAL;
 	private String BB_CVE_USUARIO;
@@ -29,8 +31,21 @@ public class BajasAdministrativasVO extends ValueObject{
 	public BajasAdministrativasVO(Map<String, Object> dato) {
 		this.BB_CVE_CONTRATO = String.valueOf(dato.get("BB_CVE_CONTRATO"));
 		this.BB_CUENTA = String.valueOf(dato.get("BB_CUENTA"));
-		this.BB_FEC_BAJA = String.valueOf(dato.get("BB_FEC_BAJA"));
-		this.BB_FEC_ACT = String.valueOf(dato.get("BB_FEC_ACT"));
+		SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy");
+		
+		Date fechaBaja = (Date)dato.get("BB_FEC_BAJA");
+		if(fechaBaja!=null)
+		{	
+			dateformat.format(fechaBaja);
+			this.BB_FEC_BAJA=fechaBaja;
+		}
+		Date fechaAct = (Date)dato.get("BB_FEC_ACT");
+		if(fechaAct!=null)
+		{	
+			dateformat.format(fechaAct);
+			this.BB_FEC_ACT=fechaAct;
+		}
+		
 		this.BB_CVE_PLAN = String.valueOf(dato.get("BB_CVE_PLAN"));
 		this.BB_CVE_CANAL = String.valueOf(dato.get("BB_CVE_CANAL"));
 		this.BB_CVE_USUARIO = String.valueOf(dato.get("BB_CVE_USUARIO"));
@@ -70,19 +85,19 @@ public class BajasAdministrativasVO extends ValueObject{
 		BB_CUENTA = bb_cuenta;
 	}
 
-	public String getBB_FEC_BAJA() {
+	public Date getBB_FEC_BAJA() {
 		return BB_FEC_BAJA;
 	}
 
-	public void setBB_FEC_BAJA(String bb_fec_baja) {
+	public void setBB_FEC_BAJA(Date bb_fec_baja) {
 		BB_FEC_BAJA = bb_fec_baja;
 	}
 
-	public String getBB_FEC_ACT() {
+	public Date getBB_FEC_ACT() {
 		return BB_FEC_ACT;
 	}
 
-	public void setBB_FEC_ACT(String bb_fec_act) {
+	public void setBB_FEC_ACT(Date bb_fec_act) {
 		BB_FEC_ACT = bb_fec_act;
 	}
 

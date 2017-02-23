@@ -669,7 +669,7 @@ public class ReportesMensuales {
 	
 	public static String PREPAGO_EQ_NUEVO =
 		 "SELECT v.pc_desc_canal                      NOMBRE	" +                          
-         ",cp.pc_activ_mes                     ACTIV_MEX	" +                      
+         ",cp.pc_activ_mes                     ACTIV_MES	" +                      
          ",to_char(cp.pc_region)               REGION	" +                          
          ",cp.pc_mdn                           MDN	" +                              
          ",cp.pc_esn_d                         ESN_D	" +                          
@@ -757,7 +757,7 @@ public class ReportesMensuales {
         "cp.pc_esn_d                 ESN_D,	" +                                   
         "to_char(cp.pc_fec_rep, 'dd-mm-yyyy') FEC_REP ,	" +                       
         "cp.pc_des_plan              DESC_PLAN,	" +                               
-        "cp.pc_modelo ,'$' || trim(to_char(cp.pc_precio_vta, '99,999,990.00' )) PRECIO_VTA,	" +       
+        "cp.pc_modelo PC_MODELO,'$' || trim(to_char(cp.pc_precio_vta, '99,999,990.00' )) PRECIO_VTA,	" +       
         "cp.pc_num_factura           NUM_FACTURA,	" +                           
         "DECODE (cp.PC_ORIGEN_ACT, 'OTA','OTA','PRE', 'Preactivado', 'CTE', 'Cliente',  'Tellin') DESC_ORIGEN ,	" +       
         "'$' || trim(to_char(cp.pc_comision,'99,999,990.00'))  COMISION	" +       
@@ -808,26 +808,26 @@ public class ReportesMensuales {
 		"from  prodcm.pc_comis_cobranza a where to_char(a.pc_fec_trans,'yyyymm') = ?"; */
 	
 	public static String COBRANZA =
-		"SELECT   	" +
-        "a.CDG_CIA, " +              
-        "a.CDG_CSI, " +             
-        "a.CDG_REGION, 	"+
-        "a.TIPO_TRANSACCION, 	" +           
-        "a.NUM_TRANSACCION,     " +
-        "to_char(a.PC_FEC_TRANS,'dd/mm/yyyy') PC_FEC_TRANS,  	" +   
-        "a.PC_MDN,             	" +
-        "'$' || trim(to_char(a.PC_COMISION, '99,999,990.00')) PC_COMISION,   	" + 
-        "'$' || trim(to_char(a.PC_MONTO, '99,999,990.00')) PC_MONTO, 			" +
-        "a.PC_CUSTOMER_ID,     	" +
-        "a.PC_CVE_VENDEDOR,    	" +
-        "a.PC_CVE_ESQUEMA,  	" +
-        "a.PC_CDG_CPTO_VTA,  	" + 
-        "a.PC_DESC_CPTO,     	" +
-        "a.PC_NOM_VEND,    		" +
-        "a.PC_COBRANZA_MES,     " + 
-        "a.PC_CVE_CANAL,       	" +  
-        "a.PC_ORIGEN_EMP       	" +
-       " FROM  prodcm.pc_comis_cobranza a WHERE to_char(a.pc_fec_trans,'yyyymm') = ? "; 
+	  "SELECT   			" +
+        "a.CDG_CIA,         " +     
+        "a.CDG_CSI,         " +      
+        "a.CDG_REGION,      " +
+		"a.TIPO_TRANSACCION, " + 	         
+        "a.NUM_TRANSACCION,  " +
+        "to_char(a.PC_FEC_TRANS,'dd/mm/yyyy') PC_FEC_TRANS,		" +
+		"a.PC_MDN,          " +
+        "'$'||trim(to_char(a.PC_COMISION,'99,999,990.00')) PC_COMISION, " +
+        "'$'||trim(to_char(a.PC_MONTO,'99,999,990.00')) PC_MONTO,  " +
+		"a.PC_CUSTOMER_ID,	" +  
+        "a.PC_CVE_VENDEDOR, " + 
+        "a.PC_CVE_ESQUEMA,  " + 	      
+        "a.PC_CDG_CPTO_VTA, " +
+		"a.PC_DESC_CPTO,    " +
+		"a.PC_NOM_VEND,	    " +	      
+        "a.PC_COBRANZA_MES, " +
+        "a.PC_CVE_CANAL,    " +
+        "a.PC_ORIGEN_EMP    " +
+	 "FROM  prodcm.pc_comis_cobranza a WHERE to_char(a.pc_fec_trans,'yyyymm') = ?" ; 
 
 	
 	
@@ -866,11 +866,7 @@ public class ReportesMensuales {
      "AND TO_DATE(?, 'YYYYMMDD')   	" +
 	 "AND STATUS IN ('AC')             	" +                                         
 	 "AND cdg_csi = b.pc_cve_ptoventas 	" +                                        
-	 "AND cdg_csi  in ('R9-0074','R9-0287','R9-0073','R9-0513','R9-0531', 	" +      
-     "'R9-0527','R9-0555','R9-0556','R9-0557','R9-0056',    				" +  
-     "'R9-0088','R9-0295','R9-0298','R9-0300','R9-0301',       				" +
-     "'R9-0579')                                              				" +
-	 "ORDER BY 1, 3";
+	  "ORDER BY 1, 3";
 
 	
 	/*public static String ADONS =

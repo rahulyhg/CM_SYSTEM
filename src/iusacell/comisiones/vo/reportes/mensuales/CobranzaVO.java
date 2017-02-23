@@ -6,9 +6,10 @@ import iusacell.comisiones.vo.ValueObject;
 
 public class CobranzaVO extends ValueObject{
 	
-	private String[] campos = {"CDG_CIA","CDG_CSI","CDG_REGION","NUM_TRANSACCION","PC_CDG_CPTO_VTA","PC_COBRANZA_MES",
-			"PC_COMISION","PC_CUSTOMER_ID","PC_CVE_CANAL","PC_CVE_ESQUEMA","PC_CVE_VENDEDOR","PC_DESC_CPTO","PC_FEC_TRANS","PC_MDN",
-			"PC_MONTO","PC_NOM_VEND","PC_ORIGEN_EMP","TIPO_TRANSACCION"};
+	private String[] campos = {"CDG_CIA","CDG_CSI","CDG_REGION","TIPO_TRANSACCION","NUM_TRANSACCION",
+			"PC_FEC_TRANS","PC_MDN","PC_COMISION","PC_MONTO","PC_CUSTOMER_ID","PC_CVE_VENDEDOR",
+			"PC_CVE_ESQUEMA","PC_CDG_CPTO_VTA","PC_DESC_CPTO","PC_NOM_VEND","PC_COBRANZA_MES",
+			"PC_CVE_CANAL","PC_ORIGEN_EMP", };
 	
 	private int[] longitudes = {};
 	

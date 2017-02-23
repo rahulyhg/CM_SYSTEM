@@ -7,10 +7,10 @@ import iusacell.comisiones.vo.ValueObject;
 public class CobranzaVO extends ValueObject{
 	
 	private String[] campos = {"REGION","CSI","DESC_CANAL","CVE_CANAL","MONTO","COMISION","DESC_CPTO",
-			"POBKPNOMBRE","DES_DIVISION","EDODENOMBRE","ORIGEN_EMP"};
+			"PC_CDG_CPTO_VTA","POBKPNOMBRE","DES_DIVISION","EDODENOMBRE","ORIGEN_EMP"};
 	
 	private int[] longitudes = {5000,5000,5000,5000,5000,5000,5000,
-			5000,5000,5000,5000};
+			5000,5000,5000,5000,5000};
 	
 	private String REGION;
 	private String CSI;
@@ -19,6 +19,7 @@ public class CobranzaVO extends ValueObject{
 	private String MONTO;
 	private String COMISION;
 	private String DESC_CPTO;
+	private String PC_CDG_CPTO_VTA;
 	private String POBKPNOMBRE;
 	private String DES_DIVISION;
 	private String EDODENOMBRE;
@@ -34,6 +35,7 @@ public class CobranzaVO extends ValueObject{
 		this.MONTO = String.valueOf(dato.get("MONTO"));
 		this.COMISION = String.valueOf(dato.get("COMISION"));
 		this.DESC_CPTO = String.valueOf(dato.get("DESC_CPTO"));
+		this.PC_CDG_CPTO_VTA = String.valueOf(dato.get("PC_CDG_CPTO_VTA"));
 		this.POBKPNOMBRE = String.valueOf(dato.get("POBKPNOMBRE"));
 		this.DES_DIVISION = String.valueOf(dato.get("DES_DIVISION"));
 		this.EDODENOMBRE = String.valueOf(dato.get("EDODENOMBRE"));
@@ -118,6 +120,14 @@ public class CobranzaVO extends ValueObject{
 	}
 	public void setORIGEN_EMP(String ORIGEN_EMP) {
 		this.ORIGEN_EMP = ORIGEN_EMP;
+	}
+
+	public void setPC_CDG_CPTO_VTA(String pC_CDG_CPTO_VTA) {
+		PC_CDG_CPTO_VTA = pC_CDG_CPTO_VTA;
+	}
+
+	public String getPC_CDG_CPTO_VTA() {
+		return PC_CDG_CPTO_VTA;
 	}
 	
 	

@@ -1,5 +1,8 @@
 package iusacell.comisiones.vo.reportes.mensuales;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 import iusacell.comisiones.vo.ValueObject;
@@ -21,9 +24,9 @@ public class AdonsVO extends ValueObject{
 	private String NUM_TELEFONO;
 	private String PC_CVE_PAQUETE;
 	private String PC_DESC_LARGA_PLAN;
-	private String PC_FECHA_VENTA;
-	private String FEC_ACT_SERV;
-	private String FEC_DESA_SERV;
+	private Date PC_FECHA_VENTA;
+	private Date FEC_ACT_SERV;
+	private Date FEC_DESA_SERV;
 	private String SNCODE;
 	private String DESCRIPCION;
 	private String ACCESSFEE;
@@ -46,9 +49,27 @@ public class AdonsVO extends ValueObject{
 		this.NUM_TELEFONO = String.valueOf(dato.get("NUM_TELEFONO"));
 		this.PC_CVE_PAQUETE = String.valueOf(dato.get("PC_CVE_PAQUETE"));
 		this.PC_DESC_LARGA_PLAN = String.valueOf(dato.get("PC_DESC_LARGA_PLAN"));
-		this.PC_FECHA_VENTA = String.valueOf(dato.get("PC_FECHA_VENTA"));
-		this.FEC_ACT_SERV = String.valueOf(dato.get("FEC_ACT_SERV"));
-		this.FEC_DESA_SERV = String.valueOf(dato.get("FEC_DESA_SERV"));
+		SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy");
+		
+			Date fechaAct = (Date)dato.get("FEC_ACT_SERV");
+			if(fechaAct!=null)
+			{	
+				dateformat.format(fechaAct);
+				this.FEC_ACT_SERV=fechaAct;
+			}
+			Date fechaDesact = (Date)dato.get("FEC_DESA_SERV");
+			if(fechaDesact!=null)
+			{	
+				dateformat.format(fechaDesact);
+				this.FEC_DESA_SERV=fechaDesact;
+			}		
+			Date fechaVenta = (Date)dato.get("PC_FECHA_VENTA");
+			if(fechaVenta!=null)
+			{	
+				dateformat.format(fechaVenta);
+				this.PC_FECHA_VENTA = fechaVenta;
+			}
+		
 		this.SNCODE = String.valueOf(dato.get("SNCODE"));
 		this.DESCRIPCION = String.valueOf(dato.get("DESCRIPCION"));
 		this.ACCESSFEE = String.valueOf(dato.get("ACCESSFEE"));
@@ -124,27 +145,27 @@ public class AdonsVO extends ValueObject{
 		PC_DESC_LARGA_PLAN = pc_desc_larga_plan;
 	}
 
-	public String getPC_FECHA_VENTA() {
+	public Date getPC_FECHA_VENTA() {
 		return PC_FECHA_VENTA;
 	}
 
-	public void setPC_FECHA_VENTA(String pc_fecha_venta) {
+	public void setPC_FECHA_VENTA(Date pc_fecha_venta) {
 		PC_FECHA_VENTA = pc_fecha_venta;
 	}
 
-	public String getFEC_ACT_SERV() {
+	public Date getFEC_ACT_SERV() {
 		return FEC_ACT_SERV;
 	}
 
-	public void setFEC_ACT_SERV(String fec_act_serv) {
+	public void setFEC_ACT_SERV(Date fec_act_serv) {
 		FEC_ACT_SERV = fec_act_serv;
 	}
 
-	public String getFEC_DESA_SERV() {
+	public Date getFEC_DESA_SERV() {
 		return FEC_DESA_SERV;
 	}
 
-	public void setFEC_DESA_SERV(String fec_desa_serv) {
+	public void setFEC_DESA_SERV(Date fec_desa_serv) {
 		FEC_DESA_SERV = fec_desa_serv;
 	}
 

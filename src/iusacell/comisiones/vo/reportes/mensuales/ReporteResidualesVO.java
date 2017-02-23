@@ -1,5 +1,7 @@
 package iusacell.comisiones.vo.reportes.mensuales;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 import iusacell.comisiones.vo.ValueObject;
@@ -25,8 +27,8 @@ public class ReporteResidualesVO extends ValueObject{
 	private String DESCUENTO_MULTILINEA;
 	private String DESCUENTO_ADICIONAL;
 	private String PLAZO_FORZOSO;
-	private String FECHA_ACTIVACION;
-	private String FECHA_FIN_PLAZO;
+	private Date FECHA_ACTIVACION;
+	private Date FECHA_FIN_PLAZO;
 	private String COMISION;
 	private String PERIODO;
 	private String CLAVE_DIST_ORIG;
@@ -51,8 +53,21 @@ public class ReporteResidualesVO extends ValueObject{
 		this.DESCUENTO_MULTILINEA = String.valueOf(dato.get("DESCUENTO_MULTILINEA"));
 		this.DESCUENTO_ADICIONAL = String.valueOf(dato.get("DESCUENTO_ADICIONAL"));
 		this.PLAZO_FORZOSO = String.valueOf(dato.get("PLAZO_FORZOSO"));
-		this.FECHA_ACTIVACION = String.valueOf(dato.get("FECHA_ACTIVACION"));
-		this.FECHA_FIN_PLAZO = String.valueOf(dato.get("FECHA_FIN_PLAZO"));
+		SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy");
+		
+		Date fechaAct = (Date)dato.get("FECHA_ACTIVACION");
+		if(fechaAct!=null)
+		{	
+			dateformat.format(fechaAct);
+			this.FECHA_ACTIVACION=fechaAct;
+		}
+		Date fechaDesact = (Date)dato.get("FECHA_FIN_PLAZO");
+		if(fechaDesact!=null)
+		{	
+			dateformat.format(fechaDesact);
+			this.FECHA_FIN_PLAZO=fechaDesact;
+		}
+		
 		this.COMISION = String.valueOf(dato.get("COMISION"));
 		this.PERIODO = String.valueOf(dato.get("PERIODO"));
 		this.CLAVE_DIST_ORIG = String.valueOf(dato.get("CLAVE_DIST_ORIG"));
@@ -153,19 +168,19 @@ public class ReporteResidualesVO extends ValueObject{
 		PLAZO_FORZOSO = plazo_forzoso;
 	}
 
-	public String getFECHA_ACTIVACION() {
+	public Date getFECHA_ACTIVACION() {
 		return FECHA_ACTIVACION;
 	}
 
-	public void setFECHA_ACTIVACION(String fecha_activacion) {
+	public void setFECHA_ACTIVACION(Date fecha_activacion) {
 		FECHA_ACTIVACION = fecha_activacion;
 	}
 
-	public String getFECHA_FIN_PLAZO() {
+	public Date getFECHA_FIN_PLAZO() {
 		return FECHA_FIN_PLAZO;
 	}
 
-	public void setFECHA_FIN_PLAZO(String fecha_fin_plazo) {
+	public void setFECHA_FIN_PLAZO(Date fecha_fin_plazo) {
 		FECHA_FIN_PLAZO = fecha_fin_plazo;
 	}
 

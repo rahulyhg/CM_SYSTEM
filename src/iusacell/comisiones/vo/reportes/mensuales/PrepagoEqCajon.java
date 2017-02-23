@@ -7,7 +7,7 @@ import iusacell.comisiones.vo.ValueObject;
 public class PrepagoEqCajon extends ValueObject{
 	
 	private String[] campos = {"NOMBRE","ACTIV_MES","CONCEPTO","TIPO_VENTA","MDN","ESN_D","FEC_REP",
-			"DESC_PLAN","PRECIO_VTA","NUM_FACTURA","DESC_ORIGEN","COMISION"};
+			"DESC_PLAN","PC_MODELO","PRECIO_VTA","NUM_FACTURA","DESC_ORIGEN","COMISION"};
 	
 	private int[] longitudes = {};
 	
@@ -19,6 +19,7 @@ public class PrepagoEqCajon extends ValueObject{
 	private String ESN_D;
 	private String FEC_REP;
 	private String DESC_PLAN;
+	private String PC_MODELO;
 	private String PRECIO_VTA;
 	private String NUM_FACTURA;
 	private String DESC_ORIGEN;
@@ -35,6 +36,7 @@ public class PrepagoEqCajon extends ValueObject{
 		this.ESN_D = String.valueOf(dato.get("ESN_D"));
 		this.FEC_REP = String.valueOf(dato.get("FEC_REP"));
 		this.DESC_PLAN = String.valueOf(dato.get("DESC_PLAN"));
+	    this.PC_MODELO = String.valueOf(dato.get("DESC_PLAN"));
 		this.PRECIO_VTA = String.valueOf(dato.get("PRECIO_VTA"));
 		this.NUM_FACTURA = String.valueOf(dato.get("NUM_FACTURA"));
 		this.DESC_ORIGEN = String.valueOf(dato.get("DESC_ORIGEN"));
@@ -148,6 +150,14 @@ public class PrepagoEqCajon extends ValueObject{
 
 	public void setCOMISION(String comision) {
 		COMISION = comision;
+	}
+
+	public void setPC_MODELO(String pC_MODELO) {
+		PC_MODELO = pC_MODELO;
+	}
+
+	public String getPC_MODELO() {
+		return PC_MODELO;
 	}
 	
 	

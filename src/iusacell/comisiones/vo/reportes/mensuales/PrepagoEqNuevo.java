@@ -6,14 +6,14 @@ import iusacell.comisiones.vo.ValueObject;
 
 public class PrepagoEqNuevo extends ValueObject{
 	
-	private String[] campos = {"NOMBRE","ACTIV_MEX","REGION","MDN","ESN_D","FEC_REP","DES_PLAN",
+	private String[] campos = {"NOMBRE","ACTIV_MES","REGION","MDN","ESN_D","FEC_REP","DES_PLAN",
 			"MODELO","PRECIO_VTA","COMISION","DESC_ORIGEN","POBLACION","DIVISION","ESTADO",
 			"NUM_FACTURA","NOM_VENDEDOR"};
 	
 	private int[] longitudes = {};
 	
 	private String NOMBRE;
-	private String ACTIV_MEX;
+	private String ACTIV_MES;
 	private String REGION;
 	private String MDN;
 	private String ESN_D;
@@ -33,7 +33,7 @@ public class PrepagoEqNuevo extends ValueObject{
 	
 	public PrepagoEqNuevo(Map<String, Object> dato) {
 		this.NOMBRE = String.valueOf(dato.get("NOMBRE"));
-		this.ACTIV_MEX = String.valueOf(dato.get("ACTIV_MEX"));
+		this.ACTIV_MES = String.valueOf(dato.get("ACTIV_MES"));
 		this.REGION = String.valueOf(dato.get("REGION"));
 		this.MDN = String.valueOf(dato.get("MDN"));
 		this.ESN_D = String.valueOf(dato.get("ESN_D"));
@@ -71,12 +71,12 @@ public class PrepagoEqNuevo extends ValueObject{
 		NOMBRE = nombre;
 	}
 
-	public String getACTIV_MEX() {
-		return ACTIV_MEX;
+	public String getACTIV_MES() {
+		return ACTIV_MES;
 	}
 
-	public void setACTIV_MEX(String activ_mex) {
-		ACTIV_MEX = activ_mex;
+	public void setACTIV_MES(String activ_mes) {
+		ACTIV_MES = activ_mes;
 	}
 
 	public String getREGION() {
