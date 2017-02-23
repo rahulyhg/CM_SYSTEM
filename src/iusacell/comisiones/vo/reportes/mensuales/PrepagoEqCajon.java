@@ -36,7 +36,7 @@ public class PrepagoEqCajon extends ValueObject{
 		this.ESN_D = String.valueOf(dato.get("ESN_D"));
 		this.FEC_REP = String.valueOf(dato.get("FEC_REP"));
 		this.DESC_PLAN = String.valueOf(dato.get("DESC_PLAN"));
-	    this.PC_MODELO = String.valueOf(dato.get("DESC_PLAN"));
+	    this.PC_MODELO = String.valueOf(dato.get("PC_MODELO"));
 		this.PRECIO_VTA = String.valueOf(dato.get("PRECIO_VTA"));
 		this.NUM_FACTURA = String.valueOf(dato.get("NUM_FACTURA"));
 		this.DESC_ORIGEN = String.valueOf(dato.get("DESC_ORIGEN"));
