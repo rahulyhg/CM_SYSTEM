@@ -6,22 +6,22 @@ import iusacell.comisiones.vo.ValueObject;
 
 public class DescuentosMultilineaVO extends ValueObject{
 	
-	private String[] campos = {"vendedor","descCanal","numContrato","porcDesc"};
+	private String[] campos = {"VENDEDOR","DESC_CANAL","NUM_CONTRATO","PORC_DESC"};
 	
 	private int[] longitudes = {5000,5000,5000,5000};
 	
-	private String vendedor;
-	private String descCanal;
-	private String numContrato;
-	private String porcDesc;
+	private String VENDEDOR;
+	private String DESC_CANAL;
+	private String NUM_CONTRATO;
+	private String PORC_DESC;
 	
 	public DescuentosMultilineaVO() {}
 	
 	public DescuentosMultilineaVO(Map<String, Object> dato) {
-		this.vendedor = String.valueOf(dato.get("VENDEDOR"));
-		this.descCanal = String.valueOf(dato.get("DESC_CANAL"));
-		this.numContrato = String.valueOf(dato.get("NUM_CONTRATO"));
-		this.porcDesc = String.valueOf(dato.get("PORC_DESC"));
+		this.VENDEDOR = String.valueOf(dato.get("VENDEDOR"));
+		this.DESC_CANAL = String.valueOf(dato.get("DESC_CANAL"));
+		this.NUM_CONTRATO = String.valueOf(dato.get("NUM_CONTRATO"));
+		this.PORC_DESC = String.valueOf(dato.get("PORC_DESC"));
 	}
 	
 	public String[] getCampos() {
@@ -36,31 +36,39 @@ public class DescuentosMultilineaVO extends ValueObject{
 	public void setLongitudes(int[] longitudes) {
 		this.longitudes = longitudes;
 	}
-	public String getVendedor() {
-		return vendedor;
+
+	public String getVENDEDOR() {
+		return VENDEDOR;
 	}
-	public void setVendedor(String vendedor) {
-		this.vendedor = vendedor;
+
+	public void setVENDEDOR(String vendedor) {
+		VENDEDOR = vendedor;
 	}
-	public String getDescCanal() {
-		return descCanal;
+
+	public String getDESC_CANAL() {
+		return DESC_CANAL;
 	}
-	public void setDescCanal(String descCanal) {
-		this.descCanal = descCanal;
+
+	public void setDESC_CANAL(String desc_canal) {
+		DESC_CANAL = desc_canal;
 	}
-	public String getNumContrato() {
-		return numContrato;
+
+	public String getNUM_CONTRATO() {
+		return NUM_CONTRATO;
 	}
-	public void setNumContrato(String numContrato) {
-		this.numContrato = numContrato;
+
+	public void setNUM_CONTRATO(String num_contrato) {
+		NUM_CONTRATO = num_contrato;
 	}
-	public String getPorcDesc() {
-		return porcDesc;
+
+	public String getPORC_DESC() {
+		return PORC_DESC;
 	}
-	public void setPorcDesc(String porcDesc) {
-		this.porcDesc = porcDesc;
+
+	public void setPORC_DESC(String porc_desc) {
+		PORC_DESC = porc_desc;
 	}
-	
+		
 	
 
 }

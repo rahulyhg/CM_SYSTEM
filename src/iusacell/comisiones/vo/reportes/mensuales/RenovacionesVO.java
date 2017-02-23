@@ -6,59 +6,59 @@ import iusacell.comisiones.vo.ValueObject;
 
 public class RenovacionesVO extends ValueObject{
 	
-	private String[] campos = {"empresario","periodo","region","descripcionDelPlan","fechaRenovacion",
-			"fechaActivacion","plazoForzoso","cuenta","contrato","esn","telefono","cliente",
-			"descuentoMultilinea","descuentoAdicional","marca","renta","comision","poblacion",
-			"division","estado"};
+	private String[] campos = {"EMPRESARIO","PERIODO","REGION","DESCRIPCION_DEL_PLAN","FECHA_RENOVACION",
+			"FECHA_ACTIVACION","PLAZO_FORZOSO","CUENTA","CONTRATO","ESN","TELEFONO","CLIENTE",
+			"DESCUENTO_MULTILINEA","DESCUENTO_ADICIONAL","MARCA","RENTA","COMISION","POBLACION",
+			"DIVISION","ESTADO"};
 	private int[] longitudes = {5000,5000,5000,5000,5000,
 			5000,5000,5000,5000,5000,5000,5000,
 			5000,5000,5000,5000,5000,5000,
 			5000,5000};
 
-	private String empresario;
-	private String periodo;
-	private String region;
-	private String descripcionDelPlan;
-	private String fechaRenovacion;
-	private String fechaActivacion;
-	private String plazoForzoso;
-	private String cuenta;
-	private String contrato;
-	private String esn;
-	private String telefono;
-	private String cliente;
-	private String descuentoMultilinea;
-	private String descuentoAdicional;
-	private String marca;
-	private String renta;
-	private String comision;
-	private String poblacion;
-	private String division;
-	private String estado;
+	private String EMPRESARIO;
+	private String PERIODO;
+	private String REGION;
+	private String DESCRIPCION_DEL_PLAN;
+	private String FECHA_RENOVACION;
+	private String FECHA_ACTIVACION;
+	private String PLAZO_FORZOSO;
+	private String CUENTA;
+	private String CONTRATO;
+	private String ESN;
+	private String TELEFONO;
+	private String CLIENTE;
+	private String DESCUENTO_MULTILINEA;
+	private String DESCUENTO_ADICIONAL;
+	private String MARCA;
+	private String RENTA;
+	private String COMISION;
+	private String POBLACION;
+	private String DIVISION;
+	private String ESTADO;
 	
 	public RenovacionesVO() {}
 	
 	public RenovacionesVO(Map<String, Object> dato) {
-		this.empresario = String.valueOf(dato.get("EMPRESARIO"));
-		this.periodo = String.valueOf(dato.get("PERIODO"));
-		this.region = String.valueOf(dato.get("REGION"));
-		this.descripcionDelPlan = String.valueOf(dato.get("DESCRIPCION_DEL_PLAN"));
-		this.fechaRenovacion = String.valueOf(dato.get("FECHA_RENOVACION"));
-		this.fechaActivacion = String.valueOf(dato.get("FECHA_ACTIVACION"));
-		this.plazoForzoso = String.valueOf(dato.get("PLAZO_FORZOSO"));
-		this.cuenta = String.valueOf(dato.get("CUENTA"));
-		this.contrato = String.valueOf(dato.get("CONTRATO"));
-		this.esn = String.valueOf(dato.get("ESN"));
-		this.telefono = String.valueOf(dato.get("TELEFONO"));
-		this.cliente = String.valueOf(dato.get("CLIENTE"));
-		this.descuentoMultilinea = String.valueOf(dato.get("DESCUENTO_MULTILINEA"));
-		this.descuentoAdicional = String.valueOf(dato.get("DESCUENTO_ADICIONAL"));
-		this.marca = String.valueOf(dato.get("MARCA"));
-		this.renta = String.valueOf(dato.get("RENTA"));
-		this.comision = String.valueOf(dato.get("COMISION"));
-		this.poblacion = String.valueOf(dato.get("POBLACION"));
-		this.division = String.valueOf(dato.get("DIVISION"));
-		this.estado = String.valueOf(dato.get("ESTADO"));
+		this.EMPRESARIO = String.valueOf(dato.get("EMPRESARIO"));
+		this.PERIODO = String.valueOf(dato.get("PERIODO"));
+		this.REGION = String.valueOf(dato.get("REGION"));
+		this.DESCRIPCION_DEL_PLAN = String.valueOf(dato.get("DESCRIPCION_DEL_PLAN"));
+		this.FECHA_RENOVACION = String.valueOf(dato.get("FECHA_RENOVACION"));
+		this.FECHA_ACTIVACION = String.valueOf(dato.get("FECHA_ACTIVACION"));
+		this.PLAZO_FORZOSO = String.valueOf(dato.get("PLAZO_FORZOSO"));
+		this.CUENTA = String.valueOf(dato.get("CUENTA"));
+		this.CONTRATO = String.valueOf(dato.get("CONTRATO"));
+		this.ESN = String.valueOf(dato.get("ESN"));
+		this.TELEFONO = String.valueOf(dato.get("TELEFONO"));
+		this.CLIENTE = String.valueOf(dato.get("CLIENTE"));
+		this.DESCUENTO_MULTILINEA = String.valueOf(dato.get("DESCUENTO_MULTILINEA"));
+		this.DESCUENTO_ADICIONAL = String.valueOf(dato.get("DESCUENTO_ADICIONAL"));
+		this.MARCA = String.valueOf(dato.get("MARCA"));
+		this.RENTA = String.valueOf(dato.get("RENTA"));
+		this.COMISION = String.valueOf(dato.get("COMISION"));
+		this.POBLACION = String.valueOf(dato.get("POBLACION"));
+		this.DIVISION = String.valueOf(dato.get("DIVISION"));
+		this.ESTADO = String.valueOf(dato.get("ESTADO"));
 	}
 	
 	public String[] getCampos() {
@@ -73,124 +73,165 @@ public class RenovacionesVO extends ValueObject{
 	public void setLongitudes(int[] longitudes) {
 		this.longitudes = longitudes;
 	}
-	public String getEmpresario() {
-		return empresario;
+
+	public String getEMPRESARIO() {
+		return EMPRESARIO;
 	}
-	public void setEmpresario(String empresario) {
-		this.empresario = empresario;
+
+	public void setEMPRESARIO(String empresario) {
+		EMPRESARIO = empresario;
 	}
-	public String getPeriodo() {
-		return periodo;
+
+	public String getPERIODO() {
+		return PERIODO;
 	}
-	public void setPeriodo(String periodo) {
-		this.periodo = periodo;
+
+	public void setPERIODO(String periodo) {
+		PERIODO = periodo;
 	}
-	public String getRegion() {
-		return region;
+
+	public String getREGION() {
+		return REGION;
 	}
-	public void setRegion(String region) {
-		this.region = region;
+
+	public void setREGION(String region) {
+		REGION = region;
 	}
-	public String getDescripcionDelPlan() {
-		return descripcionDelPlan;
+
+	public String getDESCRIPCION_DEL_PLAN() {
+		return DESCRIPCION_DEL_PLAN;
 	}
-	public void setDescripcionDelPlan(String descripcionDelPlan) {
-		this.descripcionDelPlan = descripcionDelPlan;
+
+	public void setDESCRIPCION_DEL_PLAN(String descripcion_del_plan) {
+		DESCRIPCION_DEL_PLAN = descripcion_del_plan;
 	}
-	public String getFechaRenovacion() {
-		return fechaRenovacion;
+
+	public String getFECHA_RENOVACION() {
+		return FECHA_RENOVACION;
 	}
-	public void setFechaRenovacion(String fechaRenovacion) {
-		this.fechaRenovacion = fechaRenovacion;
+
+	public void setFECHA_RENOVACION(String fecha_renovacion) {
+		FECHA_RENOVACION = fecha_renovacion;
 	}
-	public String getFechaActivacion() {
-		return fechaActivacion;
+
+	public String getFECHA_ACTIVACION() {
+		return FECHA_ACTIVACION;
 	}
-	public void setFechaActivacion(String fechaActivacion) {
-		this.fechaActivacion = fechaActivacion;
+
+	public void setFECHA_ACTIVACION(String fecha_activacion) {
+		FECHA_ACTIVACION = fecha_activacion;
 	}
-	public String getPlazoForzoso() {
-		return plazoForzoso;
+
+	public String getPLAZO_FORZOSO() {
+		return PLAZO_FORZOSO;
 	}
-	public void setPlazoForzoso(String plazoForzoso) {
-		this.plazoForzoso = plazoForzoso;
+
+	public void setPLAZO_FORZOSO(String plazo_forzoso) {
+		PLAZO_FORZOSO = plazo_forzoso;
 	}
-	public String getCuenta() {
-		return cuenta;
+
+	public String getCUENTA() {
+		return CUENTA;
 	}
-	public void setCuenta(String cuenta) {
-		this.cuenta = cuenta;
+
+	public void setCUENTA(String cuenta) {
+		CUENTA = cuenta;
 	}
-	public String getContrato() {
-		return contrato;
+
+	public String getCONTRATO() {
+		return CONTRATO;
 	}
-	public void setContrato(String contrato) {
-		this.contrato = contrato;
+
+	public void setCONTRATO(String contrato) {
+		CONTRATO = contrato;
 	}
-	public String getEsn() {
-		return esn;
+
+	public String getESN() {
+		return ESN;
 	}
-	public void setEsn(String esn) {
-		this.esn = esn;
+
+	public void setESN(String esn) {
+		ESN = esn;
 	}
-	public String getTelefono() {
-		return telefono;
+
+	public String getTELEFONO() {
+		return TELEFONO;
 	}
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
+
+	public void setTELEFONO(String telefono) {
+		TELEFONO = telefono;
 	}
-	public String getCliente() {
-		return cliente;
+
+	public String getCLIENTE() {
+		return CLIENTE;
 	}
-	public void setCliente(String cliente) {
-		this.cliente = cliente;
+
+	public void setCLIENTE(String cliente) {
+		CLIENTE = cliente;
 	}
-	public String getDescuentoMultilinea() {
-		return descuentoMultilinea;
+
+	public String getDESCUENTO_MULTILINEA() {
+		return DESCUENTO_MULTILINEA;
 	}
-	public void setDescuentoMultilinea(String descuentoMultilinea) {
-		this.descuentoMultilinea = descuentoMultilinea;
+
+	public void setDESCUENTO_MULTILINEA(String descuento_multilinea) {
+		DESCUENTO_MULTILINEA = descuento_multilinea;
 	}
-	public String getDescuentoAdicional() {
-		return descuentoAdicional;
+
+	public String getDESCUENTO_ADICIONAL() {
+		return DESCUENTO_ADICIONAL;
 	}
-	public void setDescuentoAdicional(String descuentoAdicional) {
-		this.descuentoAdicional = descuentoAdicional;
+
+	public void setDESCUENTO_ADICIONAL(String descuento_adicional) {
+		DESCUENTO_ADICIONAL = descuento_adicional;
 	}
-	public String getMarca() {
-		return marca;
+
+	public String getMARCA() {
+		return MARCA;
 	}
-	public void setMarca(String marca) {
-		this.marca = marca;
+
+	public void setMARCA(String marca) {
+		MARCA = marca;
 	}
-	public String getRenta() {
-		return renta;
+
+	public String getRENTA() {
+		return RENTA;
 	}
-	public void setRenta(String renta) {
-		this.renta = renta;
+
+	public void setRENTA(String renta) {
+		RENTA = renta;
 	}
-	public String getComision() {
-		return comision;
+
+	public String getCOMISION() {
+		return COMISION;
 	}
-	public void setComision(String comision) {
-		this.comision = comision;
+
+	public void setCOMISION(String comision) {
+		COMISION = comision;
 	}
-	public String getPoblacion() {
-		return poblacion;
+
+	public String getPOBLACION() {
+		return POBLACION;
 	}
-	public void setPoblacion(String poblacion) {
-		this.poblacion = poblacion;
+
+	public void setPOBLACION(String poblacion) {
+		POBLACION = poblacion;
 	}
-	public String getDivision() {
-		return division;
+
+	public String getDIVISION() {
+		return DIVISION;
 	}
-	public void setDivision(String division) {
-		this.division = division;
+
+	public void setDIVISION(String division) {
+		DIVISION = division;
 	}
-	public String getEstado() {
-		return estado;
+
+	public String getESTADO() {
+		return ESTADO;
 	}
-	public void setEstado(String estado) {
-		this.estado = estado;
+
+	public void setESTADO(String estado) {
+		ESTADO = estado;
 	}
+	
 }

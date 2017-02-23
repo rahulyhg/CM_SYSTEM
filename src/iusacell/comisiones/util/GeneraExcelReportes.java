@@ -64,12 +64,10 @@ public class GeneraExcelReportes{
 			writeHeader(vo.getCampos());
 			ValueObject objectList = null;
 			String[] campos = vo.getCampos();
-		    //Collections.sort(lst);
+		  
 			for (int x=0; lst!=null && x<lst.size(); x++) {
-				objectList = (ValueObject)lst.get(x);      
-				
-				nextRow();
-								
+                objectList = (ValueObject)lst.get(x);     
+				nextRow();								
 				for (int y=0; campos!=null && y<campos.length; y++) {
 					String metodo = ref.getMethod("get"+campos[y]);
 					Object valor = ref.getValorMetodo(metodo, objectList);

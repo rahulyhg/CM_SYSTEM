@@ -6,22 +6,22 @@ import iusacell.comisiones.vo.ValueObject;
 
 public class DescuentosAdicionalVO extends ValueObject{
 	
-	private String[] campos = {"vendedor","descCanal","contrato","descto"};
+	private String[] campos = {"VENDEDOR","DESC_CANAL","CONTRATO","DESCTO"};
 	
 	private int[] longitudes = {5000,5000,5000,5000};
 	
-	private String vendedor;
-	private String descCanal;
-	private String contrato;
-	private String descto;
+	private String VENDEDOR;
+	private String DESC_CANAL;
+	private String CONTRATO;
+	private String DESCTO;
 	
 	public DescuentosAdicionalVO() {}
 	
 	public DescuentosAdicionalVO(Map<String, Object> dato) {
-		this.vendedor = String.valueOf(dato.get("VENDEDOR"));
-		this.descCanal = String.valueOf(dato.get("DESC_CANAL"));
-		this.contrato = String.valueOf(dato.get("CONTRATO"));
-		this.descto = String.valueOf(dato.get("DESCTO"));
+		this.VENDEDOR = String.valueOf(dato.get("VENDEDOR"));
+		this.DESC_CANAL = String.valueOf(dato.get("DESC_CANAL"));
+		this.CONTRATO = String.valueOf(dato.get("CONTRATO"));
+		this.DESCTO = String.valueOf(dato.get("DESCTO"));
 	}
 	
 	public String[] getCampos() {
@@ -36,30 +36,39 @@ public class DescuentosAdicionalVO extends ValueObject{
 	public void setLongitudes(int[] longitudes) {
 		this.longitudes = longitudes;
 	}
-	public String getVendedor() {
-		return vendedor;
+
+	public String getVENDEDOR() {
+		return VENDEDOR;
 	}
-	public void setVendedor(String vendedor) {
-		this.vendedor = vendedor;
+
+	public void setVENDEDOR(String vendedor) {
+		VENDEDOR = vendedor;
 	}
-	public String getDescCanal() {
-		return descCanal;
+
+	public String getDESC_CANAL() {
+		return DESC_CANAL;
 	}
-	public void setDescCanal(String descCanal) {
-		this.descCanal = descCanal;
+
+	public void setDESC_CANAL(String desc_canal) {
+		DESC_CANAL = desc_canal;
 	}
-	public String getContrato() {
-		return contrato;
+
+	public String getCONTRATO() {
+		return CONTRATO;
 	}
-	public void setContrato(String contrato) {
-		this.contrato = contrato;
+
+	public void setCONTRATO(String contrato) {
+		CONTRATO = contrato;
 	}
-	public String getDescto() {
-		return descto;
+
+	public String getDESCTO() {
+		return DESCTO;
 	}
-	public void setDescto(String descto) {
-		this.descto = descto;
+
+	public void setDESCTO(String descto) {
+		DESCTO = descto;
 	}
+	
 	
 
 }

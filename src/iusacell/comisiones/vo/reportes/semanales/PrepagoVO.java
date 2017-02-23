@@ -6,44 +6,44 @@ import iusacell.comisiones.vo.ValueObject;
 
 public class PrepagoVO extends ValueObject{
 	
-	private String[] campos = {"region","cveCanal","descCanal","mdn","esnD","fecRep","descriptionTT",
-			"descripcionOeq","modelo","desPlan","precioVta","comision","numFactura","origenEmp"};
+	private String[] campos = {"REGION","CVE_CANAL","DESC_CANAL","MDN","ESN_D","FEC_REP","DESCRIPCION_TT",
+			"DESCRIPCION_OEQ","MODELO","DES_PLAN","PRECIO_VTA","COMISION","NUM_FACTURA","ORIGEN_EMP"};
 	
 	private int[] longitudes = {5000,5000,5000,5000,5000,5000,5000,
 			5000,5000,5000,5000,5000,5000,5000};
 	
-	private String region;
-	private String cveCanal;
-	private String descCanal;
-	private String mdn;
-	private String esnD;
-	private String fecRep;
-	private String descriptionTT;
-	private String descripcionOeq;
-	private String modelo;
-	private String desPlan;
-	private String precioVta;
-	private String comision;
-	private String numFactura;
-	private String origenEmp;
+	private String REGION;
+	private String CVE_CANAL;
+	private String DESC_CANAL;
+	private String MDN;
+	private String ESN_D;
+	private String FEC_REP;
+	private String DESCRIPCION_TT;
+	private String DESCRIPCION_OEQ;
+	private String MODELO;
+	private String DES_PLAN;
+	private String PRECIO_VTA;
+	private String COMISION;
+	private String NUM_FACTURA;
+	private String ORIGEN_EMP;
 	
 	public PrepagoVO() {}
 	
 	public PrepagoVO(Map<String, Object> dato) {
-		this.region = String.valueOf(dato.get("REGION"));
-		this.cveCanal = String.valueOf(dato.get("CVE_CANAL"));
-		this.descCanal = String.valueOf(dato.get("DESC_CANAL"));
-		this.mdn = String.valueOf(dato.get("MDN"));
-		this.esnD = String.valueOf(dato.get("ESN_D"));
-		this.fecRep = String.valueOf(dato.get("FEC_REP"));
-		this.descriptionTT = String.valueOf(dato.get("DESCRIPCION_TT"));
-		this.descripcionOeq = String.valueOf(dato.get("DESCRIPCION_OEQ"));
-		this.modelo = String.valueOf(dato.get("MODELO"));
-		this.desPlan = String.valueOf(dato.get("DES_PLAN"));
-		this.precioVta = String.valueOf(dato.get("PRECIO_VTA"));
-		this.comision = String.valueOf(dato.get("COMISION"));
-		this.numFactura = String.valueOf(dato.get("NUM_FACTURA"));
-		this.origenEmp = String.valueOf(dato.get("ORIGEN_EMP"));
+		this.REGION = String.valueOf(dato.get("REGION"));
+		this.CVE_CANAL = String.valueOf(dato.get("CVE_CANAL"));
+		this.DESC_CANAL = String.valueOf(dato.get("DESC_CANAL"));
+		this.MDN = String.valueOf(dato.get("MDN"));
+		this.ESN_D = String.valueOf(dato.get("ESN_D"));
+		this.FEC_REP = String.valueOf(dato.get("FEC_REP"));
+		this.DESCRIPCION_TT = String.valueOf(dato.get("DESCRIPCION_TT"));
+		this.DESCRIPCION_OEQ = String.valueOf(dato.get("DESCRIPCION_OEQ"));
+		this.MODELO = String.valueOf(dato.get("MODELO"));
+		this.DES_PLAN = String.valueOf(dato.get("DES_PLAN"));
+		this.PRECIO_VTA = String.valueOf(dato.get("PRECIO_VTA"));
+		this.COMISION = String.valueOf(dato.get("COMISION"));
+		this.NUM_FACTURA = String.valueOf(dato.get("NUM_FACTURA"));
+		this.ORIGEN_EMP = String.valueOf(dato.get("ORIGEN_EMP"));
 	}
 	
 	public String[] getCampos() {
@@ -58,89 +58,89 @@ public class PrepagoVO extends ValueObject{
 	public void setLongitudes(int[] longitudes) {
 		this.longitudes = longitudes;
 	}
-	public String getRegion() {
-		return region;
+	public String getREGION() {
+		return REGION;
 	}
-	public void setRegion(String region) {
-		this.region = region;
+	public void setREGION(String REGION) {
+		this.REGION = REGION;
 	}
-	public String getCveCanal() {
-		return cveCanal;
+	public String getCVE_CANAL() {
+		return CVE_CANAL;
 	}
-	public void setCveCanal(String cveCanal) {
-		this.cveCanal = cveCanal;
+	public void setCVE_CANAL(String CVE_CANAL) {
+		this.CVE_CANAL = CVE_CANAL;
 	}
-	public String getDescCanal() {
-		return descCanal;
+	public String getDESC_CANAL() {
+		return DESC_CANAL;
 	}
-	public void setDescCanal(String descCanal) {
-		this.descCanal = descCanal;
+	public void setDESC_CANAL(String DESC_CANAL) {
+		this.DESC_CANAL = DESC_CANAL;
 	}
-	public String getMdn() {
-		return mdn;
+	public String getMDN() {
+		return MDN;
 	}
-	public void setMdn(String mdn) {
-		this.mdn = mdn;
+	public void setMDN(String MDN) {
+		this.MDN = MDN;
 	}
-	public String getEsnD() {
-		return esnD;
+	public String getESN_D() {
+		return ESN_D;
 	}
-	public void setEsnD(String esnD) {
-		this.esnD = esnD;
+	public void setESN_D(String ESN_D) {
+		this.ESN_D = ESN_D;
 	}
-	public String getFecRep() {
-		return fecRep;
+	public String getFEC_REP() {
+		return FEC_REP;
 	}
-	public void setFecRep(String fecRep) {
-		this.fecRep = fecRep;
+	public void setFEC_REP(String FEC_REP) {
+		this.FEC_REP = FEC_REP;
 	}
-	public String getDescriptionTT() {
-		return descriptionTT;
+	public String getDESCRIPCION_TT() {
+		return DESCRIPCION_TT;
 	}
-	public void setDescriptionTT(String descriptionTT) {
-		this.descriptionTT = descriptionTT;
+	public void setDESCRIPCION_TT(String DESCRIPCION_TT) {
+		this.DESCRIPCION_TT = DESCRIPCION_TT;
 	}
-	public String getDescripcionOeq() {
-		return descripcionOeq;
+	public String getDESCRIPCION_OEQ() {
+		return DESCRIPCION_OEQ;
 	}
-	public void setDescripcionOeq(String descripcionOeq) {
-		this.descripcionOeq = descripcionOeq;
+	public void setDESCRIPCION_OEQ(String DESCRIPCION_OEQ) {
+		this.DESCRIPCION_OEQ = DESCRIPCION_OEQ;
 	}
-	public String getModelo() {
-		return modelo;
+	public String getMODELO() {
+		return MODELO;
 	}
-	public void setModelo(String modelo) {
-		this.modelo = modelo;
+	public void setMODELO(String MODELO) {
+		this.MODELO = MODELO;
 	}
-	public String getDesPlan() {
-		return desPlan;
+	public String getDES_PLAN() {
+		return DES_PLAN;
 	}
-	public void setDesPlan(String desPlan) {
-		this.desPlan = desPlan;
+	public void setDES_PLAN(String DES_PLAN) {
+		this.DES_PLAN = DES_PLAN;
 	}
-	public String getPrecioVta() {
-		return precioVta;
+	public String getPRECIO_VTA() {
+		return PRECIO_VTA;
 	}
-	public void setPrecioVta(String precioVta) {
-		this.precioVta = precioVta;
+	public void setPRECIO_VTA(String PRECIO_VTA) {
+		this.PRECIO_VTA = PRECIO_VTA;
 	}
-	public String getComision() {
-		return comision;
+	public String getCOMISION() {
+		return COMISION;
 	}
-	public void setComision(String comision) {
-		this.comision = comision;
+	public void setCOMISION(String COMISION) {
+		this.COMISION = COMISION;
 	}
-	public String getNumFactura() {
-		return numFactura;
+	public String getNUM_FACTURA() {
+		return NUM_FACTURA;
 	}
-	public void setNumFactura(String numFactura) {
-		this.numFactura = numFactura;
+	public void setNUM_FACTURA(String NUM_FACTURA) {
+		this.NUM_FACTURA = NUM_FACTURA;
 	}
-	public String getOrigenEmp() {
-		return origenEmp;
+	public String getORIGEN_EMP() {
+		return ORIGEN_EMP;
 	}
-	public void setOrigenEmp(String origenEmp) {
-		this.origenEmp = origenEmp;
+	public void setORIGEN_EMP(String ORIGEN_EMP) {
+		this.ORIGEN_EMP = ORIGEN_EMP;
 	}
 	
 	

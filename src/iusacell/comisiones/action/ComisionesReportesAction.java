@@ -16,8 +16,11 @@ import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -361,7 +364,7 @@ public class ComisionesReportesAction extends ActionSupport{
 			String periodo = comForm.getMesPeriodo().substring(coma+1);
 			String[] dias = Util.obtenerFechasInicioFin(comForm.getAnio(),mes,null);
 			comForm.setTipoReporteMes(comForm.getTipoMes());
-			response.setHeader("Content-Disposition", "attachment; filename=Reporte_"+comForm.getTipoReporteMes()+".xls");
+			response.setHeader("Content-Disposition", "attachment; filename=Reporte_"+comForm.getTipoReporteMes()+"_"+comForm.getAnio()+mes+".xls");
 			lista = comisionesReportesBO.obtenerReporteMensual(Integer.valueOf(comForm.getTipoMes()), periodo, dias[2], dias[3]);
 		}else{
 			String semMes = comForm.getPeriodo();
@@ -370,7 +373,7 @@ public class ComisionesReportesAction extends ActionSupport{
 			String semana = semMes.substring(0,coma);
 			String[] dias = Util.obtenerFechasInicioFin(comForm.getAnio(),mes,semana);
 			comForm.setTipoReporteSemana(comForm.getTipoSemana());
-			response.setHeader("Content-Disposition", "attachment; filename=Reporte_"+comForm.getTipoReporteSemana()+".xls");
+			response.setHeader("Content-Disposition", "attachment; filename=Reporte_"+comForm.getTipoReporteSemana()+"_Semana"+semana+"_"+comForm.getAnio()+mes+".xls");
 			lista = comisionesReportesBO.obtenerReporteSemanal(Integer.valueOf(comForm.getTipoSemana()), dias[0], dias[1]);
 		}
 		
@@ -410,7 +413,7 @@ public class ComisionesReportesAction extends ActionSupport{
 			String periodo = comForm.getMesPeriodo().substring(coma+1);
 			String[] dias = Util.obtenerFechasInicioFin(comForm.getAnio(),mes,null);
 			comForm.setTipoReporteMes(comForm.getTipoMes());
-			response.setHeader("Content-Disposition", "attachment; filename=Reporte_"+comForm.getTipoReporteMes()+".xls");
+			response.setHeader("Content-Disposition", "attachment; filename=Reporte_"+comForm.getTipoReporteMes()+"_"+comForm.getAnio()+mes+".xls");
 			lista = comisionesReportesBO.obtenerReporteMensual(Integer.valueOf(comForm.getTipoMes()), periodo, dias[2], dias[3]);
 		}else{
 			String semMes = comForm.getPeriodo();
@@ -419,7 +422,7 @@ public class ComisionesReportesAction extends ActionSupport{
 			String semana = semMes.substring(0,coma);
 			String[] dias = Util.obtenerFechasInicioFin(comForm.getAnio(),mes,semana);
 			comForm.setTipoReporteSemana(comForm.getTipoSemana());
-			response.setHeader("Content-Disposition", "attachment; filename=Reporte_"+comForm.getTipoReporteSemana()+".xls");
+			response.setHeader("Content-Disposition", "attachment; filename=Reporte_"+comForm.getTipoReporteSemana()+"_Semana"+semana+"_"+comForm.getAnio()+mes+".xls");
 			lista = comisionesReportesBO.obtenerReporteSemanal(Integer.valueOf(comForm.getTipoSemana()), dias[0], dias[1]);
 		}
 		BufferedOutputStream outputStream = null;

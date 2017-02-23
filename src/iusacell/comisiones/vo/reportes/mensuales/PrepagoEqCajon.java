@@ -6,39 +6,41 @@ import iusacell.comisiones.vo.ValueObject;
 
 public class PrepagoEqCajon extends ValueObject{
 	
-	private String[] campos = {"nombre","actvMes","concepto","tipoVenta","mdn","esnD","fecRep",
-			"descPlan","precioVta","numFactura","descOrigen","comision"};
+	private String[] campos = {"NOMBRE","ACTIV_MES","CONCEPTO","TIPO_VENTA","MDN","ESN_D","FEC_REP",
+			"DESC_PLAN","PC_MODELO","PRECIO_VTA","NUM_FACTURA","DESC_ORIGEN","COMISION"};
 	
 	private int[] longitudes = {};
 	
-	private String nombre;
-	private String actvMes;
-	private String concepto;
-	private String tipoVenta;
-	private String mdn;
-	private String esnD;
-	private String fecRep;
-	private String descPlan;
-	private String precioVta;
-	private String numFactura;
-	private String descOrigen;
-	private String comision;
+	private String NOMBRE;
+	private String ACTIV_MES;
+	private String CONCEPTO;
+	private String TIPO_VENTA;
+	private String MDN;
+	private String ESN_D;
+	private String FEC_REP;
+	private String DESC_PLAN;
+	private String PC_MODELO;
+	private String PRECIO_VTA;
+	private String NUM_FACTURA;
+	private String DESC_ORIGEN;
+	private String COMISION;
 	
 	public PrepagoEqCajon() {}
 	
 	public PrepagoEqCajon(Map<String, Object> dato) {
-		this.nombre = String.valueOf(dato.get("NOMBRE"));
-		this.actvMes = String.valueOf(dato.get("ACTIV_MES"));
-		this.concepto = String.valueOf(dato.get("CONCEPTO"));
-		this.tipoVenta = String.valueOf(dato.get("TIPO_VENTA"));
-		this.mdn = String.valueOf(dato.get("MDN"));
-		this.esnD = String.valueOf(dato.get("ESN_D"));
-		this.fecRep = String.valueOf(dato.get("FEC_REP"));
-		this.descPlan = String.valueOf(dato.get("DESC_PLAN"));
-		this.precioVta = String.valueOf(dato.get("PRECIO_VTA"));
-		this.numFactura = String.valueOf(dato.get("NUM_FACTURA"));
-		this.descOrigen = String.valueOf(dato.get("DESC_ORIGEN"));
-		this.comision = String.valueOf(dato.get("COMISION"));
+		this.NOMBRE = String.valueOf(dato.get("NOMBRE"));
+		this.ACTIV_MES = String.valueOf(dato.get("ACTIV_MES"));
+		this.CONCEPTO = String.valueOf(dato.get("CONCEPTO"));
+		this.TIPO_VENTA = String.valueOf(dato.get("TIPO_VENTA"));
+		this.MDN = String.valueOf(dato.get("MDN"));
+		this.ESN_D = String.valueOf(dato.get("ESN_D"));
+		this.FEC_REP = String.valueOf(dato.get("FEC_REP"));
+		this.DESC_PLAN = String.valueOf(dato.get("DESC_PLAN"));
+	    this.PC_MODELO = String.valueOf(dato.get("DESC_PLAN"));
+		this.PRECIO_VTA = String.valueOf(dato.get("PRECIO_VTA"));
+		this.NUM_FACTURA = String.valueOf(dato.get("NUM_FACTURA"));
+		this.DESC_ORIGEN = String.valueOf(dato.get("DESC_ORIGEN"));
+		this.COMISION = String.valueOf(dato.get("COMISION"));
 	}
 	
 	public String[] getCampos() {
@@ -53,78 +55,111 @@ public class PrepagoEqCajon extends ValueObject{
 	public void setLongitudes(int[] longitudes) {
 		this.longitudes = longitudes;
 	}
-	public String getNombre() {
-		return nombre;
+
+	public String getNOMBRE() {
+		return NOMBRE;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+
+	public void setNOMBRE(String nombre) {
+		NOMBRE = nombre;
 	}
-	public String getActvMes() {
-		return actvMes;
+
+	public String getACTIV_MES() {
+		return ACTIV_MES;
 	}
-	public void setActvMes(String actvMes) {
-		this.actvMes = actvMes;
+
+	public void setACTIV_MES(String activ_mes) {
+		ACTIV_MES = activ_mes;
 	}
-	public String getConcepto() {
-		return concepto;
+
+	public String getCONCEPTO() {
+		return CONCEPTO;
 	}
-	public void setConcepto(String concepto) {
-		this.concepto = concepto;
+
+	public void setCONCEPTO(String concepto) {
+		CONCEPTO = concepto;
 	}
-	public String getTipoVenta() {
-		return tipoVenta;
+
+	public String getTIPO_VENTA() {
+		return TIPO_VENTA;
 	}
-	public void setTipoVenta(String tipoVenta) {
-		this.tipoVenta = tipoVenta;
+
+	public void setTIPO_VENTA(String tipo_venta) {
+		TIPO_VENTA = tipo_venta;
 	}
-	public String getMdn() {
-		return mdn;
+
+	public String getMDN() {
+		return MDN;
 	}
-	public void setMdn(String mdn) {
-		this.mdn = mdn;
+
+	public void setMDN(String mdn) {
+		MDN = mdn;
 	}
-	public String getEsnD() {
-		return esnD;
+
+	public String getESN_D() {
+		return ESN_D;
 	}
-	public void setEsnD(String esnD) {
-		this.esnD = esnD;
+
+	public void setESN_D(String esn_d) {
+		ESN_D = esn_d;
 	}
-	public String getFecRep() {
-		return fecRep;
+
+	public String getFEC_REP() {
+		return FEC_REP;
 	}
-	public void setFecRep(String fecRep) {
-		this.fecRep = fecRep;
+
+	public void setFEC_REP(String fec_rep) {
+		FEC_REP = fec_rep;
 	}
-	public String getDescPlan() {
-		return descPlan;
+
+	public String getDESC_PLAN() {
+		return DESC_PLAN;
 	}
-	public void setDescPlan(String descPlan) {
-		this.descPlan = descPlan;
+
+	public void setDESC_PLAN(String desc_plan) {
+		DESC_PLAN = desc_plan;
 	}
-	public String getPrecioVta() {
-		return precioVta;
+
+	public String getPRECIO_VTA() {
+		return PRECIO_VTA;
 	}
-	public void setPrecioVta(String precioVta) {
-		this.precioVta = precioVta;
+
+	public void setPRECIO_VTA(String precio_vta) {
+		PRECIO_VTA = precio_vta;
 	}
-	public String getNumFactura() {
-		return numFactura;
+
+	public String getNUM_FACTURA() {
+		return NUM_FACTURA;
 	}
-	public void setNumFactura(String numFactura) {
-		this.numFactura = numFactura;
+
+	public void setNUM_FACTURA(String num_factura) {
+		NUM_FACTURA = num_factura;
 	}
-	public String getDescOrigen() {
-		return descOrigen;
+
+	public String getDESC_ORIGEN() {
+		return DESC_ORIGEN;
 	}
-	public void setDescOrigen(String descOrigen) {
-		this.descOrigen = descOrigen;
+
+	public void setDESC_ORIGEN(String desc_origen) {
+		DESC_ORIGEN = desc_origen;
 	}
-	public String getComision() {
-		return comision;
+
+	public String getCOMISION() {
+		return COMISION;
 	}
-	public void setComision(String comision) {
-		this.comision = comision;
+
+	public void setCOMISION(String comision) {
+		COMISION = comision;
 	}
+
+	public void setPC_MODELO(String pC_MODELO) {
+		PC_MODELO = pC_MODELO;
+	}
+
+	public String getPC_MODELO() {
+		return PC_MODELO;
+	}
+	
 	
 	
 

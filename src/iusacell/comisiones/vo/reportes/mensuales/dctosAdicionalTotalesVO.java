@@ -6,24 +6,24 @@ import java.util.Map;
 
 public class dctosAdicionalTotalesVO extends ValueObject{
 	
-private String[] campos = {"cveContrato","fecDesc","descAdi","descPlanServicio","rentaFija"};
+private String[] campos = {"CONTRATO","FEC_DESC","DESC_ADI","DESCRIPCION_PLAN_SERVICIO","RENTA_FIJA"};
 	
 	private int[] longitudes = {5000,5000,5000,5000,5000};
 	
-	private String cveContrato;
-	private String fecDesc;
-	private String descAdi;
-	private String descPlanServicio;
-	private String rentaFija;
+	private String CONTRATO;
+	private String FEC_DESC;
+	private String DESC_ADI;
+	private String DESCRIPCION_PLAN_SERVICIO;
+	private String RENTA_FIJA;
 	
 	public dctosAdicionalTotalesVO() {}
 	
 	public dctosAdicionalTotalesVO(Map<String, Object> dato) {
-		this.cveContrato = String.valueOf(dato.get("CONTRATO"));
-		this.fecDesc = String.valueOf(dato.get("FEC_DESC"));
-		this.descAdi = String.valueOf(dato.get("DESC_ADI"));
-		this.descPlanServicio = String.valueOf(dato.get("DESCRIPCION_PLAN_SERVICIO"));
-		this.rentaFija = String.valueOf(dato.get("RENTA_FIJA"));
+		this.CONTRATO = String.valueOf(dato.get("CONTRATO"));
+		this.FEC_DESC = String.valueOf(dato.get("FEC_DESC"));
+		this.DESC_ADI = String.valueOf(dato.get("DESC_ADI"));
+		this.DESCRIPCION_PLAN_SERVICIO = String.valueOf(dato.get("DESCRIPCION_PLAN_SERVICIO"));
+		this.RENTA_FIJA = String.valueOf(dato.get("RENTA_FIJA"));
 	}
 	
 	public String[] getCampos() {
@@ -38,35 +38,35 @@ private String[] campos = {"cveContrato","fecDesc","descAdi","descPlanServicio",
 	public void setLongitudes(int[] longitudes) {
 		this.longitudes = longitudes;
 	}
-	public String getCveContrato() {
-		return cveContrato;
+	public String getCONTRATO() {
+		return CONTRATO;
 	}
-	public void setCveContrato(String cveContrato) {
-		this.cveContrato = cveContrato;
+	public void setCONTRATO(String CONTRATO) {
+		this.CONTRATO = CONTRATO;
 	}
-	public String getFecDesc() {
-		return fecDesc;
+	public String getFEC_DESC() {
+		return FEC_DESC;
 	}
-	public void setFecDesc(String fecDesc) {
-		this.fecDesc = fecDesc;
+	public void setFEC_DESC(String FEC_DESC) {
+		this.FEC_DESC = FEC_DESC;
 	}
-	public String getDescPlanServicio() {
-		return descPlanServicio;
+	public String getDESCRIPCION_PLAN_SERVICIO() {
+		return DESCRIPCION_PLAN_SERVICIO;
 	}
-	public void setDescPlanServicio(String descPlanServicio) {
-		this.descPlanServicio = descPlanServicio;
+	public void setDESCRIPCION_PLAN_SERVICIO(String DESCRIPCION_PLAN_SERVICIO) {
+		this.DESCRIPCION_PLAN_SERVICIO = DESCRIPCION_PLAN_SERVICIO;
 	}
-	public String getRentaFija() {
-		return rentaFija;
+	public String getRENTA_FIJA() {
+		return RENTA_FIJA;
 	}
-	public void setRentaFija(String rentaFija) {
-		this.rentaFija = rentaFija;
+	public void setRENTA_FIJA(String RENTA_FIJA) {
+		this.RENTA_FIJA = RENTA_FIJA;
 	}
-	public String getDescAdi() {
-		return descAdi;
+	public String getDESC_ADI() {
+		return DESC_ADI;
 	}
-	public void setDescAdi(String descAdi) {
-		this.descAdi = descAdi;
+	public void setDESC_ADI(String DESC_ADI) {
+		this.DESC_ADI = DESC_ADI;
 	}
 
 }

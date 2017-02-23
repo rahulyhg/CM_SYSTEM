@@ -4,20 +4,20 @@ import java.util.Map;
 
 public class ReportePortabilidadVO {
 
-	private String[] campos = {"mdn","mdnProvisional","fechaPortado"};
+	private String[] campos = {"MDN","MDN_PROVISIONAL","FECHA_PORTADO"};
 	
 	private int[] longitudes = {5000,5000,5000};
 	
-	private String mdn;
-	private String mdnProvisional;
-	private String fechaPortado;
+	private String MDN;
+	private String MDN_PROVISIONAL;
+	private String FECHA_PORTADO;
 	
 	public ReportePortabilidadVO() {}
 	
 	public ReportePortabilidadVO(Map<String, Object> dato) {
-		this.mdn = String.valueOf(dato.get("MDN"));
-		this.mdnProvisional = String.valueOf(dato.get("MDN_PROVISIONAL"));
-		this.fechaPortado = String.valueOf(dato.get("FECHA_PORTADO"));
+		this.MDN = String.valueOf(dato.get("MDN"));
+		this.MDN_PROVISIONAL = String.valueOf(dato.get("MDN_PROVISIONAL"));
+		this.FECHA_PORTADO = String.valueOf(dato.get("FECHA_PORTADO"));
 	}
 	
 	public String[] getCampos() {
@@ -32,23 +32,23 @@ public class ReportePortabilidadVO {
 	public void setLongitudes(int[] longitudes) {
 		this.longitudes = longitudes;
 	}
-	public String getMdn() {
-		return mdn;
+	public String getMDN() {
+		return MDN;
 	}
-	public void setMdn(String mdn) {
-		this.mdn = mdn;
+	public void setMDN(String MDN) {
+		this.MDN = MDN;
 	}
-	public String getMdnProvisional() {
-		return mdnProvisional;
+	public String getMDN_PROVISIONAL() {
+		return MDN_PROVISIONAL;
 	}
-	public void setMdnProvisional(String mdnProvisional) {
-		this.mdnProvisional = mdnProvisional;
+	public void setMDN_PROVISIONAL(String MDN_PROVISIONAL) {
+		this.MDN_PROVISIONAL = MDN_PROVISIONAL;
 	}
-	public String getFechaPortado() {
-		return fechaPortado;
+	public String getFECHA_PORTADO() {
+		return FECHA_PORTADO;
 	}
-	public void setFechaPortado(String fechaPortado) {
-		this.fechaPortado = fechaPortado;
+	public void setFECHA_PORTADO(String FECHA_PORTADO) {
+		this.FECHA_PORTADO = FECHA_PORTADO;
 	}
 	
 	

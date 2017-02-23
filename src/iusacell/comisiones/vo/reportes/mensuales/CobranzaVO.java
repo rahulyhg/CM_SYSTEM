@@ -6,52 +6,53 @@ import iusacell.comisiones.vo.ValueObject;
 
 public class CobranzaVO extends ValueObject{
 	
-	private String[] campos = {"cdfCia","cdgCsi","cdgRegion","numTransaccion","cdgCptoVta","cobranzaMes",
-			"comision","customerId","cveCanal","cveEsquema","cveVendedor","descCpto","fecTrans","mdm",
-			"monto","nomVend","origenEmp","tipoTransaccion"};
+	private String[] campos = {"CDG_CIA","CDG_CSI","CDG_REGION","TIPO_TRANSACCION","NUM_TRANSACCION",
+			"PC_FEC_TRANS","PC_MDN","PC_COMISION","PC_MONTO","PC_CUSTOMER_ID","PC_CVE_VENDEDOR",
+			"PC_CVE_ESQUEMA","PC_CDG_CPTO_VTA","PC_DESC_CPTO","PC_NOM_VEND","PC_COBRANZA_MES",
+			"PC_CVE_CANAL","PC_ORIGEN_EMP", };
 	
 	private int[] longitudes = {};
 	
-	private String cdfCia;
-	private String cdgCsi;
-	private String cdgRegion;
-	private String numTransaccion;
-	private String cdgCptoVta;
-	private String cobranzaMes;
-	private String comision;
-	private String customerId;
-	private String cveCanal;
-	private String cveEsquema;
-	private String cveVendedor;
-	private String descCpto;
-	private String fecTrans;
-	private String mdm;
-	private String monto;
-	private String nomVend;
-	private String origenEmp;
-	private String tipoTransaccion;
+	private String CDG_CIA;
+	private String CDG_CSI;
+	private String CDG_REGION;
+	private String NUM_TRANSACCION;
+	private String PC_CDG_CPTO_VTA;
+	private String PC_COBRANZA_MES;
+	private String PC_COMISION;
+	private String PC_CUSTOMER_ID;
+	private String PC_CVE_CANAL;
+	private String PC_CVE_ESQUEMA;
+	private String PC_CVE_VENDEDOR;
+	private String PC_DESC_CPTO;
+	private String PC_FEC_TRANS;
+	private String PC_MDN;
+	private String PC_MONTO;
+	private String PC_NOM_VEND;
+	private String PC_ORIGEN_EMP;
+	private String TIPO_TRANSACCION;
 	
 	public CobranzaVO() {}
 	
 	public CobranzaVO(Map<String, Object> dato) {
-		this.cdfCia = String.valueOf(dato.get("CDG_CIA"));
-		this.cdgCsi = String.valueOf(dato.get("CDG_CSI"));
-		this.cdgRegion = String.valueOf(dato.get("CDG_REGION"));
-		this.numTransaccion = String.valueOf(dato.get("NUM_TRANSACCION"));
-		this.cdgCptoVta = String.valueOf(dato.get("PC_CDG_CPTO_VTA"));
-		this.cobranzaMes = String.valueOf(dato.get("PC_COBRANZA_MES"));
-		this.comision = String.valueOf(dato.get("PC_COMISION"));
-		this.customerId = String.valueOf(dato.get("PC_CUSTOMER_ID"));
-		this.cveCanal = String.valueOf(dato.get("PC_CVE_CANAL"));
-		this.cveEsquema = String.valueOf(dato.get("PC_CVE_ESQUEMA"));
-		this.cveVendedor = String.valueOf(dato.get("PC_CVE_VENDEDOR"));
-		this.descCpto = String.valueOf(dato.get("PC_DESC_CPTO"));
-		this.fecTrans = String.valueOf(dato.get("PC_FEC_TRANS"));
-		this.mdm = String.valueOf(dato.get("PC_MDN"));
-		this.monto = String.valueOf(dato.get("PC_MONTO"));
-		this.nomVend = String.valueOf(dato.get("PC_NOM_VEND"));
-		this.origenEmp = String.valueOf(dato.get("PC_ORIGEN_EMP"));
-		this.tipoTransaccion = String.valueOf(dato.get("TIPO_TRANSACCION"));
+		this.CDG_CIA = String.valueOf(dato.get("CDG_CIA"));
+		this.CDG_CSI = String.valueOf(dato.get("CDG_CSI"));
+		this.CDG_REGION= String.valueOf(dato.get("CDG_REGION"));
+		this.NUM_TRANSACCION = String.valueOf(dato.get("NUM_TRANSACCION"));
+		this.PC_CDG_CPTO_VTA = String.valueOf(dato.get("PC_CDG_CPTO_VTA"));
+		this.PC_COBRANZA_MES = String.valueOf(dato.get("PC_COBRANZA_MES"));
+		this.PC_COMISION = String.valueOf(dato.get("PC_COMISION"));
+		this.PC_CUSTOMER_ID = String.valueOf(dato.get("PC_CUSTOMER_ID"));
+		this.PC_CVE_CANAL = String.valueOf(dato.get("PC_CVE_CANAL"));
+		this.PC_CVE_ESQUEMA = String.valueOf(dato.get("PC_CVE_ESQUEMA"));
+		this.PC_CVE_VENDEDOR = String.valueOf(dato.get("PC_CVE_VENDEDOR"));
+		this.PC_DESC_CPTO = String.valueOf(dato.get("PC_DESC_CPTO"));
+		this.PC_FEC_TRANS = String.valueOf(dato.get("PC_FEC_TRANS"));
+		this.PC_MDN = String.valueOf(dato.get("PC_MDN"));
+		this.PC_MONTO = String.valueOf(dato.get("PC_MONTO"));
+		this.PC_NOM_VEND = String.valueOf(dato.get("PC_NOM_VEND"));
+		this.PC_ORIGEN_EMP = String.valueOf(dato.get("PC_ORIGEN_EMP"));
+		this.TIPO_TRANSACCION = String.valueOf(dato.get("TIPO_TRANSACCION"));
 	}
 	
 	public String[] getCampos() {
@@ -66,115 +67,151 @@ public class CobranzaVO extends ValueObject{
 	public void setLongitudes(int[] longitudes) {
 		this.longitudes = longitudes;
 	}
-	public String getCdfCia() {
-		return cdfCia;
+
+	public String getCDG_CIA() {
+		return CDG_CIA;
 	}
-	public void setCdfCia(String cdfCia) {
-		this.cdfCia = cdfCia;
+
+	public void setCDG_CIA(String cdg_cia) {
+		CDG_CIA = cdg_cia;
 	}
-	public String getCdgCsi() {
-		return cdgCsi;
+
+	public String getCDG_CSI() {
+		return CDG_CSI;
 	}
-	public void setCdgCsi(String cdgCsi) {
-		this.cdgCsi = cdgCsi;
+
+	public void setCDG_CSI(String cdg_csi) {
+		CDG_CSI = cdg_csi;
 	}
-	public String getCdgRegion() {
-		return cdgRegion;
+
+	public String getCDG_REGION() {
+		return CDG_REGION;
 	}
-	public void setCdgRegion(String cdgRegion) {
-		this.cdgRegion = cdgRegion;
+
+	public void setCDG_REGION(String cdg_region) {
+		CDG_REGION = cdg_region;
 	}
-	public String getNumTransaccion() {
-		return numTransaccion;
+
+	public String getNUM_TRANSACCION() {
+		return NUM_TRANSACCION;
 	}
-	public void setNumTransaccion(String numTransaccion) {
-		this.numTransaccion = numTransaccion;
+
+	public void setNUM_TRANSACCION(String num_transaccion) {
+		NUM_TRANSACCION = num_transaccion;
 	}
-	public String getCdgCptoVta() {
-		return cdgCptoVta;
+
+	public String getPC_CDG_CPTO_VTA() {
+		return PC_CDG_CPTO_VTA;
 	}
-	public void setCdgCptoVta(String cdgCptoVta) {
-		this.cdgCptoVta = cdgCptoVta;
+
+	public void setPC_CDG_CPTO_VTA(String pc_cdg_cpto_vta) {
+		PC_CDG_CPTO_VTA = pc_cdg_cpto_vta;
 	}
-	public String getCobranzaMes() {
-		return cobranzaMes;
+
+	public String getPC_COBRANZA_MES() {
+		return PC_COBRANZA_MES;
 	}
-	public void setCobranzaMes(String cobranzaMes) {
-		this.cobranzaMes = cobranzaMes;
+
+	public void setPC_COBRANZA_MES(String pc_cobranza_mes) {
+		PC_COBRANZA_MES = pc_cobranza_mes;
 	}
-	public String getComision() {
-		return comision;
+
+	public String getPC_COMISION() {
+		return PC_COMISION;
 	}
-	public void setComision(String comision) {
-		this.comision = comision;
+
+	public void setPC_COMISION(String pc_comision) {
+		PC_COMISION = pc_comision;
 	}
-	public String getCustomerId() {
-		return customerId;
+
+	public String getPC_CUSTOMER_ID() {
+		return PC_CUSTOMER_ID;
 	}
-	public void setCustomerId(String customerId) {
-		this.customerId = customerId;
+
+	public void setPC_CUSTOMER_ID(String pc_customer_id) {
+		PC_CUSTOMER_ID = pc_customer_id;
 	}
-	public String getCveCanal() {
-		return cveCanal;
+
+	public String getPC_CVE_CANAL() {
+		return PC_CVE_CANAL;
 	}
-	public void setCveCanal(String cveCanal) {
-		this.cveCanal = cveCanal;
+
+	public void setPC_CVE_CANAL(String pc_cve_canal) {
+		PC_CVE_CANAL = pc_cve_canal;
 	}
-	public String getCveEsquema() {
-		return cveEsquema;
+
+	public String getPC_CVE_ESQUEMA() {
+		return PC_CVE_ESQUEMA;
 	}
-	public void setCveEsquema(String cveEsquema) {
-		this.cveEsquema = cveEsquema;
+
+	public void setPC_CVE_ESQUEMA(String pc_cve_esquema) {
+		PC_CVE_ESQUEMA = pc_cve_esquema;
 	}
-	public String getCveVendedor() {
-		return cveVendedor;
+
+	public String getPC_CVE_VENDEDOR() {
+		return PC_CVE_VENDEDOR;
 	}
-	public void setCveVendedor(String cveVendedor) {
-		this.cveVendedor = cveVendedor;
+
+	public void setPC_CVE_VENDEDOR(String pc_cve_vendedor) {
+		PC_CVE_VENDEDOR = pc_cve_vendedor;
 	}
-	public String getDescCpto() {
-		return descCpto;
+
+	public String getPC_DESC_CPTO() {
+		return PC_DESC_CPTO;
 	}
-	public void setDescCpto(String descCpto) {
-		this.descCpto = descCpto;
+
+	public void setPC_DESC_CPTO(String pc_desc_cpto) {
+		PC_DESC_CPTO = pc_desc_cpto;
 	}
-	public String getFecTrans() {
-		return fecTrans;
+
+	public String getPC_FEC_TRANS() {
+		return PC_FEC_TRANS;
 	}
-	public void setFecTrans(String fecTrans) {
-		this.fecTrans = fecTrans;
+
+	public void setPC_FEC_TRANS(String pc_fec_trans) {
+		PC_FEC_TRANS = pc_fec_trans;
 	}
-	public String getMdm() {
-		return mdm;
+
+	public String getPC_MDN() {
+		return PC_MDN;
 	}
-	public void setMdm(String mdm) {
-		this.mdm = mdm;
+
+	public void setPC_MDN(String pc_mdn) {
+		PC_MDN = pc_mdn;
 	}
-	public String getMonto() {
-		return monto;
+
+	public String getPC_MONTO() {
+		return PC_MONTO;
 	}
-	public void setMonto(String monto) {
-		this.monto = monto;
+
+	public void setPC_MONTO(String pc_monto) {
+		PC_MONTO = pc_monto;
 	}
-	public String getNomVend() {
-		return nomVend;
+
+	public String getPC_NOM_VEND() {
+		return PC_NOM_VEND;
 	}
-	public void setNomVend(String nomVend) {
-		this.nomVend = nomVend;
+
+	public void setPC_NOM_VEND(String pc_nom_vend) {
+		PC_NOM_VEND = pc_nom_vend;
 	}
-	public String getOrigenEmp() {
-		return origenEmp;
+
+	public String getPC_ORIGEN_EMP() {
+		return PC_ORIGEN_EMP;
 	}
-	public void setOrigenEmp(String origenEmp) {
-		this.origenEmp = origenEmp;
+
+	public void setPC_ORIGEN_EMP(String pc_origen_emp) {
+		PC_ORIGEN_EMP = pc_origen_emp;
 	}
-	public String getTipoTransaccion() {
-		return tipoTransaccion;
+
+	public String getTIPO_TRANSACCION() {
+		return TIPO_TRANSACCION;
 	}
-	public void setTipoTransaccion(String tipoTransaccion) {
-		this.tipoTransaccion = tipoTransaccion;
+
+	public void setTIPO_TRANSACCION(String tipo_transaccion) {
+		TIPO_TRANSACCION = tipo_transaccion;
 	}
-	
+		
 	
 
 }

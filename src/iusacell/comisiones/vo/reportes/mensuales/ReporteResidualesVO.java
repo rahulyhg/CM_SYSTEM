@@ -1,69 +1,85 @@
 package iusacell.comisiones.vo.reportes.mensuales;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 import iusacell.comisiones.vo.ValueObject;
 
 public class ReporteResidualesVO extends ValueObject{
 	
-	private String[] campos = {"canalTp","clavedistNuevo","claveDistOrig","comision","contrato",
-			"descuentoAdicional","descuentoMultilinea","estatusLinea","fechaActivacion","fechaFinPlazo",
-			"cveCanal","descCanal","descLargaPlan","descTpCanal","nomPtoVentas","periodo","plan",
-			"plazoForzoso","puntoDeVenta","renta","telefono","tipoCliente"};
+	private String[] campos = {"PC_CVE_CANAL","PUNTO_DE_VENTA","PLAN","RENTA","CONTRATO",
+			"ESTATUS_LINEA","DESCUENTO_MULTILINEA","DESCUENTO_ADICIONAL","PLAZO_FORZOSO","FECHA_ACTIVACION","FECHA_FIN_PLAZO",
+			"COMISION","PERIODO","CLAVE_DIST_ORIG","CLAVE_DIST_NUEV","TIPO_CLIENTE","TELEFONO","PC_DESC_LARGA_PLAN",
+			"PC_DESC_CANAL","CANAL_TP","PC_DESC_TP_CANAL","PC_NOM_PTOVENTAS"};
 	
 	private int[] longitudes = {5000,5000,5000,5000,5000,
 			5000,5000,5000,5000,5000,
 			5000,5000,5000,5000,5000,5000,5000,
 			5000,5000,5000,5000,5000};
 	
-	private String canalTp;
-	private String clavedistNuevo;
-	private String claveDistOrig;
-	private String comision;
-	private String contrato;
-	private String descuentoAdicional;
-	private String descuentoMultilinea;
-	private String estatusLinea;
-	private String fechaActivacion;
-	private String fechaFinPlazo;
-	private String cveCanal;
-	private String descCanal;
-	private String descLargaPlan;
-	private String descTpCanal;
-	private String nomPtoVentas;
-	private String periodo;
-	private String plan;
-	private String plazoForzoso;
-	private String puntoDeVenta;
-	private String renta;
-	private String telefono;
-	private String tipoCliente;
+	private String PC_CVE_CANAL;
+	private String PUNTO_DE_VENTA;
+	private String PLAN;
+	private String RENTA;
+	private String CONTRATO;
+	private String ESTATUS_LINEA;
+	private String DESCUENTO_MULTILINEA;
+	private String DESCUENTO_ADICIONAL;
+	private String PLAZO_FORZOSO;
+	private Date FECHA_ACTIVACION;
+	private Date FECHA_FIN_PLAZO;
+	private String COMISION;
+	private String PERIODO;
+	private String CLAVE_DIST_ORIG;
+	private String CLAVE_DIST_NUEV;
+	private String TIPO_CLIENTE;
+	private String TELEFONO;
+	private String PC_DESC_LARGA_PLAN;
+	private String PC_DESC_CANAL;
+	private String CANAL_TP;
+	private String PC_DESC_TP_CANAL;
+	private String PC_NOM_PTOVENTAS;
 	
 	public ReporteResidualesVO(){};
 	
 	public ReporteResidualesVO(Map<String, Object> dato) {
-		this.canalTp = String.valueOf(dato.get("CANAL_TP"));
-		this.clavedistNuevo = String.valueOf(dato.get("CLAVE_DIST_NUEVO"));
-		this.claveDistOrig = String.valueOf(dato.get("CLAVE_DIST_ORIG"));
-		this.comision = String.valueOf(dato.get("COMISION"));
-		this.contrato = String.valueOf(dato.get("CONTRATO"));
-		this.descuentoAdicional = String.valueOf(dato.get("DESCUENTO_ADICIONAL"));
-		this.descuentoMultilinea = String.valueOf(dato.get("DESCUENTO_MULTILINEA"));
-		this.estatusLinea = String.valueOf(dato.get("ESTATUS_LINEA"));
-		this.fechaActivacion = String.valueOf(dato.get("FECHA_ACTIVACION"));
-		this.fechaFinPlazo = String.valueOf(dato.get("FECHA_FIN_PLAZO"));
-		this.cveCanal = String.valueOf(dato.get("PC_CVE_CANAL"));
-		this.descCanal = String.valueOf(dato.get("PC_DESC_CANAL"));
-		this.descLargaPlan = String.valueOf(dato.get("PC_DESC_LARGA_PLAN"));
-		this.descTpCanal = String.valueOf(dato.get("PC_DESC_TP_CANAL"));
-		this.nomPtoVentas = String.valueOf(dato.get("PC_NOM_PTOVENTAS"));
-		this.periodo = String.valueOf(dato.get("PERIODO"));
-		this.plan = String.valueOf(dato.get("PLAN"));
-		this.plazoForzoso = String.valueOf(dato.get("PLAZO_FORZOSO"));
-		this.puntoDeVenta = String.valueOf(dato.get("PUNTO_DE_VENTA"));
-		this.renta = String.valueOf(dato.get("RENTA"));
-		this.telefono = String.valueOf(dato.get("TELEFONO"));
-		this.tipoCliente = String.valueOf(dato.get("TIPO_CLIENTE"));
+		this.PC_CVE_CANAL = String.valueOf(dato.get("PC_CVE_CANAL"));
+		this.PUNTO_DE_VENTA = String.valueOf(dato.get("PUNTO_DE_VENTA"));
+		this.PLAN = String.valueOf(dato.get("PLAN"));
+		this.RENTA = String.valueOf(dato.get("RENTA"));
+		this.CONTRATO = String.valueOf(dato.get("CONTRATO"));
+		this.ESTATUS_LINEA = String.valueOf(dato.get("ESTATUS_LINEA"));
+		this.DESCUENTO_MULTILINEA = String.valueOf(dato.get("DESCUENTO_MULTILINEA"));
+		this.DESCUENTO_ADICIONAL = String.valueOf(dato.get("DESCUENTO_ADICIONAL"));
+		this.PLAZO_FORZOSO = String.valueOf(dato.get("PLAZO_FORZOSO"));
+		SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy");
+		
+		Date fechaAct = (Date)dato.get("FECHA_ACTIVACION");
+		if(fechaAct!=null)
+		{	
+			dateformat.format(fechaAct);
+			this.FECHA_ACTIVACION=fechaAct;
+		}
+		Date fechaDesact = (Date)dato.get("FECHA_FIN_PLAZO");
+		if(fechaDesact!=null)
+		{	
+			dateformat.format(fechaDesact);
+			this.FECHA_FIN_PLAZO=fechaDesact;
+		}
+		
+		this.COMISION = String.valueOf(dato.get("COMISION"));
+		this.PERIODO = String.valueOf(dato.get("PERIODO"));
+		this.CLAVE_DIST_ORIG = String.valueOf(dato.get("CLAVE_DIST_ORIG"));
+		this.CLAVE_DIST_NUEV = String.valueOf(dato.get("CLAVE_DIST_NUEVO"));
+		this.TIPO_CLIENTE = String.valueOf(dato.get("TIPO_CLIENTE"));
+		this.TELEFONO = String.valueOf(dato.get("TELEFONO"));
+		this.PC_DESC_LARGA_PLAN = String.valueOf(dato.get("PC_DESC_LARGA_PLAN"));
+		this.PC_DESC_CANAL = String.valueOf(dato.get("PC_DESC_CANAL"));
+		this.CANAL_TP = String.valueOf(dato.get("CANAL_TP"));
+		this.PC_DESC_TP_CANAL = String.valueOf(dato.get("PC_DESC_TP_CANAL"));
+		this.PC_NOM_PTOVENTAS = String.valueOf(dato.get("PC_NOM_PTOVENTAS"));
+		
 	}
 	
 	
@@ -79,137 +95,181 @@ public class ReporteResidualesVO extends ValueObject{
 	public void setLongitudes(int[] longitudes) {
 		this.longitudes = longitudes;
 	}
-	public String getCanalTp() {
-		return canalTp;
-	}
-	public void setCanalTp(String canalTp) {
-		this.canalTp = canalTp;
-	}
-	public String getClavedistNuevo() {
-		return clavedistNuevo;
-	}
-	public void setClavedistNuevo(String clavedistNuevo) {
-		this.clavedistNuevo = clavedistNuevo;
-	}
-	public String getClaveDistOrig() {
-		return claveDistOrig;
-	}
-	public void setClaveDistOrig(String claveDistOrig) {
-		this.claveDistOrig = claveDistOrig;
-	}
-	public String getComision() {
-		return comision;
-	}
-	public void setComision(String comision) {
-		this.comision = comision;
-	}
-	public String getContrato() {
-		return contrato;
-	}
-	public void setContrato(String contrato) {
-		this.contrato = contrato;
-	}
-	public String getDescuentoAdicional() {
-		return descuentoAdicional;
-	}
-	public void setDescuentoAdicional(String descuentoAdicional) {
-		this.descuentoAdicional = descuentoAdicional;
-	}
-	public String getDescuentoMultilinea() {
-		return descuentoMultilinea;
-	}
-	public void setDescuentoMultilinea(String descuentoMultilinea) {
-		this.descuentoMultilinea = descuentoMultilinea;
-	}
-	public String getEstatusLinea() {
-		return estatusLinea;
-	}
-	public void setEstatusLinea(String estatusLinea) {
-		this.estatusLinea = estatusLinea;
-	}
-	public String getFechaActivacion() {
-		return fechaActivacion;
-	}
-	public void setFechaActivacion(String fechaActivacion) {
-		this.fechaActivacion = fechaActivacion;
-	}
-	public String getFechaFinPlazo() {
-		return fechaFinPlazo;
-	}
-	public void setFechaFinPlazo(String fechaFinPlazo) {
-		this.fechaFinPlazo = fechaFinPlazo;
-	}
-	public String getCveCanal() {
-		return cveCanal;
-	}
-	public void setCveCanal(String cveCanal) {
-		this.cveCanal = cveCanal;
-	}
-	public String getDescCanal() {
-		return descCanal;
-	}
-	public void setDescCanal(String descCanal) {
-		this.descCanal = descCanal;
-	}
-	public String getDescLargaPlan() {
-		return descLargaPlan;
-	}
-	public void setDescLargaPlan(String descLargaPlan) {
-		this.descLargaPlan = descLargaPlan;
-	}
-	public String getDescTpCanal() {
-		return descTpCanal;
-	}
-	public void setDescTpCanal(String descTpCanal) {
-		this.descTpCanal = descTpCanal;
-	}
-	public String getNomPtoVentas() {
-		return nomPtoVentas;
-	}
-	public void setNomPtoVentas(String nomPtoVentas) {
-		this.nomPtoVentas = nomPtoVentas;
-	}
-	public String getPeriodo() {
-		return periodo;
-	}
-	public void setPeriodo(String periodo) {
-		this.periodo = periodo;
-	}
-	public String getPlan() {
-		return plan;
-	}
-	public void setPlan(String plan) {
-		this.plan = plan;
-	}
-	public String getPlazoForzoso() {
-		return plazoForzoso;
-	}
-	public void setPlazoForzoso(String plazoForzoso) {
-		this.plazoForzoso = plazoForzoso;
-	}
-	public String getPuntoDeVenta() {
-		return puntoDeVenta;
-	}
-	public void setPuntoDeVenta(String puntoDeVenta) {
-		this.puntoDeVenta = puntoDeVenta;
-	}
-	public String getRenta() {
-		return renta;
-	}
-	public void setRenta(String renta) {
-		this.renta = renta;
-	}
-	public String getTelefono() {
-		return telefono;
-	}
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-	public String getTipoCliente() {
-		return tipoCliente;
-	}
-	public void setTipoCliente(String tipoCliente) {
-		this.tipoCliente = tipoCliente;
+
+	public String getPC_CVE_CANAL() {
+		return PC_CVE_CANAL;
 	}
 
+	public void setPC_CVE_CANAL(String pc_cve_canal) {
+		PC_CVE_CANAL = pc_cve_canal;
+	}
+
+	public String getPUNTO_DE_VENTA() {
+		return PUNTO_DE_VENTA;
+	}
+
+	public void setPUNTO_DE_VENTA(String punto_de_venta) {
+		PUNTO_DE_VENTA = punto_de_venta;
+	}
+
+	public String getPLAN() {
+		return PLAN;
+	}
+
+	public void setPLAN(String plan) {
+		PLAN = plan;
+	}
+
+	public String getRENTA() {
+		return RENTA;
+	}
+
+	public void setRENTA(String renta) {
+		RENTA = renta;
+	}
+
+	public String getCONTRATO() {
+		return CONTRATO;
+	}
+
+	public void setCONTRATO(String contrato) {
+		CONTRATO = contrato;
+	}
+
+	public String getESTATUS_LINEA() {
+		return ESTATUS_LINEA;
+	}
+
+	public void setESTATUS_LINEA(String estatus_linea) {
+		ESTATUS_LINEA = estatus_linea;
+	}
+
+	public String getDESCUENTO_MULTILINEA() {
+		return DESCUENTO_MULTILINEA;
+	}
+
+	public void setDESCUENTO_MULTILINEA(String descuento_multilinea) {
+		DESCUENTO_MULTILINEA = descuento_multilinea;
+	}
+
+	public String getDESCUENTO_ADICIONAL() {
+		return DESCUENTO_ADICIONAL;
+	}
+
+	public void setDESCUENTO_ADICIONAL(String descuento_adicional) {
+		DESCUENTO_ADICIONAL = descuento_adicional;
+	}
+
+	public String getPLAZO_FORZOSO() {
+		return PLAZO_FORZOSO;
+	}
+
+	public void setPLAZO_FORZOSO(String plazo_forzoso) {
+		PLAZO_FORZOSO = plazo_forzoso;
+	}
+
+	public Date getFECHA_ACTIVACION() {
+		return FECHA_ACTIVACION;
+	}
+
+	public void setFECHA_ACTIVACION(Date fecha_activacion) {
+		FECHA_ACTIVACION = fecha_activacion;
+	}
+
+	public Date getFECHA_FIN_PLAZO() {
+		return FECHA_FIN_PLAZO;
+	}
+
+	public void setFECHA_FIN_PLAZO(Date fecha_fin_plazo) {
+		FECHA_FIN_PLAZO = fecha_fin_plazo;
+	}
+
+	public String getCOMISION() {
+		return COMISION;
+	}
+
+	public void setCOMISION(String comision) {
+		COMISION = comision;
+	}
+
+	public String getPERIODO() {
+		return PERIODO;
+	}
+
+	public void setPERIODO(String periodo) {
+		PERIODO = periodo;
+	}
+
+	public String getCLAVE_DIST_ORIG() {
+		return CLAVE_DIST_ORIG;
+	}
+
+	public void setCLAVE_DIST_ORIG(String clave_dist_orig) {
+		CLAVE_DIST_ORIG = clave_dist_orig;
+	}
+
+	public String getCLAVE_DIST_NUEV() {
+		return CLAVE_DIST_NUEV;
+	}
+
+	public void setCLAVE_DIST_NUEV(String clave_dist_nuev) {
+		CLAVE_DIST_NUEV = clave_dist_nuev;
+	}
+
+	public String getTIPO_CLIENTE() {
+		return TIPO_CLIENTE;
+	}
+
+	public void setTIPO_CLIENTE(String tipo_cliente) {
+		TIPO_CLIENTE = tipo_cliente;
+	}
+
+	public String getTELEFONO() {
+		return TELEFONO;
+	}
+
+	public void setTELEFONO(String telefono) {
+		TELEFONO = telefono;
+	}
+
+	public String getPC_DESC_LARGA_PLAN() {
+		return PC_DESC_LARGA_PLAN;
+	}
+
+	public void setPC_DESC_LARGA_PLAN(String pc_desc_larga_plan) {
+		PC_DESC_LARGA_PLAN = pc_desc_larga_plan;
+	}
+
+	public String getPC_DESC_CANAL() {
+		return PC_DESC_CANAL;
+	}
+
+	public void setPC_DESC_CANAL(String pc_desc_canal) {
+		PC_DESC_CANAL = pc_desc_canal;
+	}
+
+	public String getCANAL_TP() {
+		return CANAL_TP;
+	}
+
+	public void setCANAL_TP(String canal_tp) {
+		CANAL_TP = canal_tp;
+	}
+
+	public String getPC_DESC_TP_CANAL() {
+		return PC_DESC_TP_CANAL;
+	}
+
+	public void setPC_DESC_TP_CANAL(String pc_desc_tp_canal) {
+		PC_DESC_TP_CANAL = pc_desc_tp_canal;
+	}
+
+	public String getPC_NOM_PTOVENTAS() {
+		return PC_NOM_PTOVENTAS;
+	}
+
+	public void setPC_NOM_PTOVENTAS(String pc_nom_ptoventas) {
+		PC_NOM_PTOVENTAS = pc_nom_ptoventas;
+	}
+	
 }

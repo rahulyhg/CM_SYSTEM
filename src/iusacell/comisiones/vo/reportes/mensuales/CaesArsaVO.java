@@ -6,26 +6,26 @@ import iusacell.comisiones.vo.ValueObject;
 
 public class CaesArsaVO extends ValueObject{
 	
-	private String[] campos = {"csi","nomPtoventas","dateTime","producto","numCel","abonoAtm"};
+	private String[] campos = {"CSI","NOM_PTOVENTAS","DATE_TIME","PRODUCTO","NUM_CEL","ABONO_ATM"};
 	
 	private int[] longitudes = {5000,5000,5000,5000,5000,5000};
 	
-	private String csi;
-	private String nomPtoventas;
-	private String dateTime;
-	private String producto;
-	private String numCel;
-	private String abonoAtm;
+	private String CSI;
+	private String NOM_PTOVENTAS;
+	private String DATE_TIME;
+	private String PRODUCTO;
+	private String NUM_CEL;
+	private String ABONO_ATM;
 	
 	public CaesArsaVO() {}
 	
 	public CaesArsaVO(Map<String, Object> dato) {
-		this.csi = String.valueOf(dato.get("CSI"));
-		this.nomPtoventas = String.valueOf(dato.get("NOM_PTOVENTAS"));
-		this.dateTime = String.valueOf(dato.get("DATE_TIME"));
-		this.producto = String.valueOf(dato.get("PRODUCTO"));
-		this.numCel = String.valueOf(dato.get("NUM_CEL"));
-		this.abonoAtm = String.valueOf(dato.get("ABONO_ATM"));
+		this.CSI = String.valueOf(dato.get("CSI"));
+		this.NOM_PTOVENTAS = String.valueOf(dato.get("NOM_PTOVENTAS"));
+		this.DATE_TIME = String.valueOf(dato.get("DATE_TIME"));
+		this.PRODUCTO = String.valueOf(dato.get("PRODUCTO"));
+		this.NUM_CEL = String.valueOf(dato.get("NUM_CEL"));
+		this.ABONO_ATM = String.valueOf(dato.get("ABONO_ATM"));
 	}
 	
 	public String[] getCampos() {
@@ -40,41 +40,53 @@ public class CaesArsaVO extends ValueObject{
 	public void setLongitudes(int[] longitudes) {
 		this.longitudes = longitudes;
 	}
-	public String getCsi() {
-		return csi;
+
+	public String getCSI() {
+		return CSI;
 	}
-	public void setCsi(String csi) {
-		this.csi = csi;
+
+	public void setCSI(String csi) {
+		CSI = csi;
 	}
-	public String getNomPtoventas() {
-		return nomPtoventas;
+
+	public String getNOM_PTOVENTAS() {
+		return NOM_PTOVENTAS;
 	}
-	public void setNomPtoventas(String nomPtoventas) {
-		this.nomPtoventas = nomPtoventas;
+
+	public void setNOM_PTOVENTAS(String nom_ptoventas) {
+		NOM_PTOVENTAS = nom_ptoventas;
 	}
-	public String getDateTime() {
-		return dateTime;
+
+	public String getDATE_TIME() {
+		return DATE_TIME;
 	}
-	public void setDateTime(String dateTime) {
-		this.dateTime = dateTime;
+
+	public void setDATE_TIME(String date_time) {
+		DATE_TIME = date_time;
 	}
-	public String getProducto() {
-		return producto;
+
+	public String getPRODUCTO() {
+		return PRODUCTO;
 	}
-	public void setProducto(String producto) {
-		this.producto = producto;
+
+	public void setPRODUCTO(String producto) {
+		PRODUCTO = producto;
 	}
-	public String getNumCel() {
-		return numCel;
+
+	public String getNUM_CEL() {
+		return NUM_CEL;
 	}
-	public void setNumCel(String numCel) {
-		this.numCel = numCel;
+
+	public void setNUM_CEL(String num_cel) {
+		NUM_CEL = num_cel;
 	}
-	public String getAbonoAtm() {
-		return abonoAtm;
+
+	public String getABONO_ATM() {
+		return ABONO_ATM;
 	}
-	public void setAbonoAtm(String abonoAtm) {
-		this.abonoAtm = abonoAtm;
+
+	public void setABONO_ATM(String abono_atm) {
+		ABONO_ATM = abono_atm;
 	}
 	
 	

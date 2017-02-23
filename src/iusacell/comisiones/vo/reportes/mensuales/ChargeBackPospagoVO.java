@@ -6,60 +6,60 @@ import iusacell.comisiones.vo.ValueObject;
 
 public class ChargeBackPospagoVO extends ValueObject{
 	
-	private String[] campos = {"nombreCanal","bajaMes","esn","region","descLargaPlan","cuenta","cveContrato",
-			"numTelefono","fechaVenta","fechaBaja","montoAct","montoResid","comision","plazoFor","dias",
-			"poblacion","division","estado","razonMov","origenEquip","montoEquip"};
+	private String[] campos = {"NOMBRE_CANAL","BAJA_MES","ESN","REGION","DESC_LARGA_PLAN","CUENTA","CVE_CONTRATO",
+			"NUM_TELEFONO","FECHA_VENTA","FECHA_BAJA","MONTO_ACT","MONTO_RESID","COMISION","PLAZO_FOR","DIAS",
+			"POBLACION","DIVISION","ESTADO","RAZON_MOV","ORIGEN_EQUIP","MONTO_EQUIP"};
 	
 	private int[] longitudes = {5000,5000,5000,5000,5000,5000,5000,
 			5000,5000,5000,5000,5000,5000,5000,5000,
 			5000,5000,5000,5000,5000,5000};
 
-	private String nombreCanal;
-	private String bajaMes;
-	private String esn;
-	private String region;
-	private String descLargaPlan;
-	private String cuenta;
-	private String cveContrato;
-	private String numTelefono;
-	private String fechaVenta;
-	private String fechaBaja;
-	private String montoAct;
-	private String montoResid;
-	private String comision;
-	private String plazoFor;
-	private String dias;
-	private String poblacion;
-	private String division;
-	private String estado;
-	private String razonMov;
-	private String origenEquip;
-	private String montoEquip;
+	private String NOMBRE_CANAL;
+	private String BAJA_MES;
+	private String ESN;
+	private String REGION;
+	private String DESC_LARGA_PLAN;
+	private String CUENTA;
+	private String CVE_CONTRATO;
+	private String NUM_TELEFONO;
+	private String FECHA_VENTA;
+	private String FECHA_BAJA;
+	private String MONTO_ACT;
+	private String MONTO_RESID;
+	private String COMISION;
+	private String PLAZO_FOR;
+	private String DIAS;
+	private String POBLACION;
+	private String DIVISION;
+	private String ESTADO;
+	private String RAZON_MOV;
+	private String ORIGEN_EQUIP;
+	private String MONTO_EQUIP;
 	
 	public ChargeBackPospagoVO() {}
 	
 	public ChargeBackPospagoVO(Map<String, Object> dato) {
-		this.nombreCanal = String.valueOf(dato.get("NOMBRE_CANAL"));
-		this.bajaMes = String.valueOf(dato.get("BAJA_MES"));
-		this.esn = String.valueOf(dato.get("ESN"));
-		this.region = String.valueOf(dato.get("REGION"));
-		this.descLargaPlan = String.valueOf(dato.get("DESC_LARGA_PLAN"));
-		this.cuenta = String.valueOf(dato.get("CUENTA"));
-		this.cveContrato = String.valueOf(dato.get("CVE_CONTRATO"));
-		this.numTelefono = String.valueOf(dato.get("NUM_TELEFONO"));
-		this.fechaVenta = String.valueOf(dato.get("FECHA_VENTA"));
-		this.fechaBaja = String.valueOf(dato.get("FECHA_BAJA"));
-		this.montoAct = String.valueOf(dato.get("MONTO_ACT"));
-		this.montoResid = String.valueOf(dato.get("MONTO_RESID"));
-		this.comision = String.valueOf(dato.get("COMISION"));
-		this.plazoFor = String.valueOf(dato.get("PLAZO_FOR"));
-		this.dias = String.valueOf(dato.get("DIAS"));
-		this.poblacion = String.valueOf(dato.get("POBLACION"));
-		this.division = String.valueOf(dato.get("DIVISION"));
-		this.estado = String.valueOf(dato.get("ESTADO"));
-		this.razonMov = String.valueOf(dato.get("RAZON_MOV"));
-		this.origenEquip = String.valueOf(dato.get("ORIGEN_EQUIP"));
-		this.montoEquip = String.valueOf(dato.get("MONTO_EQUIP"));
+		this.NOMBRE_CANAL = String.valueOf(dato.get("NOMBRE_CANAL"));
+		this.BAJA_MES = String.valueOf(dato.get("BAJA_MES"));
+		this.ESN = String.valueOf(dato.get("ESN"));
+		this.REGION = String.valueOf(dato.get("REGION"));
+		this.DESC_LARGA_PLAN = String.valueOf(dato.get("DESC_LARGA_PLAN"));
+		this.CUENTA = String.valueOf(dato.get("CUENTA"));
+		this.CVE_CONTRATO = String.valueOf(dato.get("CVE_CONTRATO"));
+		this.NUM_TELEFONO = String.valueOf(dato.get("NUM_TELEFONO"));
+		this.FECHA_VENTA = String.valueOf(dato.get("FECHA_VENTA"));
+		this.FECHA_BAJA = String.valueOf(dato.get("FECHA_BAJA"));
+		this.MONTO_ACT = String.valueOf(dato.get("MONTO_ACT"));
+		this.MONTO_RESID = String.valueOf(dato.get("MONTO_RESID"));
+		this.COMISION = String.valueOf(dato.get("COMISION"));
+		this.PLAZO_FOR = String.valueOf(dato.get("PLAZO_FOR"));
+		this.DIAS = String.valueOf(dato.get("DIAS"));
+		this.POBLACION = String.valueOf(dato.get("POBLACION"));
+		this.DIVISION = String.valueOf(dato.get("DIVISION"));
+		this.ESTADO = String.valueOf(dato.get("ESTADO"));
+		this.RAZON_MOV = String.valueOf(dato.get("RAZON_MOV"));
+		this.ORIGEN_EQUIP = String.valueOf(dato.get("ORIGEN_EQUIP"));
+		this.MONTO_EQUIP = String.valueOf(dato.get("MONTO_EQUIP"));
 	}
 	
 	public String[] getCampos() {
@@ -74,132 +74,173 @@ public class ChargeBackPospagoVO extends ValueObject{
 	public void setLongitudes(int[] longitudes) {
 		this.longitudes = longitudes;
 	}
-	public String getNombreCanal() {
-		return nombreCanal;
+
+	public String getNOMBRE_CANAL() {
+		return NOMBRE_CANAL;
 	}
-	public void setNombreCanal(String nombreCanal) {
-		this.nombreCanal = nombreCanal;
+
+	public void setNOMBRE_CANAL(String nombre_canal) {
+		NOMBRE_CANAL = nombre_canal;
 	}
-	public String getBajaMes() {
-		return bajaMes;
+
+	public String getBAJA_MES() {
+		return BAJA_MES;
 	}
-	public void setBajaMes(String bajaMes) {
-		this.bajaMes = bajaMes;
+
+	public void setBAJA_MES(String baja_mes) {
+		BAJA_MES = baja_mes;
 	}
-	public String getEsn() {
-		return esn;
+
+	public String getESN() {
+		return ESN;
 	}
-	public void setEsn(String esn) {
-		this.esn = esn;
+
+	public void setESN(String esn) {
+		ESN = esn;
 	}
-	public String getRegion() {
-		return region;
+
+	public String getREGION() {
+		return REGION;
 	}
-	public void setRegion(String region) {
-		this.region = region;
+
+	public void setREGION(String region) {
+		REGION = region;
 	}
-	public String getDescLargaPlan() {
-		return descLargaPlan;
+
+	public String getDESC_LARGA_PLAN() {
+		return DESC_LARGA_PLAN;
 	}
-	public void setDescLargaPlan(String descLargaPlan) {
-		this.descLargaPlan = descLargaPlan;
+
+	public void setDESC_LARGA_PLAN(String desc_larga_plan) {
+		DESC_LARGA_PLAN = desc_larga_plan;
 	}
-	public String getCuenta() {
-		return cuenta;
+
+	public String getCUENTA() {
+		return CUENTA;
 	}
-	public void setCuenta(String cuenta) {
-		this.cuenta = cuenta;
+
+	public void setCUENTA(String cuenta) {
+		CUENTA = cuenta;
 	}
-	public String getCveContrato() {
-		return cveContrato;
+
+	public String getCVE_CONTRATO() {
+		return CVE_CONTRATO;
 	}
-	public void setCveContrato(String cveContrato) {
-		this.cveContrato = cveContrato;
+
+	public void setCVE_CONTRATO(String cve_contrato) {
+		CVE_CONTRATO = cve_contrato;
 	}
-	public String getNumTelefono() {
-		return numTelefono;
+
+	public String getNUM_TELEFONO() {
+		return NUM_TELEFONO;
 	}
-	public void setNumTelefono(String numTelefono) {
-		this.numTelefono = numTelefono;
+
+	public void setNUM_TELEFONO(String num_telefono) {
+		NUM_TELEFONO = num_telefono;
 	}
-	public String getFechaVenta() {
-		return fechaVenta;
+
+	public String getFECHA_VENTA() {
+		return FECHA_VENTA;
 	}
-	public void setFechaVenta(String fechaVenta) {
-		this.fechaVenta = fechaVenta;
+
+	public void setFECHA_VENTA(String fecha_venta) {
+		FECHA_VENTA = fecha_venta;
 	}
-	public String getFechaBaja() {
-		return fechaBaja;
+
+	public String getFECHA_BAJA() {
+		return FECHA_BAJA;
 	}
-	public void setFechaBaja(String fechaBaja) {
-		this.fechaBaja = fechaBaja;
+
+	public void setFECHA_BAJA(String fecha_baja) {
+		FECHA_BAJA = fecha_baja;
 	}
-	public String getMontoAct() {
-		return montoAct;
+
+	public String getMONTO_ACT() {
+		return MONTO_ACT;
 	}
-	public void setMontoAct(String montoAct) {
-		this.montoAct = montoAct;
+
+	public void setMONTO_ACT(String monto_act) {
+		MONTO_ACT = monto_act;
 	}
-	public String getMontoResid() {
-		return montoResid;
+
+	public String getMONTO_RESID() {
+		return MONTO_RESID;
 	}
-	public void setMontoResid(String montoResid) {
-		this.montoResid = montoResid;
+
+	public void setMONTO_RESID(String monto_resid) {
+		MONTO_RESID = monto_resid;
 	}
-	public String getComision() {
-		return comision;
+
+	public String getCOMISION() {
+		return COMISION;
 	}
-	public void setComision(String comision) {
-		this.comision = comision;
+
+	public void setCOMISION(String comision) {
+		COMISION = comision;
 	}
-	public String getPlazoFor() {
-		return plazoFor;
+
+	public String getPLAZO_FOR() {
+		return PLAZO_FOR;
 	}
-	public void setPlazoFor(String plazoFor) {
-		this.plazoFor = plazoFor;
+
+	public void setPLAZO_FOR(String plazo_for) {
+		PLAZO_FOR = plazo_for;
 	}
-	public String getDias() {
-		return dias;
+
+	public String getDIAS() {
+		return DIAS;
 	}
-	public void setDias(String dias) {
-		this.dias = dias;
+
+	public void setDIAS(String dias) {
+		DIAS = dias;
 	}
-	public String getPoblacion() {
-		return poblacion;
+
+	public String getPOBLACION() {
+		return POBLACION;
 	}
-	public void setPoblacion(String poblacion) {
-		this.poblacion = poblacion;
+
+	public void setPOBLACION(String poblacion) {
+		POBLACION = poblacion;
 	}
-	public String getDivision() {
-		return division;
+
+	public String getDIVISION() {
+		return DIVISION;
 	}
-	public void setDivision(String division) {
-		this.division = division;
+
+	public void setDIVISION(String division) {
+		DIVISION = division;
 	}
-	public String getEstado() {
-		return estado;
+
+	public String getESTADO() {
+		return ESTADO;
 	}
-	public void setEstado(String estado) {
-		this.estado = estado;
+
+	public void setESTADO(String estado) {
+		ESTADO = estado;
 	}
-	public String getRazonMov() {
-		return razonMov;
+
+	public String getRAZON_MOV() {
+		return RAZON_MOV;
 	}
-	public void setRazonMov(String razonMov) {
-		this.razonMov = razonMov;
+
+	public void setRAZON_MOV(String razon_mov) {
+		RAZON_MOV = razon_mov;
 	}
-	public String getOrigenEquip() {
-		return origenEquip;
+
+	public String getORIGEN_EQUIP() {
+		return ORIGEN_EQUIP;
 	}
-	public void setOrigenEquip(String origenEquip) {
-		this.origenEquip = origenEquip;
+
+	public void setORIGEN_EQUIP(String origen_equip) {
+		ORIGEN_EQUIP = origen_equip;
 	}
-	public String getMontoEquip() {
-		return montoEquip;
+
+	public String getMONTO_EQUIP() {
+		return MONTO_EQUIP;
 	}
-	public void setMontoEquip(String montoEquip) {
-		this.montoEquip = montoEquip;
+
+	public void setMONTO_EQUIP(String monto_equip) {
+		MONTO_EQUIP = monto_equip;
 	}
-	
-	
+		
 }
