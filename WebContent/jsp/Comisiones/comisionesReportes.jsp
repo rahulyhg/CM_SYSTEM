@@ -127,8 +127,7 @@
 					</div>
 				</div>
 			</form>
-				<button>Change Content</button>
-        		<div id="wait" style="display:none;width:69px;height:89px;border:0px solid black;position:absolute;top:50%;left:50%;padding:2px;"><img src="<%=request.getContextPath() %>/images/comisiones/demo_wait.gif" width="64" height="64" /></div>
+				<div id="wait" style="display:none;width:69px;height:89px;border:0px solid black;position:absolute;top:50%;left:50%;padding:2px;"><img src="<%=request.getContextPath() %>/images/comisiones/demo_wait.gif" width="64" height="64" /></div>
         		<div id="txt"  style="display:none; margin: auto; width: 60%; position:absolute;top:55%;left:40%; padding: 10px;"><br>Generando reporte, esta operación puede tardar algunos minutos.....</br></div>
         		
 		</div>
@@ -149,7 +148,10 @@
     		$("#wait").css("display", "none");
     		$('#txt').hide();
     	});
-    	$("#exportar").click(function(){
+    	$("#exportar").click(function(e){
+    		e.preventDefault();
+    		e.stopPropagation();
+        	
         	var anio = $("#anio").val();
 			var periodo = $("#periodo").val();
 			var mesPeriodo = $('#mesPeriodo').val();
@@ -174,8 +176,8 @@
 			}else if(mesSemana == "1" && (tipoSemana == "" || tipoSemana == "-1")){
 				alert("Debe de seleccionar el tipo reporte.");
 			}else if(mesSemana == "1" && (periodo == "" || periodo == "-1")){
-				alert("mes semana: "+mesSemana);
-				alert("periodo: "+periodo);
+				alert("Debe de seleccionar el periodo");
+				
 			}
 			else{
 			$.getJSON(url,function(data){
@@ -196,7 +198,7 @@
 				}
 			});		
 		}
-        	//alert("url: "+url);
+        	
     	});
 	});
 	</script>
