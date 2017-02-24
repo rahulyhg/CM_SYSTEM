@@ -208,7 +208,7 @@ $j(document).ready(function(){
 		 
 	});
 	
-	$j("#exportar").click(function (){
+	/*$j("#exportar").click(function (){
 		var rutaFormacione= pathUrl+"/json/comisionesDis.do?go=buscarExportar";
 		var anio = $j("#anio").val();
 		var periodo = $j("#periodo").val();
@@ -227,7 +227,7 @@ $j(document).ready(function(){
 			});		
 		}
 		 
-	});
+	})*/;
 	
 	$j("#detalle").click(function (){
 		var rutaFormaciond= pathUrl+"/json/comisionesDis.do?go=buscarExportar";

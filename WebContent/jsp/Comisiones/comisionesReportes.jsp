@@ -127,6 +127,80 @@
 					</div>
 				</div>
 			</form>
+				<div id="wait" style="display:none;width:69px;height:89px;border:0px solid black;position:absolute;top:50%;left:50%;padding:2px;"><img src="<%=request.getContextPath() %>/images/comisiones/demo_wait.gif" width="64" height="64" /></div>
+        		<div id="txt"  style="display:none; margin: auto; width: 60%; position:absolute;top:55%;left:40%; padding: 10px;"><br>Generando reporte, esta operación puede tardar algunos minutos.....</br></div>
+        		
 		</div>
+	
 	</body>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+		//var $j = jQuery.noConflict(true);
+		var pathUrl=getURL();
+		
+		$(document).ready(function(){
+    	$(document).ajaxStart(function(){
+    	$("#wait").css("display", "block");
+    	$('#txt').show();
+    	});
+    	$(document).ajaxComplete(function(){
+    		$("#wait").css("display", "none");
+    		$('#txt').hide();
+    	});
+    	$("#exportar").click(function(e){
+    		e.preventDefault();
+    		e.stopPropagation();
+        	
+        	var anio = $("#anio").val();
+			var periodo = $("#periodo").val();
+			var mesPeriodo = $('#mesPeriodo').val();
+			var mesSemana = $('input[name=mesSemana]:checked').val();
+			var tipoMes = $('#tipoMes').val();
+			var tipoSemana = $('#tipoSemana').val();
+        	
+        	var url = pathUrl+'/json/comisionesReportes.do?go=buscarExportar';
+			url += '&mesPeriodo='+ mesPeriodo;
+			url += '&periodo='+ periodo;
+			url += '&anio='+ anio;
+			url += '&mesSemana='+ mesSemana;//tipoMes // tipoSemana
+			url += '&tipoMes='+ tipoMes;
+			url += '&tipoSemana='+ tipoSemana;
+			
+			if(mesSemana == ""){
+				alert("Debe seleccionar reportes Mensuales o semanales.");
+			}else if(mesSemana == "0" && (tipoMes == "" || tipoMes == "-1")){
+				alert("Debe de seleccionar el tipo reporte.");
+			}else if(mesSemana == "0" && (mesPeriodo == "" || mesPeriodo == "-1")){
+				alert("Debe de seleccionar el mes.");
+			}else if(mesSemana == "1" && (tipoSemana == "" || tipoSemana == "-1")){
+				alert("Debe de seleccionar el tipo reporte.");
+			}else if(mesSemana == "1" && (periodo == "" || periodo == "-1")){
+				alert("Debe de seleccionar el periodo");
+				
+			}
+			else{
+			$.getJSON(url,function(data){
+				var size=data.tabla;
+				if(size > 0){
+					var rutaAux = pathUrl+'/comisionesReportes.do?go=exportar';
+					rutaAux += '&mesPeriodo='+ mesPeriodo;
+					rutaAux += '&periodo='+ periodo;
+					rutaAux += '&anio='+ anio;
+					rutaAux += '&mesSemana='+ mesSemana;
+					rutaAux += '&tipoMes='+ tipoMes;
+					rutaAux += '&tipoSemana='+ tipoSemana;
+					//alert("Ruta aux: "+rutaAux);
+					$( "form" ).attr("method","post").attr("action",rutaAux);
+					$( "form" ).submit();
+				}else{
+					alert("No se encontraron registros");
+				}
+			});		
+		}
+        	
+    	});
+	});
+	</script>
+	
 </html>
