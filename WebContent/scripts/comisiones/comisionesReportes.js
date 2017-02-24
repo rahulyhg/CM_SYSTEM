@@ -94,7 +94,7 @@ $j(document).ready(function(){
 		var periodo = $j("#periodo").val();
 	});
 	
-	$j("#exportar").click(function (e){
+	/*$j("#exportar").click(function (e){
 		
 		e.preventDefault();
 		e.stopPropagation();
@@ -147,12 +147,12 @@ $j(document).ready(function(){
 		 
 	
 		
-	});
+	});*/
 	
-	$j("#exportar").click(function (e){
+	/*$j("#exportar").click(function (e){
 		e.preventDefault();
 		
-	});
+	});*/
 	
 });
 
